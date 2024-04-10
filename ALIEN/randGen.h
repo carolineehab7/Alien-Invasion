@@ -1,5 +1,5 @@
 #pragma once
-class randGen
+class RandGen
 {
 
 };
