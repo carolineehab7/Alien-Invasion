@@ -19,15 +19,25 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AD.h" />
+    <ClInclude Include="AlienArmy.h" />
+    <ClInclude Include="AM.h" />
+    <ClInclude Include="AS.h" />
+    <ClInclude Include="EarthArmy.h" />
+    <ClInclude Include="EG.h" />
+    <ClInclude Include="ET.h" />
     <ClInclude Include="Game.h" />
+    <ClInclude Include="ES.h" />
     <ClInclude Include="QueueADT.h" />
-    <ClInclude Include="randGen.h" />
+    <ClInclude Include="RandGen.h" />
     <ClInclude Include="StackADT.h" />
     <ClInclude Include="Units.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="AlienArmy.cpp" />
+    <ClCompile Include="EarthArmy.cpp" />
     <ClCompile Include="Game.cpp" />
-    <ClCompile Include="randGen.cpp" />
+    <ClCompile Include="RandGen.cpp" />
     <ClCompile Include="Units.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

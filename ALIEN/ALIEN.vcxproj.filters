@@ -13,6 +13,12 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Header Files\Earth units">
+      <UniqueIdentifier>{d0f074d3-3207-4599-a57b-6d06092b6a6b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Alien units">
+      <UniqueIdentifier>{ee4471d8-ad00-42f1-874f-4202f931d773}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Units.h">
@@ -21,13 +27,37 @@
     <ClInclude Include="Game.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="randGen.h">
+    <ClInclude Include="RandGen.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="QueueADT.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="StackADT.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ES.h">
+      <Filter>Header Files\Earth units</Filter>
+    </ClInclude>
+    <ClInclude Include="ET.h">
+      <Filter>Header Files\Earth units</Filter>
+    </ClInclude>
+    <ClInclude Include="EG.h">
+      <Filter>Header Files\Earth units</Filter>
+    </ClInclude>
+    <ClInclude Include="AS.h">
+      <Filter>Header Files\Alien units</Filter>
+    </ClInclude>
+    <ClInclude Include="AM.h">
+      <Filter>Header Files\Alien units</Filter>
+    </ClInclude>
+    <ClInclude Include="AD.h">
+      <Filter>Header Files\Alien units</Filter>
+    </ClInclude>
+    <ClInclude Include="EarthArmy.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="AlienArmy.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -38,7 +68,13 @@
     <ClCompile Include="Game.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="randGen.cpp">
+    <ClCompile Include="RandGen.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EarthArmy.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="AlienArmy.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
