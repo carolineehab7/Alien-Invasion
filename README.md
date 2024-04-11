@@ -5,5 +5,5 @@ be ready for the expected invasion. Using the observed information about alien a
 Global Defense Unit decided to make the world ready by simulating Earth's power against
 aliens' power.
 
-So it's time to choose: simulate or surrender. The future of Earth rests on your
-code !!!
+So it's time to choose: simulate or surrender. 
+In this project, we used data structures.
