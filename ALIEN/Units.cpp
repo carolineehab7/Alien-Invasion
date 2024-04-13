@@ -54,7 +54,10 @@ void Units::setPower(int power) {
 		cout << "Power error";
 }
 void Units::setAttackCapacity(int AC) {
-	AttackCapacity = AC;
+	if (AC > 0)
+		AttackCapacity = AC;
+	else
+		cout << "error ";
 }
 
 int Units::getID() {
