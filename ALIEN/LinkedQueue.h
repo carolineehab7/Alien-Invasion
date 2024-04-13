@@ -51,8 +51,8 @@ class LinkedQueue :public QueueADT<T>
 private:
 	Node<T>* backPtr;
 	Node<T>* frontPtr;
-	int length;
 public:
+	int length;
 	LinkedQueue();
 	bool isEmpty() const;
 	bool enqueue(const T& newEntry);
@@ -60,8 +60,8 @@ public:
 	bool peek(T& frntEntry)  const;
 	void print();
 	int getLength();
-	void setbackPtr(Node<T>&bptr);
-	void setfrontPtr(Node<T>&fptr);
+	void setbackPtr(Node<T>* bptr);
+	void setfrontPtr(Node<T>* fptr);
 	Node<T>* getbackPtr();
 	Node<T>* getfrontPtr();
 	~LinkedQueue();
@@ -79,7 +79,7 @@ LinkedQueue<T>::LinkedQueue()
 {
 	backPtr = nullptr;
 	frontPtr = nullptr;
-
+	length = 0;
 }
 /////////////////////////////////////////////////////////////////////////////////////////
 
@@ -93,7 +93,7 @@ Output: True if the queue is empty; otherwise false.
 template <typename T>
 bool LinkedQueue<T>::isEmpty() const
 {
-	return (frontPtr == nullptr);
+	return (frontPtr == nullptr || length == 0 );
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////
@@ -116,6 +116,7 @@ bool LinkedQueue<T>::enqueue(const T& newEntry)
 		backPtr->setNext(newNodePtr); // The queue was not empty
 
 	backPtr = newNodePtr; // New node is the last node now
+	length++;
 	return true;
 } // end enqueue
 
@@ -145,7 +146,7 @@ bool LinkedQueue<T>::dequeue(T& frntEntry)
 
 	// Free memory reserved for the dequeued node
 	delete nodeToDeletePtr;
-
+	length--;
 	return true;
 }
 
@@ -190,13 +191,13 @@ inline int LinkedQueue<T>::getLength()
 }
 
 template<typename T>
-inline void LinkedQueue<T>::setbackPtr(Node<T>& bptr)
+inline void LinkedQueue<T>::setbackPtr(Node<T>* bptr)
 {
 	backPtr = bptr;
 }
 
 template<typename T>
-inline void LinkedQueue<T>::setfrontPtr(Node<T>& fptr)
+inline void LinkedQueue<T>::setfrontPtr(Node<T>* fptr)
 {
 	frontPtr = fptr;
 }

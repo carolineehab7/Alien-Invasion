@@ -6,6 +6,7 @@
 #include"AD.h"
 #include"LinkedQueue.h"
 #include"ArrayStack.h"
+#include "Dequeue.h"
 using namespace std;
 
 class AlienArmy {
@@ -14,7 +15,7 @@ private:
 
 	int M_ArrSize;
 	LinkedQueue<AS*> AS_List;
-	LinkedQueue<AD*> AD_List;
+	Dequeue AD_List;
 	LinkedQueue<int> Empty_Monst_Index;
 	AM** Monsters_Arr;
 
@@ -34,7 +35,7 @@ public:
 			return AS_List.enqueue(dynamic_cast<AS*>(U));
 
 		else if (U->getType() == "AD")
-			return AD_List.enqueue(dynamic_cast<AD*>(U));
+			return AD_List.frontenqueue(*dynamic_cast<AD*>(U));
 
 		else if (U->getType() == "AM") {
 
@@ -52,7 +53,29 @@ public:
 	}
 
 	////////////////////////////////////////////////////////////////////////
+
+	void printAM() {
+
+		for (int i = 0; i < M_ArrSize; ++i) {
+			cout<<Monsters_Arr[i]->getID() << " ";
+		}
+
+	}
+
+	////////////////////////////////////////////////////////////////////////
 	
+
+
+};
+
+
+
+
+
+
+
+
+	/*
 	void printAA() {
 
 		cout << "============== Alien Army Alive Units ==============" << endl;
@@ -74,19 +97,18 @@ public:
 		cout << AD_List.getLength() << " EG [";
 		for (int i = 0; i < AD_List.getLength(); ++i) {
 			AD* s;
-			AD_List.peek(s);
+			AD_List.peek(*s);
 
 			cout << s->getID() << ',';
 
-			AD_List.dequeue(s);
-			AD_List.enqueue(s);
+			AD_List.dequeue(*s);
+			AD_List.enqueue(*s);
 		}
 		cout << "]" << endl;
 
 		/////////////////////////////////////////////////////////////////////////
 
-
 	}
+	*/
 	
 
-};

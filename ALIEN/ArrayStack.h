@@ -31,6 +31,12 @@ public:
 		return top == -1;
 	}  // end isEmpty
 
+	void print() {
+		for (int i = top; i >= 0; --i) {
+			cout << items[i] << " ";
+		}
+	}
+
 	bool push(const T& newEntry)
 	{
 		if (top == MAX_SIZE - 1) return false;	//Stack is FULL

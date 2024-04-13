@@ -12,7 +12,3 @@ public:
 	void attack();
 };
 
-inline std::ostream& operator<<(std::ostream& os, ES& es) {
-	os << es.getID();
-	return os;
-}

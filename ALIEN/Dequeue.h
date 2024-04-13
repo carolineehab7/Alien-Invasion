@@ -14,13 +14,16 @@ public:
 		Node<AD>* newNodePtr = new Node<AD>(ad);  // Insert the new node
 
 		if (isEmpty())	//special case if this is the first node to insert
-			setbackPtr(*newNodePtr); // The queue is empty
+			setbackPtr(newNodePtr); // The queue is empty
 		else
 			newNodePtr->setNext(getfrontPtr());
-		    setfrontPtr(*newNodePtr);
+		    setfrontPtr(newNodePtr);
+
+		length++;
 		return true;
 
 	}
+
  ////////////////////////////////////////////////////////////////////////////////
 
 	bool backdequeue(const AD& ad) {
@@ -28,27 +31,26 @@ public:
 		if (isEmpty())
 			return false;
 
+		//nodePrevDelete->getNext() = nodeToDeletePtr  
+
 		Node<AD>* nodeToDeletePtr = getbackPtr();
+		Node<AD>* curr = getfrontPtr();
 
-		ad = getbackPtr()->getItem();
+		if (curr == nodeToDeletePtr) {
+			delete curr;
+			setbackPtr(nullptr);
+			setfrontPtr(nullptr);
+		}
 		
-		// Queue is not empty; remove front
-		if (nodeToDeletePtr == getbackPtr())	 // Special case: last node in the queue
-			setbackPtr(NULL);
-
-		// Free memory reserved for the dequeued node
+		while (curr->getNext()!=nodeToDeletePtr) {
+			curr = curr->getNext();
+		}
+		curr->setNext(NULL);
+		setbackPtr(curr);
 		delete nodeToDeletePtr;
-
+		length--;
 		return true;
 
 	}
 
-
 };
-
-/*
-Dequeue
-Derive a non-template class from Queue then add 2 functions:
-1- function to enqueue from the front
-2- function to dequeue from the rear
-*/
