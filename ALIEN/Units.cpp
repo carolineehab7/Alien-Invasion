@@ -81,3 +81,8 @@ int Units::getAttackCapacity() {
 Units::~Units() {
 
 }
+
+inline std::ostream& operator<<(std::ostream& os, Units& es) {
+	os << es.getID();
+	return os;
+}
