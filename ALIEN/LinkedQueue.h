@@ -57,6 +57,7 @@ public:
 	bool enqueue(const T& newEntry);
 	bool dequeue(T& frntEntry);
 	bool peek(T& frntEntry)  const;
+	void print();
 	~LinkedQueue();
 };
 /////////////////////////////////////////////////////////////////////////////////////////
@@ -164,6 +165,18 @@ bool LinkedQueue<T>::peek(T& frntEntry) const
 	return true;
 
 }
+
+template<typename T>
+inline void LinkedQueue<T>::print()
+{
+	Node<T>* Temp = frontPtr; // Temp Points to the Head
+
+	while (Temp) {
+		cout << Temp->getItem() << " ";
+		Temp = Temp->getNext;
+	}
+}
+
 ///////////////////////////////////////////////////////////////////////////////////
 
 template <typename T>
