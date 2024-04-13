@@ -58,6 +58,10 @@ public:
 	bool dequeue(T& frntEntry);
 	bool peek(T& frntEntry)  const;
 	void print();
+	void setbackPtr(Node<T>&bptr);
+	void setfrontPtr(Node<T>&fptr);
+	Node<T>* getbackPtr();
+	Node<T>* getfrontPtr();
 	~LinkedQueue();
 };
 /////////////////////////////////////////////////////////////////////////////////////////
@@ -175,6 +179,31 @@ inline void LinkedQueue<T>::print()
 		cout << Temp->getItem() << " ";
 		Temp = Temp->getNext;
 	}
+}
+
+template<typename T>
+inline void LinkedQueue<T>::setbackPtr(Node<T>& bptr)
+{
+	backPtr = bptr;
+}
+
+template<typename T>
+inline void LinkedQueue<T>::setfrontPtr(Node<T>& fptr)
+{
+	frontPtr = fptr;
+}
+
+
+template<typename T>
+inline Node<T>* LinkedQueue<T>::getbackPtr()
+{
+	return backPtr;
+}
+
+template<typename T>
+inline Node<T>* LinkedQueue<T>::getfrontPtr()
+{
+	return frontPtr;
 }
 
 ///////////////////////////////////////////////////////////////////////////////////
