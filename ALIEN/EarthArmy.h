@@ -26,70 +26,61 @@ public:
 		else if (U->getType() == "ET")
 			ET_List.push(dynamic_cast<ET*>(U));
 	}
-
+	
 	////////////////////////////////////////////////////////////////////////
-
+	
 	void printEA() {
+		ArrayStack<ET*> Temp;
+		ET* t;
 
+		cout << "============== Earth Army Alive Units ==============" << endl;
 
-	}
+		cout << ES_List.getLength() << " ES [";
+		for (int i = 0; i < ES_List.getLength(); ++i) {
+			ES* s;
+			ES_List.peek(s);
 
-	////////////////////////////////////////////////////////////////////////
+			cout << s->getID() << ',';
 
-	/*
-	void print() {
-	ArrayStack<ET*> Temp;
-	ET* t;
+			ES_List.dequeue(s);
+			ES_List.enqueue(s);
+		}
+		cout << "]" << endl;
 
-	cout << "============== Earth Army Alive Units ==============" << endl;
+		////////////////////////////////////////////////////////////////////////
 
-	cout << ES_List.getLength() << " ES [";
-	for (int i = 0; i < ES_List.getLength(); ++i) {
-	ES* s;
-	ES_List.peek(s);
+		cout << EG_List.getLength() << " EG [";
+		for (int i = 0; i < EG_List.getLength(); ++i) {
+			EG* g;
+			EG_List.peek(g);
 
-	cout << s->getID() << ',';
+			cout << g->getID() << ',';
 
-	ES_List.dequeue(s);
-	ES_List.enqueue(s);
-	}
-	cout<<"]"<<endl;
+			EG_List.dequeue(g);
+			EG_List.enqueue(g);
+		}
+		cout << "]" << endl;
 
-	////////////////////////////////////////////////////////////////////////
+		////////////////////////////////////////////////////////////////////////
 
-	cout << EG_List.getLength() << " EG [";
-	for (int i = 0; i < EG_List.getLength(); ++i) {
-	EG* g;
-	EG_List.peek(g);
+		cout << ET_List.getTop() << " ET [";
+		for (int i = 0; i < ET_List.getTop(); ++i) {
 
-	cout << g->getID() << ',';
+			ET_List.peek(t);
 
-	EG_List.dequeue(g);
-	EG_List.enqueue(g);
-	}
-	cout << "]"<<endl;
+			cout << t->getID() << ',';
 
-	////////////////////////////////////////////////////////////////////////
-
-	cout << ET_List.getCount() << " ET [";
-	for (int i = 0; i < ET_List.getCount(); ++i) {
-
-	ET_List.peek(t);
-
-	cout << t->getID() << ',';
-
-	ET_List.pop(t);
-	Temp.push(t);
-	}
-	cout << "]" << endl;
-	for (int i = 0; i < Temp.getCount(); ++i) {
-	Temp.peek(t);
-	Temp.pop(t);
-	ET_List.push(t);
-	}
-	////////////////////////////////////////////////////////////////////////
+			ET_List.pop(t);
+			Temp.push(t);
+		}
+		cout << "]" << endl;
+		for (int i = 0; i < Temp.getTop(); ++i) {
+			Temp.peek(t);
+			Temp.pop(t);
+			ET_List.push(t);
+		}
+		////////////////////////////////////////////////////////////////////////
 
 	}
-	*/
 
 };

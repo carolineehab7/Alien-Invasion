@@ -57,6 +57,11 @@ public:
 		return true;
 	}  // end peek
 
+	int getTop() {
+
+		return top;
+	}
+
 }; // end ArrayStack
 
 #endif

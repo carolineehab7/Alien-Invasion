@@ -24,6 +24,7 @@
     <ClInclude Include="AM.h" />
     <ClInclude Include="ArrayStack.h" />
     <ClInclude Include="AS.h" />
+    <ClInclude Include="Dequeue.h" />
     <ClInclude Include="EarthArmy.h" />
     <ClInclude Include="EG.h" />
     <ClInclude Include="ET.h" />
