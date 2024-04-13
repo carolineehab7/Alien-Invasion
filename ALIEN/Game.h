@@ -1,7 +1,7 @@
 #pragma once
 #include <iostream>
 #include "EarthArmy.h"
-#icnlude "AlienArmy.h"
+#include "AlienArmy.h"
 #include "QueueADT.h"
 
 using namespace std;
