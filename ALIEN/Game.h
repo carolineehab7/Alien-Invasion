@@ -9,23 +9,21 @@
 #include "RandGen.h"
 
 using namespace std;
-istream operator >> () {
 
-}
-template <typename T>
 class Game
 {
 private:
 	ifstream inpfile;
 	EarthArmy EA;
 	AlienArmy AA;
+	int N;
 public:
 	Game();
-	LinkedQueueADT<T>killedlist();
-
+	//LinkedQueue<T>killedlist();
+	 
 	void LoadFromFile(string filename);
 	
-	istream &operator >>();
+	//istream &operator >>();
 	
 };
 
