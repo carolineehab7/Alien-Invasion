@@ -21,7 +21,14 @@ void Units::setJoinTime(int JT) {
 	JoinTime = JT;
 }
 void Units::setHealth(int health) {
-	Health = health;
+	if (health > 0 && health <= 100)
+		Health = health;
+	else if (health <= 0) {
+		Health = 0;
+		cout << "The unit is dead";
+	}
+	else
+		Health = 100;
 }
 void Units::setPower(int power) {
 	Power = power;
@@ -47,4 +54,7 @@ int Units::getPower() {
 }
 int Units::getAttackCapacity() {
 	return AttackCapacity;
+}
+Units::~Units() {
+
 }

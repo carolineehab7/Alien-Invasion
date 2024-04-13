@@ -12,6 +12,7 @@ private:
 	int Health;
 	int Power;
 	int AttackCapacity;
+	Game* gameptr;
 public:
 	Units(int id, string type,int JT, int health, int power, int AC);
 	void setID(int);
@@ -27,5 +28,7 @@ public:
 	int getPower();
 	int getAttackCapacity();
 	virtual void attack() = 0;
+
+	~Units();
 };
 
