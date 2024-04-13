@@ -15,7 +15,5 @@ public:
 	EG(int id, string type, int jt, int health, int power, int AC);
 	double getScore(int power, int health);
 	EG operator < (EG* obj1);
-	void setAttackCapacity(int AC);
-	int getAttackCapacity();
 	void attack();
 };
