@@ -29,8 +29,12 @@ void Units::setType(string type) {
 		Type = "AM";
 }
 void Units::setJoinTime(int JT) {
-	JoinTime = JT;
+	if (JT > 0)
+		JoinTime = JT;
+	else
+		cout << "error";
 }
+
 void Units::setHealth(int health) {
 	if (health > 0 && health <= 100)
 		Health = health;

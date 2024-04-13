@@ -3,9 +3,10 @@
 #include <string>
 #include "Game.h"
 using namespace std;
+
 class Units
 {
-private:
+protected:
 	int ID;
 	string Type;
 	int JoinTime;
