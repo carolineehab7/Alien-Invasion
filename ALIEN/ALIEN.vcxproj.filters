@@ -19,6 +19,15 @@
     <Filter Include="Header Files\Alien units">
       <UniqueIdentifier>{ee4471d8-ad00-42f1-874f-4202f931d773}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Earth Units cpp">
+      <UniqueIdentifier>{b7b5b9c2-0141-46c7-86f3-675e0371a2e9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Alien Units cpp">
+      <UniqueIdentifier>{567f4ae6-2a03-477b-8201-a428acdd573f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\ADT">
+      <UniqueIdentifier>{a359c243-1291-4821-8326-82c7762ee6c0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Units.h">
@@ -28,12 +37,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="RandGen.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="QueueADT.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="StackADT.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="ES.h">
@@ -60,6 +63,27 @@
     <ClInclude Include="AlienArmy.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="LinkedQueue.h">
+      <Filter>Header Files\ADT</Filter>
+    </ClInclude>
+    <ClInclude Include="ArrayStack.h">
+      <Filter>Header Files\ADT</Filter>
+    </ClInclude>
+    <ClInclude Include="StackADT.h">
+      <Filter>Header Files\ADT</Filter>
+    </ClInclude>
+    <ClInclude Include="priNode.h">
+      <Filter>Header Files\ADT</Filter>
+    </ClInclude>
+    <ClInclude Include="priQueue.h">
+      <Filter>Header Files\ADT</Filter>
+    </ClInclude>
+    <ClInclude Include="QueueADT.h">
+      <Filter>Header Files\ADT</Filter>
+    </ClInclude>
+    <ClInclude Include="Node.h">
+      <Filter>Header Files\ADT</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Units.cpp">
@@ -76,6 +100,24 @@
     </ClCompile>
     <ClCompile Include="AlienArmy.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="AD.cpp">
+      <Filter>Source Files\Alien Units cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="AM.cpp">
+      <Filter>Source Files\Alien Units cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="AS.cpp">
+      <Filter>Source Files\Alien Units cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="ES.cpp">
+      <Filter>Source Files\Earth Units cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="EG.cpp">
+      <Filter>Source Files\Earth Units cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="ET.cpp">
+      <Filter>Source Files\Earth Units cpp</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

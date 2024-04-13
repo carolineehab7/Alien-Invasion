@@ -15,7 +15,18 @@ void Units::setID(int id) {
 	}
 }
 void Units::setType(string type) {
-	Type = type;
+	if (type == "EG")
+		Type = "EG";
+	else if (type == "ET")
+		Type = "ET";
+	else if (type == "ES")
+		Type = "ES";
+	else if (type == "AS")
+		Type = "AS";
+	else if (type == "AD")
+		Type = "AD";
+	else if (type == "AM")
+		Type = "AM";
 }
 void Units::setJoinTime(int JT) {
 	JoinTime = JT;
@@ -25,13 +36,18 @@ void Units::setHealth(int health) {
 		Health = health;
 	else if (health <= 0) {
 		Health = 0;
-		cout << "The unit is dead";
+		cout << "The Unit is Dead";
 	}
 	else
 		Health = 100;
 }
 void Units::setPower(int power) {
-	Power = power;
+	if (power > 0)
+		Power = power;
+	else if (power == 0)
+		cout << "The Unit is Dead";
+	else
+		cout << "Power error";
 }
 void Units::setAttackCapacity(int AC) {
 	AttackCapacity = AC;
