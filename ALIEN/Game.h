@@ -16,12 +16,15 @@ private:
 	ifstream inpfile;
 	EarthArmy EA;
 	AlienArmy AA;
-	int N;
+	RandGen randGenObj;
 public:
 	Game();
 	//LinkedQueue<T>killedlist();
 	 
 	void LoadFromFile(string filename);
+	RandGen* getRandGenptr();
+	EarthArmy* getEarthArmyptr();
+	AlienArmy* getAlienArmyptr();
 	
 	//istream &operator >>();
 	

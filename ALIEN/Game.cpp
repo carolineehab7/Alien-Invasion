@@ -11,25 +11,28 @@ using namespace std;
 
 
 void Game::LoadFromFile(string filename) {
-	int n, ES, ET, EG;
+	int n, prob, ES, ET, EG, AS, AM, AD;
+	int maxPE, minPE, maxHE, minHE, maxCE, minCE;
+	int maxPA, minPA, maxHA, minHA, maxCA, minCA;
 	
 	inpfile.open(filename);
 	if (!inpfile) {
 		cout << "Unable to open file" << endl;
 		return;
 	}
-	inpfile >> n >> ET;
-	/*inpfile >> AS >> AM >> AD;
-	inpfile >> Prob;
-	inpfile >> minPE >> maxPE;
-	inpfile >> minHE >> maxHE;
-	inpfile >> minCE >> maxCE;
-	inpfile >> minPA >> maxPA;
-	inpfile >> minHA >> maxHA;
-	inpfile >> minCA >> maxCA;*/
+	inpfile >> n >> ES >> ET >> EG >> AS >> AM >> AD >> prob;
+	inpfile >> minPE >> maxPE >> minHE >> maxHE >> minCE >> maxCE;
+	inpfile >> minPA >> maxPA >> minHA >> maxHA >> minCA >> maxCA;
 
-	RandGen.setN(n);
-	
+	randGenObj.setN(n);
+	randGenObj.setES(ES);
+	randGenObj.setET(ET);
+	randGenObj.setEG(EG);
+	randGenObj.setAM(AM);
+	randGenObj.setAS(AS);
+	randGenObj.setAD(AD);
+	randGenObj.setProb(prob);
+
 	inpfile.close();
 
 }
