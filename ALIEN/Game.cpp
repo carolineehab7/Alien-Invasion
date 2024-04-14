@@ -5,10 +5,15 @@
 #include "LinkedQueue.h"
 
 using namespace std;
-//Game::Game():{
-//
-//}
+Game::Game(){
+	Time_step = 1;
+	KilledList = new LinkedQueue<Units*>;
+	
+}
 
+bool Game::KilledListfunc(Units *killunit) {
+	KilledList->enqueue(killunit);
+}
 
 void Game::LoadFromFile(string filename) {
 	int n, prob, ES, ET, EG, AS, AM, AD;
@@ -21,8 +26,20 @@ void Game::LoadFromFile(string filename) {
 		return;
 	}
 	inpfile >> n >> ES >> ET >> EG >> AS >> AM >> AD >> prob;
-	inpfile >> minPE >> maxPE >> minHE >> maxHE >> minCE >> maxCE;
-	inpfile >> minPA >> maxPA >> minHA >> maxHA >> minCA >> maxCA;
+	inpfile >> minPE;
+	inpfile.ignore();
+	inpfile >> maxPE >> minHE;
+	inpfile.ignore();
+	inpfile >> maxHE >> minCE;
+	inpfile.ignore();
+	inpfile >> maxCE;
+	inpfile >> minPA;
+	inpfile.ignore();
+	inpfile >> maxPA >> minHA;
+	inpfile.ignore();
+	inpfile >> maxHA >> minCA;
+	inpfile.ignore();
+	inpfile>> maxCA;
 
 	randGenObj.setN(n);
 	randGenObj.setES(ES);
@@ -32,7 +49,31 @@ void Game::LoadFromFile(string filename) {
 	randGenObj.setAS(AS);
 	randGenObj.setAD(AD);
 	randGenObj.setProb(prob);
+	randGenObj.setminPE(minPE);
+	randGenObj.setmaxPE(maxPE);
+	randGenObj.setminHE(minHE);
+	randGenObj.setmaxHE(maxHE);
+	randGenObj.setminCE(minCE);
+	randGenObj.setmaxCE(maxCE);
+	randGenObj.setminPA(minPA);
+	randGenObj.setmaxPA(maxPA);
+	randGenObj.setminHA(minHA);
+	randGenObj.setmaxHA(maxHA);
+	randGenObj.setminCA(minCA);
+	randGenObj.setmaxCA(maxCA);
 
 	inpfile.close();
+}
+RandGen Game::*getRandGenptr() {
+	return &randGenobj;
+}
+EarthArmy Game::*getEarthArmyptr() {
+	return &EA;
+}
+AlienArmy Game::*getAlienArmyptr() {
+	return &AA;
+}
 
+Game::~Game() {
+	delete KilledList;
 }
