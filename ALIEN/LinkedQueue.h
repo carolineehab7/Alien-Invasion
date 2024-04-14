@@ -59,7 +59,7 @@ public:
 	bool dequeue(T& frntEntry);
 	bool peek(T& frntEntry)  const;
 	void print();
-	int getLength();
+	//int getLength();
 	void setbackPtr(Node<T>* bptr);
 	void setfrontPtr(Node<T>* fptr);
 	Node<T>* getbackPtr();
@@ -184,11 +184,14 @@ inline void LinkedQueue<T>::print()
 	}
 }
 
+/*
 template<typename T>
 inline int LinkedQueue<T>::getLength()
 {
 	return length;
 }
+*/
+
 
 template<typename T>
 inline void LinkedQueue<T>::setbackPtr(Node<T>* bptr)

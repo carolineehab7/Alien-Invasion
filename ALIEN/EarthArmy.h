@@ -30,13 +30,13 @@ public:
 	void printEA() {
 
 		cout << "============== Earth Army Alive Units ==============" << endl;
-		cout << ES_List.getLength() << " ES [";
+		cout << ES_List.length << " ES [";
 		ES_List.print();
 		cout << "]" << endl;
 
 	  ////////////////////////////////////////////////////////////////////////
 
-		cout << EG_List.getLength() << " EG [";
+		cout << EG_List.length << " EG [";
 		EG_List.print();
 		cout << "]" << endl;
 

@@ -55,13 +55,13 @@ public:
 	void printAA() {
 
 		cout << " ============== Alien Army Alive Units ============== " << endl;
-		cout << AS_List.getLength() << " AS [";
+		cout << AS_List.length << " AS [";
 		AS_List.print();
 		cout << "]" << endl;
 
 	  ////////////////////////////////////////////////////////////////////////
 
-		cout << AD_List.getLength() << " AD [";
+		cout << AD_List.length << " AD [";
 		AD_List.print();
 		cout << "]" << endl;
 
@@ -72,10 +72,6 @@ public:
 		}
 
 	}
-
-	
-	
-
 
 };
 
