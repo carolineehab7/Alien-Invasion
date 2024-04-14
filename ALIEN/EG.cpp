@@ -1,10 +1,7 @@
-#pragma once
+#include "EG.h"
 #include <iostream>
 using namespace std;
-#include "Units.h"
-#include<string>
-#include "EG.h"
-#include "EarthArmy.h"
+
 EG::EG(int id, string type, int jt, int health, int power, int AC) :Units(id, type, jt, health, power, AC) {
 
 }
@@ -14,4 +11,6 @@ double EG::getScore(int power, int health) {
 EG EG ::operator < (EG* obj1) {
 	getScore(this->Power, this->Health) < getScore(obj1->Power, obj1->Health);
 }
-void EG::attack() {}
+void EG::attack() {
+
+}

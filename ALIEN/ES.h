@@ -1,9 +1,10 @@
 #pragma once
 #include <iostream>
-using namespace std;
-#include "Units.h"
 #include<string>
+#include "Units.h"
 #include "EarthArmy.h"
+using namespace std;
+
 class ES : public Units {
 private:
 
