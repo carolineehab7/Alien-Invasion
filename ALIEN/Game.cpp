@@ -11,7 +11,7 @@ Game::Game(){
 	
 }
 
-bool Game::Killedlist(Units *killunit) {
+bool Game::KilledListfunc(Units *killunit) {
 	KilledList->enqueue(killunit);
 }
 
