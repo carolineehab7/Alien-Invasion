@@ -19,7 +19,7 @@ private:
 	RandGen randGenObj;
 public:
 	Game();
-	//LinkedQueue<T>killedlist();
+    //LinkedQueue<T>killedlist();
 	 
 	void LoadFromFile(string filename);
 	RandGen* getRandGenptr();

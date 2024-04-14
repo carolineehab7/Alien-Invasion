@@ -29,7 +29,7 @@ void Units::setType(string type) {
 		Type = "AM";
 }
 void Units::setJoinTime(int JT) {
-	if (JT > 0)
+	if (JT > 0 && JT<50)
 		JoinTime = JT;
 	else
 		cout << "error";
