@@ -4,17 +4,15 @@
 
 //This class impelements the priority queue as a sorted list (Linked List)
 //The item with highest priority is at the front of the queue
+
 template <typename T>
 class priQueue
 {
     priNode<T>* head;
 public:
-    priQueue() : head(nullptr) {}
-
-    ~priQueue() {
-        T tmp;
-        int p;
-        while (dequeue(tmp, p));
+    int length;
+    priQueue() : head(nullptr) {
+        length = 0;
     }
 
     //insert the new node in its correct position according to its priority
@@ -34,6 +32,7 @@ public:
         }
         newNode->setNext(current->getNext());
         current->setNext(newNode);
+        length++;
     }
 
     bool dequeue(T& topEntry, int& pri) {
@@ -44,6 +43,7 @@ public:
         priNode<T>* temp = head;
         head = head->getNext();
         delete temp;
+        length--;
         return true;
     }
 
@@ -57,6 +57,22 @@ public:
     }
 
     bool isEmpty() const {
-        return head == nullptr;
+        return (head == nullptr || length == 0);
+    }
+  
+    void print()
+    {
+        priNode<T>* Temp = head; // Temp Points to the Head
+
+        while (Temp) {
+            cout << Temp->getItem() << " ";
+            Temp = Temp->getNext;
+        }
+    }
+
+    ~priQueue() {
+        T tmp;
+        int p;
+        while (dequeue(tmp, p));
     }
 };

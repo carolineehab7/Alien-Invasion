@@ -20,7 +20,7 @@ private:
 	RandGen randGenObj;
 	LinkedQueue<Units*>*KilledList;
 public:
-	Game();
+	Game(string file);
 	bool KilledListfunc(Units* killunit);
 	void LoadFromFile(string filename);
 	RandGen* getRandGenptr();

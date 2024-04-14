@@ -4,21 +4,27 @@
 #include <random>
 #include "Game.h"
 #include "Units.h"
+#include"ES.h"
+#include"EG.h"
+#include"ET.h"
+#include"AS.h"
+#include"AD.h"
+#include"AM.h"
 
 class RandGen
 {
 private:
 	Game* gameptr;
 	int N, Prob;
-	int ES, ET, EG;
-	int AS, AM, AD;
+	int eS, eT, eG;
+	int aS, aM, aD;
 	int maxPE, minPE;
 	int maxHE, minHE;
 	int maxCE, minCE;
 	int maxPA, minPA;
 	int maxHA, minHA;
 	int maxCA, minCA;
-
+	int ide, ida;
 public:
 	RandGen();
 	void setN(int n);
@@ -45,8 +51,10 @@ public:
 	void setmaxCA(int max_ca);
 	
 
-	Units* createUnit();
-	int GenRandNum(int min, int max);
+	Units* createUnit(int A, int n, int prob, int es, int et, int eg, int as, int ad,
+		int am, int B, int minHealth, int maxHealth, int minPower,
+		int maxPower, int minAttckCap, int maxAttckCap, int jt);
+	//int GenRandNum(int min, int max);
 	
 };
 
