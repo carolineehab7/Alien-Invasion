@@ -21,7 +21,8 @@ private:
 	LinkedQueue<Units*>* KilledList;
 public:
 	Game();
-	bool Killedlist(Units* killunit);
+	
+	 
 	void LoadFromFile(string filename);
 	RandGen* getRandGenptr();
 	EarthArmy* getEarthArmyptr();
