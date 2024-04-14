@@ -6,24 +6,30 @@
 #include"ET.h"
 #include"LinkedQueue.h"
 #include"ArrayStack.h"
+#include"priQueue.h"
+#include"priNode.h"
 using namespace std;
 
 class EarthArmy {
 
 private:
 
-	LinkedQueue<ES*> ES_List;
-	LinkedQueue<EG*> EG_List;
-	ArrayStack<ET*> ET_List;
+	LinkedQueue<ES*> ES_LIST;
+	priQueue <EG*> EG_LIST;
+	ArrayStack<ET*> ET_LIST;
 
 public:
 
 	bool addUnit(Units* U);
-	
-	////////////////////////////////////////////////////////////////////////
-	
+	void printEA();
 
 };
+
+
+
+
+
+
 
 /*
 	void printEA() {
