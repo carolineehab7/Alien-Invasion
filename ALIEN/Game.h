@@ -18,11 +18,10 @@ private:
 	EarthArmy EA;
 	AlienArmy AA;
 	RandGen randGenObj;
-	LinkedQueue<Units*>* KilledList;
+	LinkedQueue<Units*>*KilledList;
 public:
 	Game();
-	
-	 
+	bool KilledListfunc(Units* killunit);
 	void LoadFromFile(string filename);
 	RandGen* getRandGenptr();
 	EarthArmy* getEarthArmyptr();
