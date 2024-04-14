@@ -13,20 +13,22 @@ using namespace std;
 class Game
 {
 private:
+	int Time_step;
 	ifstream inpfile;
 	EarthArmy EA;
 	AlienArmy AA;
 	RandGen randGenObj;
+	LinkedQueue<Units*>* KilledList;
 public:
 	Game();
-	//LinkedQueue<T>killedlist();
-	 
+	bool Killedlist(Units* killunit);
 	void LoadFromFile(string filename);
 	RandGen* getRandGenptr();
 	EarthArmy* getEarthArmyptr();
 	AlienArmy* getAlienArmyptr();
+
+	~Game();
 	
-	//istream &operator >>();
 	
 };
 

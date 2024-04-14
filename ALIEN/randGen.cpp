@@ -7,33 +7,39 @@ Units* createUnit(int n, int prob, int es, int et, int eg, int as, int ad,
     int am, int B, int minHealth, int maxHealth, int minPower,
     int maxPower, int minAttckCap, int maxAttckCap, int jt) {
     RandGen rand;
+    int A = rand.GenRandNum(1, 100);
     int id = rand.GenRandNum(0, 999);
     int health = rand.GenRandNum(minHealth, maxHealth);
     int power = rand.GenRandNum(minPower, maxPower);
     int attckCap = rand.GenRandNum(minAttckCap, maxAttckCap);
+    if (A <= prob) {
+        for (int i = 0; i <= n; i++) {
+            int B = rand.GenRandNum(1, 100);
+            if (B <= es) {
 
-    if (es + et + eg > 0) {
-        if (B < es) {
-            return new ES(id, "ES", jt, health, power, attckCap);
-        }
-        else if (B < es + et) {
-            return new ET(id, "ET", jt, health, power, attckCap);
-        }
-        else {
-            return new EG(id, "EG", jt, health, power, attckCap);
+            }
+            else if (B <= (es + et)) {
+
+            }
+            //generate EG
+            else {              
+
+            }
+
+            if (B <= as) {
+
+            }
+            else if (B <= (as + am)) {
+
+            }
+            //generate AD
+            else {                 
+
+            }
         }
     }
-    else {
-        if (B < as) {
-            return new AS(id, "AS", jt, health, power, attckCap);
-        }
-        else if (B < as + ad) {
-            return new AD(id, "AD", jt, health, power, attckCap);
-        }
-        else {
-            return new AM(id, "AM", jt, health, power, attckCap);
-        }
-    }
+
+    
 }
 void RandGen::setN(int n) {
     N = n;
