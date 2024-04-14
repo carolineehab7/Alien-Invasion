@@ -1,38 +1,57 @@
 #include "RandGen.h"
+
 RandGen::RandGen()
 {
 
 }
-Units* createUnit(int n, int prob, int es, int et, int eg, int as, int ad,
+int RandGen::GenRandNum(int min, int max) {
+    random_device rd;
+    mt19937 gen(rd());
+    uniform_int_distribution<> dis(min, max);
+    int randnum = dis(gen);
+    return randnum;
+}
+Units* RandGen:: createUnit (int A,int n, int prob, int es, int et, int eg, int as, int ad,
     int am, int B, int minHealth, int maxHealth, int minPower,
     int maxPower, int minAttckCap, int maxAttckCap, int jt) {
-    RandGen rand;
-    int id = rand.GenRandNum(0, 999);
-    int health = rand.GenRandNum(minHealth, maxHealth);
-    int power = rand.GenRandNum(minPower, maxPower);
-    int attckCap = rand.GenRandNum(minAttckCap, maxAttckCap);
+    A = GenRandNum(1, 100);
+    int idE = GenRandNum(0, 999);
+    int idA = GenRandNum(2000, 2999);
+    int health =GenRandNum(minHealth, maxHealth);
+    int power = GenRandNum(minPower, maxPower);
+    int attckCap = GenRandNum(minAttckCap, maxAttckCap);
+    if (A <= prob) {
+            B = GenRandNum(1, 100);
+            if (es + et + eg > 0) {
+                if (B < es) {
+                    ES * eS =new ES(idE, "ES", jt, health, power, attckCap);
+                    return eS ;
+                }
+                else if (B < es + et) {
+                    ET(idE, "ET", jt, health, power, attckCap);
+                    return;
+                }
+                else {
+                    EG(idE, "EG", jt, health, power, attckCap);
+                    return;
+                }
+            }
+            else {
 
-    if (es + et + eg > 0) {
-        if (B < es) {
-            return new ES(id, "ES", jt, health, power, attckCap);
-        }
-        else if (B < es + et) {
-            return new ET(id, "ET", jt, health, power, attckCap);
-        }
-        else {
-            return new EG(id, "EG", jt, health, power, attckCap);
-        }
-    }
-    else {
-        if (B < as) {
-            return new AS(id, "AS", jt, health, power, attckCap);
-        }
-        else if (B < as + ad) {
-            return new AD(id, "AD", jt, health, power, attckCap);
-        }
-        else {
-            return new AM(id, "AM", jt, health, power, attckCap);
-        }
+                if (B < as) {
+                    AS(idA, "AS", jt, health, power, attckCap);
+                    return;
+                }
+                else if (B < as + ad) {
+                    AD(idA, "AD", jt, health, power, attckCap);
+                    return;
+                }
+                else {
+                    AM(idA, "AM", jt, health, power, attckCap);
+                    return;
+                }
+            }
+        
     }
 }
 void RandGen::setN(int n) {
@@ -100,11 +119,5 @@ void RandGen::setmaxHA(int max_ha) {
     maxHA = max_ha;
 }
 
-int RandGen::GenRandNum(int min, int max) {
-    random_device rd;
-    mt19937 gen(rd());
-    uniform_int_distribution<> dis(min, max);
-    int randnum = dis(gen);
-    return randnum;
-}
+
 

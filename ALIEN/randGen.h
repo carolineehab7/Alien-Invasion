@@ -4,6 +4,12 @@
 #include <random>
 #include "Game.h"
 #include "Units.h"
+#include"ES.h"
+#include"EG.h"
+#include"ET.h"
+#include"AS.h"
+#include"AD.h"
+#include"AM.h"
 
 class RandGen
 {
@@ -45,7 +51,9 @@ public:
 	void setmaxCA(int max_ca);
 	
 
-	Units* createUnit();
+	Units* createUnit(int A, int n, int prob, int es, int et, int eg, int as, int ad,
+		int am, int B, int minHealth, int maxHealth, int minPower,
+		int maxPower, int minAttckCap, int maxAttckCap, int jt);
 	int GenRandNum(int min, int max);
 	
 };
