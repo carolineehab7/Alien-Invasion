@@ -31,22 +31,20 @@ public:
 		if (isEmpty())
 			return false;
 
-		//nodePrevDelete->getNext() = nodeToDeletePtr  
-
 		Node<AD>* nodeToDeletePtr = getbackPtr();
-		Node<AD>* curr = getfrontPtr();
+		Node<AD>* Current = getfrontPtr();
 
-		if (curr == nodeToDeletePtr) {
-			delete curr;
+		if (Current == nodeToDeletePtr) {
+			delete Current;
 			setbackPtr(nullptr);
 			setfrontPtr(nullptr);
 		}
 		
-		while (curr->getNext()!=nodeToDeletePtr) {
-			curr = curr->getNext();
+		while (Current->getNext()!=nodeToDeletePtr) {
+			Current = Current->getNext();
 		}
-		curr->setNext(NULL);
-		setbackPtr(curr);
+		Current->setNext(NULL);
+		setbackPtr(Current);
 		delete nodeToDeletePtr;
 		length--;
 		return true;
