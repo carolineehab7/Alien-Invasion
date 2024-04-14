@@ -82,7 +82,7 @@ Units::~Units() {
 
 }
 
-inline std::ostream& operator<<(std::ostream& os, Units& es) {
-	os << es.getID();
+inline std::ostream& operator<<(std::ostream& os, Units& u) {
+	os << u.getID();
 	return os;
 }

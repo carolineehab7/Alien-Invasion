@@ -52,9 +52,20 @@ public:
 
 	}
 
-	////////////////////////////////////////////////////////////////////////
+	void printAA() {
 
-	void printAM() {
+		cout << " ============== Alien Army Alive Units ============== " << endl;
+		cout << AS_List.length << " AS [";
+		AS_List.print();
+		cout << "]" << endl;
+
+	  ////////////////////////////////////////////////////////////////////////
+
+		cout << AD_List.length << " AD [";
+		AD_List.print();
+		cout << "]" << endl;
+
+	  ////////////////////////////////////////////////////////////////////////
 
 		for (int i = 0; i < M_ArrSize; ++i) {
 			cout<<Monsters_Arr[i]->getID() << " ";
@@ -62,11 +73,11 @@ public:
 
 	}
 
-	////////////////////////////////////////////////////////////////////////
-	
-
-
 };
+
+
+
+
 
 
 
@@ -94,7 +105,7 @@ public:
 
 		/////////////////////////////////////////////////////////////////////////
 
-		cout << AD_List.getLength() << " EG [";
+		cout << AD_List.getLength() << " AD [";
 		for (int i = 0; i < AD_List.getLength(); ++i) {
 			AD* s;
 			AD_List.peek(*s);
