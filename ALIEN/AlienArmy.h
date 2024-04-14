@@ -14,13 +14,14 @@ class AlienArmy {
 private:
 
 	int M_ArrSize;
-	LinkedQueue<AS*> AS_List;
-	Dequeue AD_List;
+	LinkedQueue<AS*> AS_LIST;
+	Dequeue AD_LIST;
 	LinkedQueue<int> Empty_Monst_Index;
 	AM** Monsters_Arr;
 
 public:
 
+	int monstersCounter;
 	AlienArmy(int M_ArrSize);
 	bool addUnit(Units* U);
 	void printAA();

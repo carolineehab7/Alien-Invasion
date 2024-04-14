@@ -11,6 +11,7 @@ using namespace std;
 
 AlienArmy::AlienArmy(int M_ArrSize) {
 	Monsters_Arr = new AM * [M_ArrSize];
+	monstersCounter = 0;
 	for (int i = 0; i < M_ArrSize; ++i) {
 		Monsters_Arr[i] = NULL;
 		Empty_Monst_Index.enqueue(i);
@@ -32,6 +33,7 @@ bool AlienArmy::addUnit(Units* U) {
 		Empty_Monst_Index.peek(j);
 		Empty_Monst_Index.dequeue(j);
 		Monsters_Arr[j] = dynamic_cast<AM*>(U);
+		++monstersCounter;
 		return true;
 	}
 	else
@@ -47,9 +49,11 @@ void AlienArmy::printAA() {
 
  ////////////////////////////////////////////////////////////////////////
 
-	cout << M_ArrSize << " AM [ ";
+	cout << monstersCounter << " AM [ ";
 	for (int i = 0; i < M_ArrSize; ++i) {
+		if(Monsters_Arr[i]!=NULL){
 		cout << Monsters_Arr[i]->getID() << " ";
+		}
 	}
 	cout << " ]" << endl;
 
