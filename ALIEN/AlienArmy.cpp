@@ -1,5 +1,12 @@
-#include "AlienArmy.h"
-#include <iostream>
+#include<iostream>
+#include"AlienArmy.h"
+#include "Units.h"
+#include"AS.h"
+#include"AM.h"
+#include"AD.h"
+#include"LinkedQueue.h"
+#include"ArrayStack.h"
+#include "Dequeue.h"
 using namespace std;
 
 AlienArmy::AlienArmy(int M_ArrSize) {
@@ -9,12 +16,13 @@ AlienArmy::AlienArmy(int M_ArrSize) {
 		Empty_Monst_Index.enqueue(i);
 	}
 }
+
 bool AlienArmy::addUnit(Units* U) {
 	if (U->getType() == "AS")
-		return AS_List.enqueue(dynamic_cast<AS*>(U));
+		return AS_LIST.enqueue(dynamic_cast<AS*>(U));
 
 	else if (U->getType() == "AD")
-		return AD_List.frontenqueue(*dynamic_cast<AD*>(U));
+		return AD_LIST.frontenqueue(*dynamic_cast<AD*>(U));
 
 	else if (U->getType() == "AM") {
 
@@ -29,8 +37,25 @@ bool AlienArmy::addUnit(Units* U) {
 	else
 		return false;
 }
-void AlienArmy::printAM() {
+
+void AlienArmy::printAA() {
+
+	cout << "============== Alien Army Alive Units ==============" << endl;
+	cout << AS_LIST.length << " AS [ ";
+	AS_LIST.print();
+	cout << " ]" << endl;
+
+ ////////////////////////////////////////////////////////////////////////
+
+	cout << M_ArrSize << " AM [ ";
 	for (int i = 0; i < M_ArrSize; ++i) {
 		cout << Monsters_Arr[i]->getID() << " ";
 	}
+	cout << " ]" << endl;
+
+ ////////////////////////////////////////////////////////////////////////
+
+	cout << AD_LIST.length << " AD [ ";
+	AD_LIST.print();
+	cout << " ]" << endl;
 }
