@@ -49,6 +49,7 @@
     <ClCompile Include="ES.cpp" />
     <ClCompile Include="ET.cpp" />
     <ClCompile Include="Game.cpp" />
+    <ClCompile Include="main.cpp" />
     <ClCompile Include="RandGen.cpp" />
     <ClCompile Include="Units.cpp" />
   </ItemGroup>

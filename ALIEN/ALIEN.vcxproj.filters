@@ -13,18 +13,6 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Header Files\Earth units">
-      <UniqueIdentifier>{d0f074d3-3207-4599-a57b-6d06092b6a6b}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\Alien units">
-      <UniqueIdentifier>{ee4471d8-ad00-42f1-874f-4202f931d773}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Earth Units cpp">
-      <UniqueIdentifier>{b7b5b9c2-0141-46c7-86f3-675e0371a2e9}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Alien Units cpp">
-      <UniqueIdentifier>{567f4ae6-2a03-477b-8201-a428acdd573f}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\ADT">
       <UniqueIdentifier>{a359c243-1291-4821-8326-82c7762ee6c0}</UniqueIdentifier>
     </Filter>
@@ -38,24 +26,6 @@
     </ClInclude>
     <ClInclude Include="RandGen.h">
       <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ES.h">
-      <Filter>Header Files\Earth units</Filter>
-    </ClInclude>
-    <ClInclude Include="ET.h">
-      <Filter>Header Files\Earth units</Filter>
-    </ClInclude>
-    <ClInclude Include="EG.h">
-      <Filter>Header Files\Earth units</Filter>
-    </ClInclude>
-    <ClInclude Include="AS.h">
-      <Filter>Header Files\Alien units</Filter>
-    </ClInclude>
-    <ClInclude Include="AM.h">
-      <Filter>Header Files\Alien units</Filter>
-    </ClInclude>
-    <ClInclude Include="AD.h">
-      <Filter>Header Files\Alien units</Filter>
     </ClInclude>
     <ClInclude Include="EarthArmy.h">
       <Filter>Header Files</Filter>
@@ -87,6 +57,24 @@
     <ClInclude Include="Dequeue.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="EG.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="AD.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="AM.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="AS.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ES.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ET.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Units.cpp">
@@ -104,23 +92,26 @@
     <ClCompile Include="AlienArmy.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="AD.cpp">
-      <Filter>Source Files\Alien Units cpp</Filter>
+      <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="AM.cpp">
-      <Filter>Source Files\Alien Units cpp</Filter>
+      <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="AS.cpp">
-      <Filter>Source Files\Alien Units cpp</Filter>
-    </ClCompile>
-    <ClCompile Include="ES.cpp">
-      <Filter>Source Files\Earth Units cpp</Filter>
+      <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="EG.cpp">
-      <Filter>Source Files\Earth Units cpp</Filter>
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ES.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="ET.cpp">
-      <Filter>Source Files\Earth Units cpp</Filter>
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
