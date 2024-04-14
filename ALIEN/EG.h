@@ -1,13 +1,13 @@
 #pragma once
 #include <iostream>
-using namespace std;
+#include<string>
 #include "QueueADT.h"
 #include"Node.h"
 #include"linkedQueue.h"
 #include "Units.h"
-#include"Units.cpp"
-#include<string>
 #include "EarthArmy.h"
+using namespace std;
+
 class EG :public Units {
 private:
 	

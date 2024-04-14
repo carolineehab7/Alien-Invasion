@@ -27,54 +27,10 @@ public:
 			ET_List.push(dynamic_cast<ET*>(U));
 	}
 	
-	void printEA() {
-
-		cout << "============== Earth Army Alive Units ==============" << endl;
-		cout << ES_List.length << " ES [";
-		ES_List.print();
-		cout << "]" << endl;
-
-	  ////////////////////////////////////////////////////////////////////////
-
-		cout << EG_List.length << " EG [";
-		EG_List.print();
-		cout << "]" << endl;
-
-	  ////////////////////////////////////////////////////////////////////////
-
-		cout << ET_List.getTop() << " ET [";
-		ET_List.print();
-		cout << "]" << endl;
+	////////////////////////////////////////////////////////////////////////
 	
-	}
 
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 /*
 	void printEA() {
