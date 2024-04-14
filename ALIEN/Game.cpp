@@ -5,7 +5,7 @@
 #include "LinkedQueue.h"
 
 using namespace std;
-Game::Game():{
+Game::Game(){
 	Time_step = 1;
 	KilledList = new LinkedQueue<Units*>;
 	
