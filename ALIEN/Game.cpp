@@ -5,9 +5,10 @@
 #include "LinkedQueue.h"
 
 using namespace std;
-Game::Game(){
+Game::Game(string file){
 	Time_step = 1;
 	KilledList = new LinkedQueue<Units*>;
+	LoadFromFile(file);
 	
 }
 
@@ -65,13 +66,13 @@ void Game::LoadFromFile(string filename) {
 	inpfile.close();
 }
 RandGen Game::*getRandGenptr() {
-	return &randGenobj;
+	
 }
 EarthArmy Game::*getEarthArmyptr() {
-	return &EA;
+	
 }
 AlienArmy Game::*getAlienArmyptr() {
-	return &AA;
+	
 }
 
 Game::~Game() {
