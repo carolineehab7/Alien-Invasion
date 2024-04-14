@@ -2,57 +2,61 @@
 
 RandGen::RandGen()
 {
-    ida = 0;
-    ide = 0;
+    ida =2000;
+    ide = 1;
 }
 Units* RandGen::createUnit(int A, int n, int prob, int es, int et, int eg, int as, int ad,
     int am, int B, int minHealth, int maxHealth, int minPower,
     int maxPower, int minAttckCap, int maxAttckCap, int jt) {
-    for (int i = 0; i <= n; i++) {
-        int A = rand() % (100 - 1 + 1) + 1;
-        int health = rand() % (maxHealth - minHealth + 1) + minHealth;
-        int power = rand() % (maxPower - minPower + 1) + minPower;
-        int attckCap = rand() % (maxAttckCap - minAttckCap + 1) + minAttckCap;
-        if (A <= prob) {
-            int B = rand() % (100 - 1 + 1) + 1;
-            if (es + et + eg > 0) {
-                if (B < es) {
-                    ES* es1 = new ES(ide, "ES", jt, health, power, attckCap);
-                    ide++;
-                    return es1;
-                }
-                else if (B < es + et) {
-                    ET* et1 = new ET(ide, "ET", jt, health, power, attckCap);
-                    ide++;
-                    return et1;
-                }
-                else {
-                    EG* eg1 = new EG(ide, "EG", jt, health, power, attckCap);
-                    ide++;
-                    return eg1;
-                }
-            }
-            else {
+    if (ide < 999 && ida < 2999) {
+        for (int i = 0; i <= n; i++) {
+            int A = rand() % (100 - 1 + 1) + 1;
+            int health = rand() % (maxHealth - minHealth + 1) + minHealth;
+            int power = rand() % (maxPower - minPower + 1) + minPower;
+            int attckCap = rand() % (maxAttckCap - minAttckCap + 1) + minAttckCap;
+            if (A <= prob) {
+                int B = rand() % (100 - 1 + 1) + 1;
+                if (es + et + eg > 0) {
 
-                if (B < as) {
-                    AS* as1 = new AS(ida, "AS", jt, health, power, attckCap);
-                    ida++;
-                    return as1;
-                }
-                else if (B < as + ad) {
-                    AD* ad1 = new AD(ida, "AD", jt, health, power, attckCap);
-                    ida++;
-                    return ad1;
+                    if (B < es) {
+                        ES* es1 = new ES(ide, "ES", jt, health, power, attckCap);
+                        ide++;
+                        return es1;
+                    }
+                    else if (B < es + et) {
+                        ET* et1 = new ET(ide, "ET", jt, health, power, attckCap);
+                        ide++;
+                        return et1;
+                    }
+                    else {
+                        EG* eg1 = new EG(ide, "EG", jt, health, power, attckCap);
+                        ide++;
+                        return eg1;
+                    }
                 }
                 else {
-                    AM* am1 = new AM(ida, "AM", jt, health, power, attckCap);
-                    ida++;
-                    return am1;
+
+                    if (B < as) {
+                        AS* as1 = new AS(ida, "AS", jt, health, power, attckCap);
+                        ida++;
+                        return as1;
+                    }
+                    else if (B < as + ad) {
+                        AD* ad1 = new AD(ida, "AD", jt, health, power, attckCap);
+                        ida++;
+                        return ad1;
+                    }
+                    else {
+                        AM* am1 = new AM(ida, "AM", jt, health, power, attckCap);
+                        ida++;
+                        return am1;
+                    }
                 }
             }
         }
     }
 }
+
 
    
 void RandGen::setN(int n) {
