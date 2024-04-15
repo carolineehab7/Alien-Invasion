@@ -24,7 +24,12 @@ public:
 	int monstersCounter;
 	AlienArmy(int M_ArrSize);
 	bool addUnit(Units* U);
+	AS* pickAS();
+	AM* pickAM();
+	AD** pickAD();
 	void printAA();
+	~AlienArmy();
+
 	
 };
 

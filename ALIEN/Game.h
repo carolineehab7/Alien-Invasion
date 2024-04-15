@@ -17,6 +17,7 @@ private:
 	AlienArmy* AA;
 	RandGen* randGenPtr;
 	LinkedQueue<Units*>* KilledList;
+	int Time_step;
 public:
 	Game();
 	bool KilledListfunc(Units* killunit);
@@ -24,6 +25,7 @@ public:
 	RandGen* getRandGenptr();
 	EarthArmy* getEarthArmyptr();
 	AlienArmy* getAlienArmyptr();
+	void PrintALL();
 	void TestCode();
 
 	~Game();

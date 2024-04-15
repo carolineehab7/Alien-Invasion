@@ -19,9 +19,13 @@ private:
 	ArrayStack<ET*> ET_LIST;
 
 public:
-
+	EarthArmy();
 	bool addUnit(Units* U);
+	ES* pickES();
+	EG* pickEG();
+	ET* pickET();
 	void printEA();
+	~EarthArmy();
 
 };
 

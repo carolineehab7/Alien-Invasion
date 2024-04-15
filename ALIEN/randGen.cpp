@@ -19,7 +19,7 @@ Units* RandGen::createUnit(int A, int n, int prob, int B, int jt, int es, int et
 		for (int i = 0; i <= n; i++) {
 			int B = rand() % (100 - 1 + 1) + 1;
 			if (B < es) {
-				ES* es1 = new ES(IDE, "ES", jt, healthE, powerE, attckCapE);
+				ES* es1 = new ES(IDE, "ES",jt, healthE, powerE, attckCapE);
 				IDE++;
 				gameptr->getEarthArmyptr()->addUnit(es1);
 			}

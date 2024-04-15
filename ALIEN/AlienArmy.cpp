@@ -21,6 +21,19 @@ AlienArmy::AlienArmy(int M_ArrSize) {
 		Empty_Monst_Index.enqueue(i);
 	}
 }
+AS* AlienArmy::pickAS() {
+	AS* ASptr;
+	AS_LIST.dequeue(ASptr);
+	return ASptr;
+}
+AM* AlienArmy::pickAM() {
+	return Monsters_Arr[M_ArrSize--];
+}
+AD** AlienArmy::pickAD() {
+	
+	AD_LIST.dequeue(front);
+
+}
 
 bool AlienArmy::addUnit(Units* U) {
 	if (U->getType() == "AS")
@@ -66,4 +79,7 @@ void AlienArmy::printAA() {
 	cout << AD_LIST.length << " AD [ ";
 	AD_LIST.print();
 	cout << " ]" << endl;
+}
+AlienArmy::~AlienArmy() {
+
 }
