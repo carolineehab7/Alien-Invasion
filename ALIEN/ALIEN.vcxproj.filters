@@ -13,9 +13,6 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Header Files\ADT">
-      <UniqueIdentifier>{a359c243-1291-4821-8326-82c7762ee6c0}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Units.h">
@@ -32,27 +29,6 @@
     </ClInclude>
     <ClInclude Include="AlienArmy.h">
       <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="LinkedQueue.h">
-      <Filter>Header Files\ADT</Filter>
-    </ClInclude>
-    <ClInclude Include="ArrayStack.h">
-      <Filter>Header Files\ADT</Filter>
-    </ClInclude>
-    <ClInclude Include="StackADT.h">
-      <Filter>Header Files\ADT</Filter>
-    </ClInclude>
-    <ClInclude Include="priNode.h">
-      <Filter>Header Files\ADT</Filter>
-    </ClInclude>
-    <ClInclude Include="priQueue.h">
-      <Filter>Header Files\ADT</Filter>
-    </ClInclude>
-    <ClInclude Include="QueueADT.h">
-      <Filter>Header Files\ADT</Filter>
-    </ClInclude>
-    <ClInclude Include="Node.h">
-      <Filter>Header Files\ADT</Filter>
     </ClInclude>
     <ClInclude Include="Dequeue.h">
       <Filter>Header Files</Filter>
@@ -73,6 +49,24 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="ET.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LinkedQueue.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="StackADT.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="QueueADT.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="priQueue.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="priNode.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ArrayStack.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

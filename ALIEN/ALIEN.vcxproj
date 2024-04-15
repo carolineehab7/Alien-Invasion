@@ -31,7 +31,6 @@
     <ClInclude Include="Game.h" />
     <ClInclude Include="ES.h" />
     <ClInclude Include="LinkedQueue.h" />
-    <ClInclude Include="Node.h" />
     <ClInclude Include="priNode.h" />
     <ClInclude Include="priQueue.h" />
     <ClInclude Include="QueueADT.h" />
