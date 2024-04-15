@@ -5,7 +5,7 @@
 #include"AlienArmy.h"
 using namespace std;
 
-class AM : public Units {
+class AM : protected Units {
 private:
 
 public:
