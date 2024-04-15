@@ -17,17 +17,17 @@ void Units::setID(int id) {
 }
 void Units::setType(string type) {
 	if (type == "EG")
-		Type = "EG";
+		Type = type;
 	else if (type == "ET")
-		Type = "ET";
+		Type = type;
 	else if (type == "ES")
-		Type = "ES";
+		Type = type;
 	else if (type == "AS")
-		Type = "AS";
+		Type = type;
 	else if (type == "AD")
-		Type = "AD";
+		Type = type;
 	else if (type == "AM")
-		Type = "AM";
+		Type = type;
 }
 void Units::setJoinTime(int JT) {
 	if (JT > 0 && JT<50)
