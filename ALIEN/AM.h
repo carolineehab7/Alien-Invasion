@@ -6,7 +6,7 @@
 using namespace std;
 class Units;
 
-class AM : public Units {
+class AM : protected Units {
 private:
 
 public:
