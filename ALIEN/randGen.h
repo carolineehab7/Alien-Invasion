@@ -2,7 +2,6 @@
 #include <iostream>
 #include <fstream>
 #include <random>
-#include "Game.h"
 #include "Units.h"
 #include"ES.h"
 #include"EG.h"
@@ -10,6 +9,7 @@
 #include"AS.h"
 #include"AD.h"
 #include"AM.h"
+class Game;
 
 class RandGen
 {

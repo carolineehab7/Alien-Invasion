@@ -1,4 +1,5 @@
 #include "RandGen.h"
+#include "Game.h"
 
 RandGen::RandGen()
 {
