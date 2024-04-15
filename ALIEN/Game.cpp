@@ -66,13 +66,13 @@ void Game::LoadFromFile(string filename) {
 	inpfile.close();
 }
 RandGen Game::*getRandGenptr() {
-	
+	return &randGenObj;
 }
 EarthArmy Game::*getEarthArmyptr() {
-	
+	return &EA;
 }
 AlienArmy Game::*getAlienArmyptr() {
-	
+	return &AA;
 }
 
 Game::~Game() {
