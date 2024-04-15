@@ -8,6 +8,7 @@
 #include"ArrayStack.h"
 #include "Dequeue.h"
 using namespace std;
+class Units;
 
 class AlienArmy {
 
