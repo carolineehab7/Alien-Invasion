@@ -42,7 +42,7 @@ public:
 			setfrontPtr(nullptr);
 		}
 		
-		while (curr->getNext()!=nodeToDeletePtr) {
+		while (curr!=nullptr && curr->getNext()!=nodeToDeletePtr) {
 			curr = curr->getNext();
 		}
 		curr->setNext(NULL);

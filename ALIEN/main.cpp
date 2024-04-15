@@ -9,8 +9,8 @@
 using namespace std;
 
 int main() {
-	Game* ptr;
-	ptr->TestCode();
-
+//	Game* ptr;
+//	ptr->TestCode();
+	cout << "test";
 
 }

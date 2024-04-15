@@ -3,11 +3,11 @@
 #include"EG.h"
 #include"ES.h"
 #include"ET.h"
-#include"LinkedQueue.h"
 #include"ArrayStack.h"
 #include"priQueue.h"
 #include"priNode.h"
 #include"EarthArmy.h"
+#include"LinkedQueue.h"
 using namespace std;
 EarthArmy::EarthArmy() {
 
@@ -18,10 +18,12 @@ bool EarthArmy::addUnit(Units* U) {
 	if (U->getType() == "ES")
 		ES_LIST.enqueue(dynamic_cast<ES*>(U));
 	else if (U->getType() == "EG")
-		EG_LIST.enqueue(dynamic_cast<EG*>(U),1);
+		EG_LIST.enqueue(dynamic_cast<EG*>(U), 1);
 	else if (U->getType() == "ET")
 		ET_LIST.push(dynamic_cast<ET*>(U));
-
+	else
+		return false;
+	return true;
 }
 
 ES* EarthArmy::pickES()
@@ -47,28 +49,45 @@ ET* EarthArmy::pickET()
 	return ETptr;
 }
 
-
-
 void EarthArmy::printEA() {
-
+/*
 	cout << "============== Earth Army Alive Units ==============" << endl;
+
 	cout << ES_LIST.length << " ES [ ";
-	ES_LIST.print();
+	
+		//Node<ES>* Temp = getfrontPtr();  // Temp Points to the Head
+
+		while (Temp) {
+			cout << Temp->getItem().getID() << " ";
+			Temp = Temp->getNext();
+		}
+
 	cout << " ]" << endl;
 
  ////////////////////////////////////////////////////////////////////////
 
 	cout << EG_LIST.length << " EG [ ";
-	EG_LIST.print();
+
+	priNode<EG>* Temp = getHead();  // Temp Points to the Head
+
+	while (Temp) {
+		cout << Temp->getItem().getID() << " ";
+		Temp = Temp->getNext();
+	}
+
 	cout << " ]" << endl;
 
  ////////////////////////////////////////////////////////////////////////
 
 	cout << ET_LIST.getTop() << " ET [ ";
-	ET_LIST.print();
+		for (int i = getTop(); i >= 0; --i) {
+			cout << items[i] << " ";
+		}
 	cout << " ]" << endl;
-
+*/
 }
+
+
 EarthArmy::~EarthArmy() {
 
 }

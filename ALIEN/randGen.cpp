@@ -17,7 +17,9 @@ Units* RandGen::createUnit(int n, int prob, int jt, int es, int et, int eg, int 
 		int healthA = rand() % (maxHealthA - minHealthA + 1) + minHealthA;
 		int powerA = rand() % (maxPowerA - minPowerA + 1) + minPowerA;
 		int attckCapA = rand() % (maxAttckCapA - minAttckCapA + 1) + minAttckCapA;
+
 		for (int i = 0; i <= n; i++) {
+
 			int B = rand() % (100 - 1 + 1) + 1;
 			if (B < es) {
 				ES* es1 = new ES(IDE, "ES",jt, healthE, powerE, attckCapE);
@@ -39,21 +41,23 @@ Units* RandGen::createUnit(int n, int prob, int jt, int es, int et, int eg, int 
 				AS* as1 = new AS(IDA, "AS", jt, healthA, powerA, attckCapA);
 				IDA++;
 				gameptr->getAlienArmyptr()->addUnit(as1);
+				return as1;
 			}
 			else if (B < as + ad) {
 				AD* ad1 = new AD(IDA, "AD", jt, healthA, powerA, attckCapA);
 				IDA++;
 				gameptr->getAlienArmyptr()->addUnit(ad1);
+				return ad1;
 			}
 			else {
 				AM* am1 = new AM(IDA, "AM", jt, healthA, powerA, attckCapA);
 				IDA++;
 				gameptr->getAlienArmyptr()->addUnit(am1);
+				return am1;
 			}
 
 		}
 	}
-
 }
 
 

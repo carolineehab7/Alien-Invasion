@@ -42,6 +42,7 @@ Single Node Case:
 #define LINKED_QUEUE_
 
 #include <iostream>
+#include "AD.h"
 #include "Node.h"
 #include "QueueADT.h"
 using namespace std;
@@ -59,7 +60,6 @@ public:
 	bool enqueue(const T& newEntry);
 	bool dequeue(T& frntEntry);
 	bool peek(T& frntEntry)  const;
-	void print();
 	void setbackPtr(Node<T>* bptr);
 	void setfrontPtr(Node<T>* fptr);
 	Node<T>* getbackPtr();
@@ -171,17 +171,6 @@ bool LinkedQueue<T>::peek(T& frntEntry) const
 	frntEntry = frontPtr->getItem();
 	return true;
 
-}
-
-template<typename T>
-inline void LinkedQueue<T>::print()
-{
-	Node<T>* Temp = frontPtr; // Temp Points to the Head
-
-	while (Temp) {
-		cout << Temp->getItem() << " ";
-		Temp = Temp->getNext;
-	}
 }
 
 template<typename T>

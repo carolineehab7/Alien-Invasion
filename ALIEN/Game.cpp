@@ -13,7 +13,7 @@ Game::Game() {
 }
 
 bool Game::KilledListfunc(Units* killunit) {
-	KilledList->enqueue(killunit);
+	return KilledList->enqueue(killunit);
 }
 
 void Game::LoadFromFile() {

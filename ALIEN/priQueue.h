@@ -59,15 +59,9 @@ public:
     bool isEmpty() const {
         return (head == nullptr || length == 0);
     }
-  
-    void print()
-    {
-        priNode<T>* Temp = head; // Temp Points to the Head
 
-        while (Temp) {
-            cout << Temp->getItem() << " ";
-            Temp = Temp->getNext;
-        }
+    priNode<T>* getHead() {
+        return head;
     }
 
     ~priQueue() {
@@ -75,4 +69,5 @@ public:
         int p;
         while (dequeue(tmp, p));
     }
+
 };

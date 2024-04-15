@@ -1,5 +1,9 @@
 #include "Units.h"
 #include <string>
+Units::Units() {
+
+}
+
 Units::Units(int id, string type, int JT, int health, int power, int AC) {
 	setID(id);
 	setType(type);
@@ -80,9 +84,4 @@ int Units::getAttackCapacity() {
 }
 Units::~Units() {
 
-}
-
-inline std::ostream& operator<<(std::ostream& os, Units& u) {
-	os << u.getID();
-	return os;
 }

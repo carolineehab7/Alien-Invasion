@@ -3,7 +3,6 @@
 #include <string>
 
 using namespace std;
-class AM;
 
 class Units
 {
@@ -17,6 +16,7 @@ protected:
 	int AttackCapacity;
 	
 public:
+	Units();
 	Units(int id, string type,int JT, int health, int power, int AC);
 	void setID(int);
 	void setType(string);
