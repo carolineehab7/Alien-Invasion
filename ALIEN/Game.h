@@ -25,6 +25,8 @@ public:
 	RandGen* getRandGenptr();
 	EarthArmy* getEarthArmyptr();
 	AlienArmy* getAlienArmyptr();
+	void printKillList();
+
 	void PrintALL();
 	void TestCode();
 

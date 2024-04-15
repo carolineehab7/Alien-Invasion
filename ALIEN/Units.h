@@ -1,9 +1,9 @@
 #pragma once
 #include <iostream>
 #include <string>
-#include "Game.h"
+
 using namespace std;
-class Game;
+
 class Units
 {
 protected:
@@ -13,7 +13,7 @@ protected:
 	int Health;
 	int Power;
 	int AttackCapacity;
-	Game* gameptr;
+	
 public:
 	Units(int id, string type,int JT, int health, int power, int AC);
 	void setID(int);

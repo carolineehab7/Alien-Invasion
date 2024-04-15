@@ -78,6 +78,20 @@ AlienArmy* Game::getAlienArmyptr() {
 void Game::PrintALL() {
 	getEarthArmyptr()->printEA();
 	getAlienArmyptr()->printAA();
+	printKillList();
+}
+void Game::printKillList() {
+	cout << "============== Killed/Destructed Units ==============" << endl;
+	cout << KilledList->length << " Units" << " [";
+	Node<Units*>* head = KilledList->getfrontPtr();
+	while (head)
+	{
+		cout << head->getItem()->getID();
+		if (head->getNext())
+			cout << ", ";
+		head = head->getNext();
+	}
+	cout << " ]" << endl;
 }
 void Game::TestCode() {
 	LinkedQueue<Units*>* TempList;
@@ -115,6 +129,7 @@ void Game::TestCode() {
 
 		}
 		PrintALL();
+		cout << "Press any key to move to next timestep";
 		Time_step++;
 	}
 
