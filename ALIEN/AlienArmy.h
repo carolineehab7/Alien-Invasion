@@ -11,7 +11,6 @@ using namespace std;
 class Units;
 
 class AlienArmy {
-	friend class Units;
 
 private:
 

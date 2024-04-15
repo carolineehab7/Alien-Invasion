@@ -7,7 +7,7 @@ class AM;
 
 class Units
 {
-	friend class AM;
+	
 protected:
 	int ID;
 	string Type;
