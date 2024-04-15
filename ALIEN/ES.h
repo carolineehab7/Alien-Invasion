@@ -1,9 +1,9 @@
 #pragma once
 #include <iostream>
 #include<string>
-#include "Units.h"
 #include "EarthArmy.h"
 using namespace std;
+class Units;
 
 class ES : public Units {
 private:
