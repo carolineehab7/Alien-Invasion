@@ -1,4 +1,5 @@
 #include "Units.h"
+#include "Game.h"
 #include <string>
 Units::Units(int id, string type, int JT, int health, int power, int AC) {
 	setID(id);
