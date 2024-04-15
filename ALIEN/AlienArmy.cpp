@@ -9,6 +9,10 @@
 #include "Dequeue.h"
 using namespace std;
 
+AlienArmy::AlienArmy() {
+
+}
+
 AlienArmy::AlienArmy(int M_ArrSize) {
 	Monsters_Arr = new AM * [M_ArrSize];
 	monstersCounter = 0;

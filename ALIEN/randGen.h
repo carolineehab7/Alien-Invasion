@@ -24,7 +24,7 @@ private:
 	int maxPA, minPA;
 	int maxHA, minHA;
 	int maxCA, minCA;
-	int ide, ida;
+	int IDE, IDA;
 public:
 	RandGen();
 	void setN(int n);
@@ -49,12 +49,12 @@ public:
 	void setmaxHA(int max_ha);
 	void setminCA(int min_ca);
 	void setmaxCA(int max_ca);
-	
 
-	Units* createUnit(int A, int n, int prob, int es, int et, int eg, int as, int ad,
-		int am, int B, int minHealth, int maxHealth, int minPower,
-		int maxPower, int minAttckCap, int maxAttckCap, int jt);
-	//int GenRandNum(int min, int max);
-	
+
+	Units* createUnit(int A, int n, int prob, int B, int jt, int es, int et, int eg, int as, int ad,
+		int am, int minHealthE, int maxHealthE, int minPowerE, int maxPowerE, int minAttckCapE, int maxAttckCapE,
+		int minHealthA, int maxHealthA, int minPowerA, int maxPowerA, int minAttckCapA, int maxAttckCapA);
+
+
 };
 

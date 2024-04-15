@@ -5,23 +5,22 @@
 #include "LinkedQueue.h"
 
 using namespace std;
-Game::Game(string file){
-	Time_step = 1;
+Game::Game() {
 	KilledList = new LinkedQueue<Units*>;
-	LoadFromFile(file);
-	
+
 }
 
-bool Game::KilledListfunc(Units *killunit) {
+bool Game::KilledListfunc(Units* killunit) {
 	KilledList->enqueue(killunit);
 }
 
-void Game::LoadFromFile(string filename) {
+void Game::LoadFromFile() {
 	int n, prob, ES, ET, EG, AS, AM, AD;
 	int maxPE, minPE, maxHE, minHE, maxCE, minCE;
 	int maxPA, minPA, maxHA, minHA, maxCA, minCA;
-	
-	inpfile.open(filename);
+	ifstream inpfile;
+	inpfile.open("Input_Sample.txt");
+
 	if (!inpfile) {
 		cout << "Unable to open file" << endl;
 		return;
@@ -40,39 +39,42 @@ void Game::LoadFromFile(string filename) {
 	inpfile.ignore();
 	inpfile >> maxHA >> minCA;
 	inpfile.ignore();
-	inpfile>> maxCA;
+	inpfile >> maxCA;
 
-	randGenObj.setN(n);
-	randGenObj.setES(ES);
-	randGenObj.setET(ET);
-	randGenObj.setEG(EG);
-	randGenObj.setAM(AM);
-	randGenObj.setAS(AS);
-	randGenObj.setAD(AD);
-	randGenObj.setProb(prob);
-	randGenObj.setminPE(minPE);
-	randGenObj.setmaxPE(maxPE);
-	randGenObj.setminHE(minHE);
-	randGenObj.setmaxHE(maxHE);
-	randGenObj.setminCE(minCE);
-	randGenObj.setmaxCE(maxCE);
-	randGenObj.setminPA(minPA);
-	randGenObj.setmaxPA(maxPA);
-	randGenObj.setminHA(minHA);
-	randGenObj.setmaxHA(maxHA);
-	randGenObj.setminCA(minCA);
-	randGenObj.setmaxCA(maxCA);
+	randGenPtr->setN(n);
+	randGenPtr->setES(ES);
+	randGenPtr->setET(ET);
+	randGenPtr->setEG(EG);
+	randGenPtr->setAM(AM);
+	randGenPtr->setAS(AS);
+	randGenPtr->setAD(AD);
+	randGenPtr->setProb(prob);
+	randGenPtr->setminPE(minPE);
+	randGenPtr->setmaxPE(maxPE);
+	randGenPtr->setminHE(minHE);
+	randGenPtr->setmaxHE(maxHE);
+	randGenPtr->setminCE(minCE);
+	randGenPtr->setmaxCE(maxCE);
+	randGenPtr->setminPA(minPA);
+	randGenPtr->setmaxPA(maxPA);
+	randGenPtr->setminHA(minHA);
+	randGenPtr->setmaxHA(maxHA);
+	randGenPtr->setminCA(minCA);
+	randGenPtr->setmaxCA(maxCA);
 
 	inpfile.close();
 }
-RandGen Game::*getRandGenptr() {
-	return &randGenObj;
+RandGen* Game::getRandGenptr() {
+	return randGenPtr;
 }
-EarthArmy Game::*getEarthArmyptr() {
-	return &EA;
+EarthArmy* Game::getEarthArmyptr() {
+	return EA;
 }
-AlienArmy Game::*getAlienArmyptr() {
-	return &AA;
+AlienArmy* Game::getAlienArmyptr() {
+	return AA;
+}
+void Game::TestCode() {
+
 }
 
 Game::~Game() {
