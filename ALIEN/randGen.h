@@ -10,6 +10,7 @@
 #include"AS.h"
 #include"AD.h"
 #include"AM.h"
+class Game;
 
 class RandGen
 {
@@ -51,7 +52,7 @@ public:
 	void setmaxCA(int max_ca);
 
 
-	Units* createUnit(int A, int n, int prob, int B, int jt, int es, int et, int eg, int as, int ad,
+	Units* createUnit(int n, int prob, int jt, int es, int et, int eg, int as, int ad,
 		int am, int minHealthE, int maxHealthE, int minPowerE, int maxPowerE, int minAttckCapE, int maxAttckCapE,
 		int minHealthA, int maxHealthA, int minPowerA, int maxPowerA, int minAttckCapA, int maxAttckCapA);
 

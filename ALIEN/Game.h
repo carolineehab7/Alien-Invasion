@@ -9,6 +9,7 @@
 #include "RandGen.h"
 
 using namespace std;
+class RandGen;
 
 class Game
 {

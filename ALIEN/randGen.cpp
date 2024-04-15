@@ -6,7 +6,7 @@ RandGen::RandGen()
 	IDA = 2000;
 	IDE = 1;
 }
-Units* RandGen::createUnit(int A, int n, int prob, int B, int jt, int es, int et, int eg, int as, int ad,
+Units* RandGen::createUnit(int n, int prob, int jt, int es, int et, int eg, int as, int ad,
 	int am, int minHealthE, int maxHealthE, int minPowerE, int maxPowerE, int minAttckCapE, int maxAttckCapE,
 	int minHealthA, int maxHealthA, int minPowerA, int maxPowerA, int minAttckCapA, int maxAttckCapA) {
 	int A = rand() % (100 - 1 + 1) + 1;
