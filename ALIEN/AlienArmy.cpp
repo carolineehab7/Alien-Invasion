@@ -29,11 +29,11 @@ AS* AlienArmy::pickAS() {
 AM* AlienArmy::pickAM() {
 	return Monsters_Arr[M_ArrSize--];
 }
-AD** AlienArmy::pickAD() {
-	AD *front;
-	AD_LIST.dequeue(front);
-
-}
+//AD** AlienArmy::pickAD() {
+//	AD *front;
+//	AD_LIST.dequeue(front);
+//
+//}
 
 bool AlienArmy::addUnit(Units* U) {
 	if (U->getType() == "AS")

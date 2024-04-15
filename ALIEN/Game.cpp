@@ -123,10 +123,10 @@ void Game::TestCode() {
 			}
 		}
 		else if (X > 40 && X < 50) {
-			getAlienArmyptr()->pickAM
+			getAlienArmyptr()->pickAM();
 		}
 		else if (X > 50 && X < 60) {
-
+			
 		}
 		PrintALL();
 		cout << "Press any key to move to next timestep";
