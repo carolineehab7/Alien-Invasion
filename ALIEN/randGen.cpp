@@ -128,5 +128,67 @@ void RandGen::setmaxHA(int max_ha) {
 	maxHA = max_ha;
 }
 
+int RandGen::getN() {
+	return N;
+}
+int RandGen::getProb() {
+	return Prob;
+}
+int RandGen::getES() {
+	return eS;
+}
+int RandGen::getET() {
+	return eT;
+}
+int RandGen::getEG() {
+	return eG;
+}
+int RandGen::getAS() {
+	return aS;
+}
+int RandGen::getAM() {
+	return aM;
+}
+int RandGen::getAD() {
+	return aD;
+}
 
+//Getters of Earth Power, Health & Attcak Capacity
+int RandGen::getminPE() {
+	return minPE;
+}
+int RandGen::getmaxPE() {
+	return maxPE;
+}
+int RandGen::getminHE() {
+	return minHE;
+}
+int RandGen::getmaxHE() {
+	return maxHE;
+}
+int RandGen::getminCE() {
+	return minCE;
+}
+int RandGen::getmaxCE() {
+	return maxCE;
+}
 
+//Getters of Aliens Power, Health & Attcak Capacity
+int RandGen::getminPA() {
+	return minPA;
+}
+int RandGen::getmaxPA() {
+	return maxPA;
+}
+int RandGen::getminCA() {
+	return minCA;
+}
+int RandGen::getmaxCA() {
+	return maxCA;
+}
+int RandGen::getminHA() {
+	return minHA;
+}
+int RandGen::getmaxHA() {
+	return maxHA;
+}

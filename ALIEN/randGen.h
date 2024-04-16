@@ -51,6 +51,29 @@ public:
 	void setminCA(int min_ca);
 	void setmaxCA(int max_ca);
 
+	int getN();
+	int getProb();
+	int getES();
+	int getET();
+	int getEG();
+	int getAS();
+	int getAM();
+	int getAD();
+
+	int getminPE();
+	int getmaxPE();
+	int getminHE();
+	int getmaxHE();
+	int getminCE();
+	int getmaxCE();
+
+	int getminPA();
+	int getmaxPA();
+	int getminHA();
+	int getmaxHA();
+	int getminCA();
+	int getmaxCA();
+
 
 	Units* createUnit(int n, int prob, int jt, int es, int et, int eg, int as, int ad,
 		int am, int minHealthE, int maxHealthE, int minPowerE, int maxPowerE, int minAttckCapE, int maxAttckCapE,

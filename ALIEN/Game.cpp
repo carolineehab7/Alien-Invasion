@@ -9,7 +9,6 @@ Game::Game() {
 	Time_step = 1;
 	KilledList = new LinkedQueue<Units*>;
 
-
 }
 
 bool Game::KilledListfunc(Units* killunit) {
@@ -43,6 +42,7 @@ void Game::LoadFromFile() {
 	inpfile.ignore();
 	inpfile >> maxCA;
 
+	randGenPtr->setN(n);
 	randGenPtr->setES(ES);
 	randGenPtr->setET(ET);
 	randGenPtr->setEG(EG);
@@ -62,6 +62,7 @@ void Game::LoadFromFile() {
 	randGenPtr->setmaxHA(maxHA);
 	randGenPtr->setminCA(minCA);
 	randGenPtr->setmaxCA(maxCA);
+
 	//randobj.setN(n);
 	//randobj.setES(ES);
 	//randobj.setET(ET);
@@ -118,7 +119,10 @@ void Game::TestCode() {
 	LoadFromFile();
 	while (Time_step<50)
 	{
-
+		randGenPtr->createUnit(randGenPtr->getN(), randGenPtr->getProb(), Time_step, randGenPtr->getES(), randGenPtr->getET(), randGenPtr->getEG(),
+			randGenPtr->getAS(), randGenPtr->getAD(), randGenPtr->getAM(), randGenPtr->getminHE(), randGenPtr->getmaxHE(), randGenPtr->getminPE(), randGenPtr->getmaxPE(),
+			randGenPtr->getminCE(), randGenPtr->getmaxCE(), randGenPtr->getminHA(), randGenPtr->getmaxHA(), randGenPtr->getminPA(), randGenPtr->getmaxPA(),
+			randGenPtr->getminCA(), randGenPtr->getmaxCA());
 		int X = rand() % (100 - 1 + 1) + 1;
 
 		if (X > 0 && X < 10) {
@@ -142,11 +146,11 @@ void Game::TestCode() {
 			}
 		}
 		else if (X > 40 && X < 50) {
-			AM* temp;
+			/*AM* temp;
 			getAlienArmyptr()->addUnit([Monsters_Arr[i]]);
 			temp = Monster_Arr[M_ArrSize--];
 			Monster_Arr[M_ArrSize] = Monsters_Arr[i];
-			[Monsters_Arr[i] = temp;
+			[Monsters_Arr[i] = temp;*/
 		}
 		else if (X > 50 && X < 60) {
 			
