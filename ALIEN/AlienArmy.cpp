@@ -19,6 +19,7 @@ AlienArmy::AlienArmy(int M_ArrSize) {
 	for (int i = 0; i < M_ArrSize; ++i) {
 		Monsters_Arr[i] = NULL;
 		Empty_Monst_Index.enqueue(i);
+		Mcount++;
 	}
 }
 AS* AlienArmy::pickAS() {
@@ -59,42 +60,45 @@ bool AlienArmy::addUnit(Units* U) {
 }
 
 void AlienArmy::printAA() {
+	//if (!(AS_LIST.length || AD_LIST.isEmpty() || Mcount = 0) {
+		cout << "============== Alien Army Alive Units ==============" << endl;
 
-	cout << "============== Alien Army Alive Units ==============" << endl;
+		cout << AS_LIST.length << " AS [ ";
 
-	cout << AS_LIST.length << " AS [ ";
+		Node<AS*>* Temp = AS_LIST.getfrontPtr();  // Temp Points to the Head
 
-	Node<AS*>* Temp = AS_LIST.getfrontPtr();  // Temp Points to the Head
-
-	while (Temp) {
-		cout << Temp->getItem()->getID() << " ";
-		Temp = Temp->getNext();
-	}
-	cout << " ]" << endl;
-
- ////////////////////////////////////////////////////////////////////////
-
-	cout << monstersCounter << " AM [ ";
-	for (int i = 0; i < M_ArrSize; ++i) {
-		if(Monsters_Arr[i]!=NULL){
-		cout << Monsters_Arr[i]->getID() << ", ";
+		while (Temp) {
+			cout << Temp->getItem()->getID() << " ";
+			Temp = Temp->getNext();
 		}
-	}
+		cout << " ]" << endl;
 
-	cout << " ]" << endl;
+		////////////////////////////////////////////////////////////////////////
 
- ////////////////////////////////////////////////////////////////////////
+		cout << monstersCounter << " AM [ ";
+		for (int i = 0; i < M_ArrSize; ++i) {
+			if (Monsters_Arr[i] != NULL) {
+				cout << Monsters_Arr[i]->getID() << ", ";
+			}
+		}
 
-	cout << AD_LIST.length << " AD [ ";
+		cout << " ]" << endl;
 
-	Node<AD>* Temp2 = AD_LIST.getFrontPTR();  // Temp Points to the Head
+		////////////////////////////////////////////////////////////////////////
 
-	while (Temp2) {
-		cout << Temp2->getItem().getID() << " ";
-		Temp2 = Temp2->getNext();
-	}
+		cout << AD_LIST.length << " AD [ ";
 
-	cout << " ]" << endl;
+		Node<AD>* Temp2 = AD_LIST.getFrontPTR();  // Temp Points to the Head
+
+		while (Temp2) {
+			cout << Temp2->getItem().getID() << " ";
+			Temp2 = Temp2->getNext();
+		}
+
+		cout << " ]" << endl;
+	//}
+
+	
 
 }
 

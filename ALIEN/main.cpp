@@ -8,9 +8,9 @@
 using namespace std;
 
 int main() {
-	Game* ptr = nullptr;
+	Game p;
 	//ptr->TestCode();
-	ptr->TestCode();
+	p.TestCode();
 	//EarthArmy p;
 	//AlienArmy t;
 	//p.printEA();

@@ -8,6 +8,7 @@ using namespace std;
 Game::Game() {
 	Time_step = 1;
 	KilledList = new LinkedQueue<Units*>;
+	randGenPtr = new RandGen;
 
 }
 
@@ -123,6 +124,7 @@ void Game::TestCode() {
 			randGenPtr->getAS(), randGenPtr->getAD(), randGenPtr->getAM(), randGenPtr->getminHE(), randGenPtr->getmaxHE(), randGenPtr->getminPE(), randGenPtr->getmaxPE(),
 			randGenPtr->getminCE(), randGenPtr->getmaxCE(), randGenPtr->getminHA(), randGenPtr->getmaxHA(), randGenPtr->getminPA(), randGenPtr->getmaxPA(),
 			randGenPtr->getminCA(), randGenPtr->getmaxCA());
+		
 		int X = rand() % (100 - 1 + 1) + 1;
 
 		if (X > 0 && X < 10) {
@@ -155,7 +157,7 @@ void Game::TestCode() {
 		else if (X > 50 && X < 60) {
 			
 		}
-		PrintALL();
+		//PrintALL();
 		cout << "Press any key to move to next timestep";
 		Time_step++;
 	}
