@@ -43,7 +43,6 @@ void Game::LoadFromFile() {
 	inpfile.ignore();
 	inpfile >> maxCA;
 
-	randGenPtr->setN(n);
 	randGenPtr->setES(ES);
 	randGenPtr->setET(ET);
 	randGenPtr->setEG(EG);
@@ -63,6 +62,26 @@ void Game::LoadFromFile() {
 	randGenPtr->setmaxHA(maxHA);
 	randGenPtr->setminCA(minCA);
 	randGenPtr->setmaxCA(maxCA);
+	//randobj.setN(n);
+	//randobj.setES(ES);
+	//randobj.setET(ET);
+	//randobj.setEG(EG);
+	//randobj.setAM(AM);
+	//randobj.setAS(AS);
+	//randobj.setAD(AD);
+	//randobj.setProb(prob);
+	//randobj.setminPE(minPE);
+	//randobj.setmaxPE(maxPE);
+	//randobj.setminHE(minHE);
+	//randobj.setmaxHE(maxHE);
+	//randobj.setminCE(minCE);
+	//randobj.setmaxCE(maxCE);
+	//randobj.setminPA(minPA);
+	//randobj.setmaxPA(maxPA);
+	//randobj.setminHA(minHA);
+	//randobj.setmaxHA(maxHA);
+	//randobj.setminCA(minCA);
+	//randobj.setmaxCA(maxCA);
 
 	inpfile.close();
 }
@@ -123,7 +142,11 @@ void Game::TestCode() {
 			}
 		}
 		else if (X > 40 && X < 50) {
-			getAlienArmyptr()->pickAM();
+			AM* temp;
+			getAlienArmyptr()->addUnit([Monsters_Arr[i]]);
+			temp = Monster_Arr[M_ArrSize--];
+			Monster_Arr[M_ArrSize] = Monsters_Arr[i];
+			[Monsters_Arr[i] = temp;
 		}
 		else if (X > 50 && X < 60) {
 			
