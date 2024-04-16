@@ -8,7 +8,9 @@
 #include"priNode.h"
 #include"EarthArmy.h"
 #include"LinkedQueue.h"
+#include"Node.h"
 using namespace std;
+
 EarthArmy::EarthArmy() {
 
 }
@@ -49,16 +51,18 @@ ET* EarthArmy::pickET()
 	return ETptr;
 }
 
+
 void EarthArmy::printEA() {
-/*
+
+	Units* U;
+
 	cout << "============== Earth Army Alive Units ==============" << endl;
 
 	cout << ES_LIST.length << " ES [ ";
-	
-		//Node<ES>* Temp = getfrontPtr();  // Temp Points to the Head
+	 Node<ES*>* Temp = ES_LIST.getfrontPtr();  // Temp Points to the Head
 
 		while (Temp) {
-			cout << Temp->getItem().getID() << " ";
+			cout << Temp->getItem()->getID() << ", ";
 			Temp = Temp->getNext();
 		}
 
@@ -67,24 +71,26 @@ void EarthArmy::printEA() {
  ////////////////////////////////////////////////////////////////////////
 
 	cout << EG_LIST.length << " EG [ ";
-
-	priNode<EG>* Temp = getHead();  // Temp Points to the Head
-
-	while (Temp) {
-		cout << Temp->getItem().getID() << " ";
-		Temp = Temp->getNext();
+	priNode<EG*>* Temp2 = EG_LIST.getHead();  // Temp Points to the Head
+	int x;
+	while (Temp2) {
+		cout << Temp2->getItem(x)->getID() << " ";
+		Temp2 = Temp2->getNext();
 	}
 
 	cout << " ]" << endl;
 
  ////////////////////////////////////////////////////////////////////////
 
-	cout << ET_LIST.getTop() << " ET [ ";
-		for (int i = getTop(); i >= 0; --i) {
+/*
+	cout << ET_LIST.getTop()+1 << " ET [ ";
+
+		for (int i =getTop(); i >= 0; --i) {
 			cout << items[i] << " ";
 		}
 	cout << " ]" << endl;
 */
+
 }
 
 

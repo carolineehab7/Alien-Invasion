@@ -6,6 +6,9 @@
 using namespace std;
 
 class Dequeue :public LinkedQueue<AD> {
+private:
+	Node<AD>* backPtr;
+	Node<AD>* frontPtr;
 
 public:
 
@@ -29,9 +32,7 @@ public:
 	bool backdequeue(const AD& ad) {
 
 		if (isEmpty())
-			return false;
-
-		//nodePrevDelete->getNext() = nodeToDeletePtr  
+			return false; 
 
 		Node<AD>* nodeToDeletePtr = getbackPtr();
 		Node<AD>* curr = getfrontPtr();
@@ -53,4 +54,11 @@ public:
 
 	}
 
+	Node<AD>* getFrontPTR() {
+		return frontPtr;
+	}
+
+	Node<AD>* getBackPTR() {
+		return backPtr;
+	}
 };
