@@ -63,10 +63,12 @@ public:
 	}
 
 	/*
-	ret
-	
-	
+	T getItems() {
+
+		return items[MAX_SIZE];
+	}
 	*/
+
 }; // end ArrayStack
 
 #endif

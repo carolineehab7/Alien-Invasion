@@ -82,14 +82,15 @@ void EarthArmy::printEA() {
 
  ////////////////////////////////////////////////////////////////////////
 
-/*
+	/*
 	cout << ET_LIST.getTop()+1 << " ET [ ";
-
-		for (int i =getTop(); i >= 0; --i) {
-			cout << items[i] << " ";
+	
+		for (int i = ET_LIST.getTop() + 1; i >= 0; --i) {
+			cout << ET_LIST.getItems()->getID() << " ";
 		}
+
 	cout << " ]" << endl;
-*/
+	*/
 
 }
 
