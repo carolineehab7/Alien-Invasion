@@ -1,6 +1,0 @@
-﻿  Game.cpp
-  main.cpp
-  RandGen.cpp
-  Generating Code...
-C:\Users\Caroline\source\repos\Alien-Invasion\ALIEN\RandGen.cpp(61,1): warning C4715: 'RandGen::createUnit': not all control paths return a value
-  ALIEN.vcxproj -> C:\Users\Caroline\source\repos\Alien-Invasion\x64\Debug\ALIEN.exe
