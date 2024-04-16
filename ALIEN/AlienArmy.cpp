@@ -59,15 +59,15 @@ bool AlienArmy::addUnit(Units* U) {
 }
 
 void AlienArmy::printAA() {
-/*
+
 	cout << "============== Alien Army Alive Units ==============" << endl;
 
 	cout << AS_LIST.length << " AS [ ";
 
-	Node<AS>* Temp = getfrontPtr();  // Temp Points to the Head
+	Node<AS*>* Temp = AS_LIST.getfrontPtr();  // Temp Points to the Head
 
 	while (Temp) {
-		cout << Temp->getItem().getID() << " ";
+		cout << Temp->getItem()->getID() << " ";
 		Temp = Temp->getNext();
 	}
 	cout << " ]" << endl;
@@ -77,7 +77,7 @@ void AlienArmy::printAA() {
 	cout << monstersCounter << " AM [ ";
 	for (int i = 0; i < M_ArrSize; ++i) {
 		if(Monsters_Arr[i]!=NULL){
-		cout << Monsters_Arr[i]->getID() << " ";
+		cout << Monsters_Arr[i]->getID() << ", ";
 		}
 	}
 
@@ -87,15 +87,15 @@ void AlienArmy::printAA() {
 
 	cout << AD_LIST.length << " AD [ ";
 
-	Node<AD>* Temp = getfrontPtr();  // Temp Points to the Head
+	Node<AD>* Temp2 = AD_LIST.getFrontPTR();  // Temp Points to the Head
 
-	while (Temp) {
-		cout << Temp->getItem().getID() << " ";
-		Temp = Temp->getNext();
+	while (Temp2) {
+		cout << Temp2->getItem().getID() << " ";
+		Temp2 = Temp2->getNext();
 	}
 
 	cout << " ]" << endl;
-*/
+
 }
 
 
