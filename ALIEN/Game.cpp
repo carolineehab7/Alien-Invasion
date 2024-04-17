@@ -138,7 +138,9 @@ void Game::TestCode() {
 			
 		}
 		PrintALL();
-		cout << "Press any key to move to next timestep" << endl;
+		cout << "Press any key to move to the next timestep" << endl;
+		//cin.get(); 
+		//clearScreen(); 
 		Time_step++;
 	}
 

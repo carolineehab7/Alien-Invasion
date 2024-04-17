@@ -77,9 +77,8 @@ bool AlienArmy::addUnit(Units* U) {
 }
 
 void AlienArmy::printAA() {
-	if (!(AS_LIST->isEmpty())) {
-		if (!(AD_LIST.isEmpty())) {
-			if (monstersCounter != 0) {
+	if (!(AS_LIST->isEmpty() || AD_LIST.isEmpty()) || monstersCounter!=0) {
+		
 				cout << "============== Alien Army Alive Units ==============" << endl;
 
 				cout << AS_LIST->length << " AS [ ";
@@ -114,8 +113,8 @@ void AlienArmy::printAA() {
 				}
 
 				cout << " ]" << endl;
-			}
-		}
+			
+		
 	}
 
 }
