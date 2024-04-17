@@ -61,6 +61,13 @@ public:
 
 		return top;
 	}
+	/*void printARS() const {
+		int x;
+		for (int i = getTop() + 1; i >= 0; --i) {
+			cout << peek(x) << " ";
+			pop(x);
+		}
+	}*/
 
 	/*
 	T getItems() {
@@ -68,6 +75,7 @@ public:
 		return items[MAX_SIZE];
 	}
 	*/
+
 
 }; // end ArrayStack
 

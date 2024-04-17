@@ -10,23 +10,23 @@
 using namespace std;
 
 AlienArmy::AlienArmy() {
+
+}
+AlienArmy::AlienArmy(int M_ArrSize) {
 	M_ArrSize = 0;
 	monstersCounter = 0;
-	AS_LIST = new LinkedQueue<AS*>;
-}
-
-AlienArmy::AlienArmy(int M_ArrSize) {
 	Monsters_Arr = new AM * [M_ArrSize];
 	monstersCounter = 0;
 	for (int i = 0; i < M_ArrSize; ++i) {
 		Monsters_Arr[i] = NULL;
 		Empty_Monst_Index.enqueue(i);
-		//Mcount++;
+		
 	}
+	
 }
 AS* AlienArmy::pickAS() {
 	AS* ASptr;
-	AS_LIST->dequeue(ASptr);
+	AS_LIST.dequeue(ASptr);
 	return ASptr;
 }
 AM* AlienArmy::pickAM() {
@@ -56,7 +56,7 @@ AM* AlienArmy::pickAM() {
 
 bool AlienArmy::addUnit(Units* U) {
 	if (U->getType() == "AS")
-		return AS_LIST->enqueue(dynamic_cast<AS*>(U));
+		return AS_LIST.enqueue(dynamic_cast<AS*>(U));
 
 	else if (U->getType() == "AD")
 		return AD_LIST.frontenqueue(*dynamic_cast<AD*>(U));
@@ -77,17 +77,12 @@ bool AlienArmy::addUnit(Units* U) {
 }
 
 void AlienArmy::printAA() {
-	if (!(AS_LIST->isEmpty() || AD_LIST.isEmpty()) || monstersCounter!=0) {
+	
 		
 				cout << "============== Alien Army Alive Units ==============" << endl;
 
-				cout << AS_LIST->length << " AS [ ";
-				Node<AS*>* Temp = AS_LIST->getfrontPtr();  // Temp Points to the Head
-
-				while (Temp) {
-					cout << Temp->getItem()->getID() << " ";
-					Temp = Temp->getNext();
-				}
+				cout << AS_LIST.length << " AS [ ";
+				AS_LIST.printLQ();
 				cout << " ]" << endl;
 
 				////////////////////////////////////////////////////////////////////////
@@ -115,7 +110,7 @@ void AlienArmy::printAA() {
 				cout << " ]" << endl;
 			
 		
-	}
+	
 
 }
 

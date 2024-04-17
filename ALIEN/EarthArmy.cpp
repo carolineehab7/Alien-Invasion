@@ -67,7 +67,6 @@ void EarthArmy::printEA() {
 		cout << "============== Earth Army Alive Units ==============" << endl;
 
 		cout << ES_LIST.length << " ES [ ";
-		//Node<ES*>* Temp = ES_LIST.getfrontPtr();  // Temp Points to the Head
 		ES_LIST.printLQ();
 
 		cout << " ]" << endl;
@@ -75,12 +74,6 @@ void EarthArmy::printEA() {
 		////////////////////////////////////////////////////////////////////////
 
 		cout << EG_LIST.length << " EG [ ";
-		//priNode<EG*>* Temp2 = EG_LIST.getHead();  // Temp Points to the Head
-		//int x;
-		//while (Temp2) {
-		//	cout << Temp2->getItem(x)->getID() << " ";
-		//	Temp2 = Temp2->getNext();
-		//}
 		//EG_LIST.printPriQ();
 
 		cout << " ]" << endl;
