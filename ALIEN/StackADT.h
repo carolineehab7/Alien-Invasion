@@ -13,7 +13,7 @@ class StackADT
 public:
     /** checks whether this stack is empty.
      @return  True if the stack is empty, or false if not. */
-    virtual bool isEmpty() const = 0;
+    virtual bool isEmpty() = 0;
 
     /** Adds a new entry to the top of this stack.
      @post  If the operation was successful, newEntry is at the top of the stack.
@@ -32,7 +32,7 @@ public:
      @post  If the operation was successful, the top item of the stack
         has been copied to TopEntry parameter.
      @return  True if stack is not empty or false if not. */
-    virtual bool peek(T& TopEntry) const = 0;
+    virtual bool peek(T& TopEntry) = 0;
 
     /** Destroys this stack and frees its assigned memory. */
     virtual ~StackADT() { }

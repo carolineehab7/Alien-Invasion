@@ -12,7 +12,7 @@ class QueueADT
 public:
    /** Sees whether this queue is empty.
     @return  True if the queue is empty, or false if not. */
-   virtual bool isEmpty() const = 0;
+   virtual bool isEmpty() = 0;
    
    /** Adds a new entry to the back of this queue.
     @post  If the operation was successful, newEntry is at the
@@ -32,7 +32,7 @@ public:
     @post  The front of the queue has been copied to FrontEntry param , and the
        queue is unchanged.
     @return  The front of the queue. */
-   virtual bool peek(T& FrontEntry) const = 0;
+   virtual bool peek(T& FrontEntry)  = 0;
    
    /** Destroys this queue and frees its memory. */
    virtual ~QueueADT() { }

@@ -12,7 +12,7 @@ private:
 
 public:
 
-	bool frontenqueue(const AD&ad) {
+	bool frontenqueue( AD&ad) {
 
 		Node<AD>* newNodePtr = new Node<AD>(ad);  // Insert the new node
 
@@ -29,7 +29,7 @@ public:
 
  ////////////////////////////////////////////////////////////////////////////////
 
-	bool backdequeue(const AD& ad) {
+	bool backdequeue( AD& ad) {
 
 		if (isEmpty())
 			return false; 

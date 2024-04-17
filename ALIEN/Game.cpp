@@ -64,27 +64,6 @@ void Game::LoadFromFile() {
 	randGenPtr->setminCA(minCA);
 	randGenPtr->setmaxCA(maxCA);
 
-	//randobj.setN(n);
-	//randobj.setES(ES);
-	//randobj.setET(ET);
-	//randobj.setEG(EG);
-	//randobj.setAM(AM);
-	//randobj.setAS(AS);
-	//randobj.setAD(AD);
-	//randobj.setProb(prob);
-	//randobj.setminPE(minPE);
-	//randobj.setmaxPE(maxPE);
-	//randobj.setminHE(minHE);
-	//randobj.setmaxHE(maxHE);
-	//randobj.setminCE(minCE);
-	//randobj.setmaxCE(maxCE);
-	//randobj.setminPA(minPA);
-	//randobj.setmaxPA(maxPA);
-	//randobj.setminHA(minHA);
-	//randobj.setmaxHA(maxHA);
-	//randobj.setminCA(minCA);
-	//randobj.setmaxCA(maxCA);
-
 	inpfile.close();
 }
 RandGen* Game::getRandGenptr() {
@@ -97,8 +76,8 @@ AlienArmy* Game::getAlienArmyptr() {
 	return AA;
 }
 void Game::PrintALL() {
-	getEarthArmyptr()->printEA();
-	getAlienArmyptr()->printAA();
+	EA->printEA();
+	AA->printAA();
 	printKillList();
 }
 void Game::printKillList() {
@@ -128,10 +107,10 @@ void Game::TestCode() {
 		int X = rand() % (100 - 1 + 1) + 1;
 
 		if (X > 0 && X < 10) {
-			getEarthArmyptr()->addUnit(getEarthArmyptr()->pickES());
+			EA->addUnit(EA->pickES());
 		}
 		else if (X > 10 && X < 20) {
-			KilledListfunc(getEarthArmyptr()->pickET());
+			KilledListfunc(EA->pickET());
 		}
 		else if (X > 20 && X < 30) {
 			EG* p = getEarthArmyptr()->pickEG();
@@ -148,16 +127,12 @@ void Game::TestCode() {
 			}
 		}
 		else if (X > 40 && X < 50) {
-			/*AM* temp;
-			getAlienArmyptr()->addUnit([Monsters_Arr[i]]);
-			temp = Monster_Arr[M_ArrSize--];
-			Monster_Arr[M_ArrSize] = Monsters_Arr[i];
-			[Monsters_Arr[i] = temp;*/
+			getAlienArmyptr()->pickAM();
 		}
 		else if (X > 50 && X < 60) {
 			
 		}
-		//PrintALL();
+		PrintALL();
 		cout << "Press any key to move to next timestep";
 		Time_step++;
 	}

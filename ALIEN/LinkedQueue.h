@@ -56,10 +56,10 @@ private:
 public:
 	int length;
 	LinkedQueue();
-	bool isEmpty() const;
+	bool isEmpty();
 	bool enqueue(const T& newEntry);
 	bool dequeue(T& frntEntry);
-	bool peek(T& frntEntry)  const;
+	bool peek(T& frntEntry) ;
 	void setbackPtr(Node<T>* bptr);
 	void setfrontPtr(Node<T>* fptr);
 	Node<T>* getbackPtr();
@@ -91,7 +91,7 @@ Input: None.
 Output: True if the queue is empty; otherwise false.
 */
 template <typename T>
-bool LinkedQueue<T>::isEmpty() const
+bool LinkedQueue<T>::isEmpty() 
 {
 	return (frontPtr == nullptr || length == 0 );
 }
@@ -163,7 +163,7 @@ Output: The front of the queue.
 */
 
 template <typename T>
-bool LinkedQueue<T>::peek(T& frntEntry) const
+bool LinkedQueue<T>::peek(T& frntEntry) 
 {
 	if (isEmpty())
 		return false;

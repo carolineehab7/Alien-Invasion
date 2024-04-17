@@ -26,7 +26,7 @@ public:
 		top = -1;
 	}  // end default constructor
 
-	bool isEmpty() const
+	bool isEmpty() 
 	{
 		return top == -1;
 	}  // end isEmpty
@@ -49,7 +49,7 @@ public:
 		return true;
 	}  // end pop
 
-	bool peek(T& TopEntry) const
+	bool peek(T& TopEntry) 
 	{
 		if (isEmpty()) return false;
 

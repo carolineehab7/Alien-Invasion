@@ -41,19 +41,16 @@ void RandGen::createUnit(int n, int prob, int jt, int es, int et, int eg, int as
 				AS* as1 = new AS(IDA, "AS", jt, healthA, powerA, attckCapA);
 				IDA++;
 				gameptr->getAlienArmyptr()->addUnit(as1);
-				//return as1;
 			}
 			else if (B < as + ad) {
 				AD* ad1 = new AD(IDA, "AD", jt, healthA, powerA, attckCapA);
 				IDA++;
 				gameptr->getAlienArmyptr()->addUnit(ad1);
-				//return ad1;
 			}
 			else {
 				AM* am1 = new AM(IDA, "AM", jt, healthA, powerA, attckCapA);
 				IDA++;
 				gameptr->getAlienArmyptr()->addUnit(am1);
-				//return am1;
 			}
 
 		}

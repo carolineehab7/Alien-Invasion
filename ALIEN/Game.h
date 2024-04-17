@@ -17,7 +17,6 @@ private:
 	EarthArmy* EA;
 	AlienArmy* AA;
 	RandGen* randGenPtr;
-	//RandGen randobj;
 	LinkedQueue<Units*>* KilledList;
 	int Time_step;
 public:

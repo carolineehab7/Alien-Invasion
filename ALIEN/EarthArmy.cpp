@@ -33,30 +33,37 @@ bool EarthArmy::addUnit(Units* U) {
 
 ES* EarthArmy::pickES()
 {
-	ES* ESptr;
-	ES_LIST->dequeue(ESptr);
+	ES* ESptr = new ES();
+	//bool check = ES_LIST->isEmpty();
+	//if (!check) 
+	if((ES_LIST->isEmpty()))
+		ES_LIST->dequeue(ESptr);
 	return ESptr;
 }
 
 EG* EarthArmy::pickEG()
 {
-	EG* EGptr;
+	EG* EGptr = NULL;
 	int pri = 1;
-	EG_LIST->dequeue(EGptr,pri);
+	if (!EG_LIST->isEmpty()) {
+		EG_LIST->dequeue(EGptr, pri);
+	}
+	
 	return EGptr;
 }
 
 ET* EarthArmy::pickET()
 {
-	ET* ETptr;
-	ET_LIST->pop(ETptr);
-
+	ET* ETptr = NULL;
+	if (!ET_LIST->isEmpty()) {
+		ET_LIST->pop(ETptr);
+	}
 	return ETptr;
 }
 
 
 void EarthArmy::printEA() {
-	if (!(ES_LIST->isEmpty() || EG_LIST->isEmpty() || ET_LIST->isEmpty())) {
+	if (!(ES_LIST->length || EG_LIST->length || ET_LIST->isEmpty())) {
 
 		Units* U;
 
@@ -105,6 +112,7 @@ void EarthArmy::printEA() {
 			ET_LIST->push(t);
 		}
 	}
+}
 
 	/*
 	cout << ET_LIST.getTop()+1 << " ET [ ";
@@ -116,7 +124,7 @@ void EarthArmy::printEA() {
 	cout << " ]" << endl;
 	*/
 
-}
+//}
 
 
 EarthArmy::~EarthArmy() {
