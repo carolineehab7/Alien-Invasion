@@ -74,7 +74,7 @@ void EarthArmy::printEA() {
 		////////////////////////////////////////////////////////////////////////
 
 		cout << EG_LIST.length << " EG [ ";
-		//EG_LIST.printPriQ();
+		EG_LIST.printPriQ();
 
 		cout << " ]" << endl;
 

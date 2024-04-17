@@ -22,6 +22,7 @@ AlienArmy::AlienArmy(int M_ArrSize) {
 		Empty_Monst_Index.enqueue(i);
 		
 	}
+	ADArr = new AD*[2];
 	
 }
 AS* AlienArmy::pickAS() {
@@ -42,17 +43,18 @@ AM* AlienArmy::pickAM() {
 	return temp;
 }
 
-//AD** AlienArmy::pickAD() {
-//	if (AD_LIST.length % 2 == 0) {
-//		AD* front = NULL;
-//		AD* rear = NULL;
-//		AD_LIST.dequeue(*front);
-//		AD_LIST.backdequeue(*rear);
-//		ADArr[0] = front;
-//		ADArr[1] = rear;
-//	}
-//	return ADArr;
-//}
+AD** AlienArmy::pickAD() {
+	
+	if (AD_LIST.length % 2 == 0) {
+		AD* front = new AD();
+		AD* rear = new AD();
+		AD_LIST.dequeue(*front);
+		AD_LIST.backdequeue(*rear);
+		ADArr[0] = front;
+		ADArr[1] = rear;
+	}
+	return ADArr;
+}
 
 bool AlienArmy::addUnit(Units* U) {
 	if (U->getType() == "AS")
