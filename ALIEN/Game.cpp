@@ -142,7 +142,6 @@ void Game::TestCode() {
 		PrintALL();
 		
 		cout << "Press any key to move to the next timestep" << endl;
-		cout << "Time " << Time_step;
 		Sleep(300);
 		Time_step++;
 		system("CLS");

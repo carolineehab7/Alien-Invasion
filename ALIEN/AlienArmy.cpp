@@ -14,7 +14,6 @@ AlienArmy::AlienArmy() {
 	M_ArrSize = 50;
 	monstersCounter = 0;
 	Monsters_Arr = new AM * [M_ArrSize];
-	monstersCounter = 0;
 	for (int i = 0; i < M_ArrSize; ++i) {
 		Monsters_Arr[i] = NULL;
 		Empty_Monst_Index.enqueue(i);

@@ -12,9 +12,7 @@
 using namespace std;
 
 EarthArmy::EarthArmy() {
-	/*ES_LIST = new LinkedQueue<ES*>;
-	EG_LIST = new priQueue<EG*>;
-	ET_LIST = new ArrayStack<ET*>;*/
+	
 ;
 }
 

@@ -16,9 +16,6 @@ int EG::getScore() {
 	return Score;
 }
 
-//EG EG ::operator < (EG* obj1) {
-//	getScore(this->Power, this->Health) < getScore(obj1->Power, obj1->Health);
-//}
 
 void EG::attack() {
 
