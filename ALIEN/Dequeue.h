@@ -16,8 +16,10 @@ public:
 
 		Node<AD>* newNodePtr = new Node<AD>(ad);  // Insert the new node
 
-		if (isEmpty())	//special case if this is the first node to insert
-			setbackPtr(newNodePtr); // The queue is empty
+		if (isEmpty()) {//special case if this is the first node to insert
+			setbackPtr(newNodePtr);
+			setfrontPtr(newNodePtr);
+		}// The queue is empty
 		else {
 			newNodePtr->setNext(getfrontPtr());
 			setfrontPtr(newNodePtr);
