@@ -11,7 +11,7 @@ using namespace std;
 
 AlienArmy::AlienArmy() {
 	M_ArrSize = 0;
-	Mcount = 0;
+	monstersCounter = 0;
 	AS_LIST = new LinkedQueue<AS*>;
 }
 
@@ -21,7 +21,7 @@ AlienArmy::AlienArmy(int M_ArrSize) {
 	for (int i = 0; i < M_ArrSize; ++i) {
 		Monsters_Arr[i] = NULL;
 		Empty_Monst_Index.enqueue(i);
-		Mcount++;
+		//Mcount++;
 	}
 }
 AS* AlienArmy::pickAS() {
@@ -30,11 +30,15 @@ AS* AlienArmy::pickAS() {
 	return ASptr;
 }
 AM* AlienArmy::pickAM() {
+	if (monstersCounter == 0)
+		return NULL;
 	AM* temp = Monsters_Arr[0];
-	for (int i = 0; i < M_ArrSize; i++)
+	for (int i = 0; i < monstersCounter-1; i++)
 	{
 		Monsters_Arr[i] = Monsters_Arr[i + 1];
 	}
+	monstersCounter--;
+
 	return temp;
 }
 
@@ -75,7 +79,7 @@ bool AlienArmy::addUnit(Units* U) {
 void AlienArmy::printAA() {
 	if (!(AS_LIST->isEmpty())) {
 		if (!(AD_LIST.isEmpty())) {
-			if (Mcount != 0) {
+			if (monstersCounter != 0) {
 				cout << "============== Alien Army Alive Units ==============" << endl;
 
 				cout << AS_LIST->length << " AS [ ";
@@ -112,8 +116,6 @@ void AlienArmy::printAA() {
 				cout << " ]" << endl;
 			}
 		}
-		
-		
 	}
 
 }

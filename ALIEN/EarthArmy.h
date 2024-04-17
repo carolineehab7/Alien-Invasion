@@ -13,9 +13,9 @@ using namespace std;
 class EarthArmy {
 
 private:
-	LinkedQueue<ES*>* ES_LIST;
-	priQueue <EG*>* EG_LIST;
-	ArrayStack<ET*>* ET_LIST;
+	LinkedQueue<ES*> ES_LIST;
+	priQueue <EG*> EG_LIST;
+	ArrayStack<ET*> ET_LIST;
 
 public:
 	EarthArmy();

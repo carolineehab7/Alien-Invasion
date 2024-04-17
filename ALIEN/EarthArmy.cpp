@@ -12,20 +12,20 @@
 using namespace std;
 
 EarthArmy::EarthArmy() {
-	ES_LIST = new LinkedQueue<ES*>;
+	/*ES_LIST = new LinkedQueue<ES*>;
 	EG_LIST = new priQueue<EG*>;
-	ET_LIST = new ArrayStack<ET*>;
-
+	ET_LIST = new ArrayStack<ET*>;*/
+;
 }
 
 bool EarthArmy::addUnit(Units* U) {
 
 	if (U->getType() == "ES")
-		ES_LIST->enqueue(dynamic_cast<ES*>(U));
+		ES_LIST.enqueue(dynamic_cast<ES*>(U));
 	else if (U->getType() == "EG")
-		EG_LIST->enqueue(dynamic_cast<EG*>(U),dynamic_cast<EG*>(U)->getScore());
+		EG_LIST.enqueue(dynamic_cast<EG*>(U),dynamic_cast<EG*>(U)->getScore());
 	else if (U->getType() == "ET")
-		ET_LIST->push(dynamic_cast<ET*>(U));
+		ET_LIST.push(dynamic_cast<ET*>(U));
 	else
 		return false;
 	return true;
@@ -33,11 +33,9 @@ bool EarthArmy::addUnit(Units* U) {
 
 ES* EarthArmy::pickES()
 {
-	ES* ESptr = new ES();
-	//bool check = ES_LIST->isEmpty();
-	//if (!check) 
-	if((ES_LIST->isEmpty()))
-		ES_LIST->dequeue(ESptr);
+	ES* ESptr = new ES(); 
+	if((ES_LIST.isEmpty()))
+		ES_LIST.dequeue(ESptr);
 	return ESptr;
 }
 
@@ -45,8 +43,8 @@ EG* EarthArmy::pickEG()
 {
 	EG* EGptr = NULL;
 	int pri = 1;
-	if (!EG_LIST->isEmpty()) {
-		EG_LIST->dequeue(EGptr, pri);
+	if (!EG_LIST.isEmpty()) {
+		EG_LIST.dequeue(EGptr, pri);
 	}
 	
 	return EGptr;
@@ -55,22 +53,22 @@ EG* EarthArmy::pickEG()
 ET* EarthArmy::pickET()
 {
 	ET* ETptr = NULL;
-	if (!ET_LIST->isEmpty()) {
-		ET_LIST->pop(ETptr);
+	if (!ET_LIST.isEmpty()) {
+		ET_LIST.pop(ETptr);
 	}
 	return ETptr;
 }
 
 
 void EarthArmy::printEA() {
-	if (!(ES_LIST->length || EG_LIST->length || ET_LIST->isEmpty())) {
+	if (!(ES_LIST.isEmpty() || EG_LIST.isEmpty() || ET_LIST.isEmpty())) {
 
 		Units* U;
 
 		cout << "============== Earth Army Alive Units ==============" << endl;
 
-		cout << ES_LIST->length << " ES [ ";
-		Node<ES*>* Temp = ES_LIST->getfrontPtr();  // Temp Points to the Head
+		cout << ES_LIST.length << " ES [ ";
+		Node<ES*>* Temp = ES_LIST.getfrontPtr();  // Temp Points to the Head
 
 		while (Temp) {
 			cout << Temp->getItem()->getID() << ", ";
@@ -81,8 +79,8 @@ void EarthArmy::printEA() {
 
 		////////////////////////////////////////////////////////////////////////
 
-		cout << EG_LIST->length << " EG [ ";
-		priNode<EG*>* Temp2 = EG_LIST->getHead();  // Temp Points to the Head
+		cout << EG_LIST.length << " EG [ ";
+		priNode<EG*>* Temp2 = EG_LIST.getHead();  // Temp Points to the Head
 		int x;
 		while (Temp2) {
 			cout << Temp2->getItem(x)->getID() << " ";
@@ -93,23 +91,23 @@ void EarthArmy::printEA() {
 
 		////////////////////////////////////////////////////////////////////////
 
-		cout << ET_LIST->getTop() + 1 << " ET [ ";
+		cout << ET_LIST.getTop() + 1 << " ET [ ";
 		ArrayStack<ET*> Temp3;
 		ET* t;
-		for (int i = 0; i < ET_LIST->getTop() + 1; ++i) {
+		for (int i = 0; i < ET_LIST.getTop() + 1; ++i) {
 
-			ET_LIST->peek(t);
+			ET_LIST.peek(t);
 
 			cout << t->getID() << ', ';
 
-			ET_LIST->pop(t);
+			ET_LIST.pop(t);
 			Temp3.push(t);
 		}
 		cout << " ]" << endl;
 		for (int i = 0; i < Temp3.getTop() + 1; ++i) {
 			Temp3.peek(t);
 			Temp3.pop(t);
-			ET_LIST->push(t);
+			ET_LIST.push(t);
 		}
 	}
 }

@@ -27,7 +27,7 @@ private:
 	int maxCA, minCA;
 	int IDE, IDA;
 public:
-	RandGen();
+	RandGen(Game* p);
 	void setN(int n);
 	void setProb(int p);
 	void setES(int es);

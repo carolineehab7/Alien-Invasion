@@ -1,8 +1,9 @@
 #include "RandGen.h"
 #include "Game.h"
 
-RandGen::RandGen()
+RandGen::RandGen(Game* p)
 {
+	gameptr = p;
 	IDA = 2000;
 	IDE = 1;
 }

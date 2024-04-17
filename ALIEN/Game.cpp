@@ -8,7 +8,9 @@ using namespace std;
 Game::Game() {
 	Time_step = 1;
 	KilledList = new LinkedQueue<Units*>;
-	randGenPtr = new RandGen;
+	randGenPtr = new RandGen(this);
+	EA = new EarthArmy;
+	AA = new AlienArmy;
 
 }
 
@@ -76,8 +78,8 @@ AlienArmy* Game::getAlienArmyptr() {
 	return AA;
 }
 void Game::PrintALL() {
-	EA->printEA();
-	AA->printAA();
+	getEarthArmyptr()->printEA();
+	getAlienArmyptr()->printAA();
 	printKillList();
 }
 void Game::printKillList() {
@@ -99,8 +101,8 @@ void Game::TestCode() {
 	LoadFromFile();
 	while (Time_step<50)
 	{
-		randGenPtr->createUnit(randGenPtr->getN(), randGenPtr->getProb(), Time_step, randGenPtr->getES(), randGenPtr->getET(), randGenPtr->getEG(),
-			randGenPtr->getAS(), randGenPtr->getAD(), randGenPtr->getAM(), randGenPtr->getminHE(), randGenPtr->getmaxHE(), randGenPtr->getminPE(), randGenPtr->getmaxPE(),
+		randGenPtr->createUnit(randGenPtr->getN(), randGenPtr->getProb(), Time_step, randGenPtr->getES(), randGenPtr->getET(), randGenPtr->getEG(),randGenPtr->getAS()
+			, randGenPtr->getAD(), randGenPtr->getAM(), randGenPtr->getminHE(), randGenPtr->getmaxHE(), randGenPtr->getminPE(), randGenPtr->getmaxPE(),
 			randGenPtr->getminCE(), randGenPtr->getmaxCE(), randGenPtr->getminHA(), randGenPtr->getmaxHA(), randGenPtr->getminPA(), randGenPtr->getmaxPA(),
 			randGenPtr->getminCA(), randGenPtr->getmaxCA());
 		
@@ -114,8 +116,11 @@ void Game::TestCode() {
 		}
 		else if (X > 20 && X < 30) {
 			EG* p = getEarthArmyptr()->pickEG();
-			p->setHealth(p->getHealth() / 2);
-			getEarthArmyptr()->addUnit(p);
+			if (p)
+			{
+				p->setHealth(p->getHealth() / 2);
+				getEarthArmyptr()->addUnit(p);
+			}
 
 		}
 		else if (X > 30 && X < 40) {
@@ -133,7 +138,7 @@ void Game::TestCode() {
 			
 		}
 		PrintALL();
-		cout << "Press any key to move to next timestep";
+		cout << "Press any key to move to next timestep" << endl;
 		Time_step++;
 	}
 

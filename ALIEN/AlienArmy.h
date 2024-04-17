@@ -18,8 +18,8 @@ private:
 	Dequeue AD_LIST;
 	LinkedQueue<int> Empty_Monst_Index;
 	AM** Monsters_Arr;
-	int Mcount;
-
+	//int Mcount;
+	//int j;
 public:
 	AlienArmy();
 	int monstersCounter;
