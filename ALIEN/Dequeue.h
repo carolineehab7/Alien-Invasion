@@ -11,7 +11,7 @@ private:
 	Node<AD>* frontPtr;
 
 public:
-
+	int length;
 	bool frontenqueue( AD&ad) {
 
 		Node<AD>* newNodePtr = new Node<AD>(ad);  // Insert the new node
@@ -60,5 +60,12 @@ public:
 
 	Node<AD>* getBackPTR() {
 		return backPtr;
+	}
+	void printDE() {
+		Node<AD>* Temp2 = frontPtr;
+		while (Temp2) {
+			cout << Temp2->getItem().getID() << " ";
+			Temp2 = Temp2->getNext();
+		}
 	}
 };

@@ -24,7 +24,6 @@ private:
 public:
 	AlienArmy();
 	int monstersCounter;
-	AlienArmy(int M_ArrSize);
 	bool addUnit(Units* U);
 	AS* pickAS();
 	AM* pickAM();

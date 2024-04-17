@@ -2,6 +2,7 @@
 #include "RandGen.h"
 #include <fstream>
 #include <iostream>
+#include <windows.h>
 #include "LinkedQueue.h"
 
 using namespace std;
@@ -99,7 +100,7 @@ void Game::TestCode() {
 	LinkedQueue<Units*>* TempList;
 	TempList = new LinkedQueue<Units*>;
 	LoadFromFile();
-	while (Time_step<50)
+	while (Time_step<=50)
 	{
 		randGenPtr->createUnit(randGenPtr->getN(), randGenPtr->getProb(), Time_step, randGenPtr->getES(), randGenPtr->getET(), randGenPtr->getEG(),randGenPtr->getAS()
 			, randGenPtr->getAD(), randGenPtr->getAM(), randGenPtr->getminHE(), randGenPtr->getmaxHE(), randGenPtr->getminPE(), randGenPtr->getmaxPE(),
@@ -132,16 +133,20 @@ void Game::TestCode() {
 			}
 		}
 		else if (X > 40 && X < 50) {
-			getAlienArmyptr()->pickAM();
+			for (int i=0; i<5; i++)
+				getAlienArmyptr()->pickAM();
 		}
 		else if (X > 50 && X < 60) {
 			getAlienArmyptr()->pickAD();
 		}
 		PrintALL();
+		
 		cout << "Press any key to move to the next timestep" << endl;
-		//cin.get(); 
-		//clearScreen(); 
+		cout << "Time " << Time_step;
+		Sleep(300);
 		Time_step++;
+		system("CLS");
+		
 	}
 
 }

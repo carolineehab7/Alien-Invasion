@@ -10,21 +10,19 @@
 using namespace std;
 
 AlienArmy::AlienArmy() {
-
-}
-AlienArmy::AlienArmy(int M_ArrSize) {
-	M_ArrSize = 0;
+	ADArr = new AD *[2];
+	M_ArrSize = 50;
 	monstersCounter = 0;
 	Monsters_Arr = new AM * [M_ArrSize];
 	monstersCounter = 0;
 	for (int i = 0; i < M_ArrSize; ++i) {
 		Monsters_Arr[i] = NULL;
 		Empty_Monst_Index.enqueue(i);
-		
+
 	}
-	ADArr = new AD*[2];
-	
+
 }
+
 AS* AlienArmy::pickAS() {
 	AS* ASptr;
 	AS_LIST.dequeue(ASptr);
@@ -102,12 +100,9 @@ void AlienArmy::printAA() {
 
 				cout << AD_LIST.length << " AD [ ";
 
-				Node<AD>* Temp2 = AD_LIST.getFrontPTR();  // Temp Points to the Head
+				AD_LIST.printDE();
 
-				while (Temp2) {
-					cout << Temp2->getItem().getID() << " ";
-					Temp2 = Temp2->getNext();
-				}
+			
 
 				cout << " ]" << endl;
 			
