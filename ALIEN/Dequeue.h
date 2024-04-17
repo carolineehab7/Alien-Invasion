@@ -18,9 +18,11 @@ public:
 
 		if (isEmpty())	//special case if this is the first node to insert
 			setbackPtr(newNodePtr); // The queue is empty
-		else
+		else {
 			newNodePtr->setNext(getfrontPtr());
-		    setfrontPtr(newNodePtr);
+			setfrontPtr(newNodePtr);
+		}
+			
 
 		length++;
 		return true;
@@ -62,7 +64,7 @@ public:
 		return backPtr;
 	}
 	void printDE() {
-		Node<AD>* Temp2 = frontPtr;
+		Node<AD>* Temp2 = getFrontPTR();
 		while (Temp2) {
 			cout << Temp2->getItem().getID() << " ";
 			Temp2 = Temp2->getNext();
