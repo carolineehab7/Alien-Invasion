@@ -102,8 +102,6 @@ void AlienArmy::printAA() {
 
 				AD_LIST.printDE();
 
-			
-
 				cout << " ]" << endl;
 			
 		
