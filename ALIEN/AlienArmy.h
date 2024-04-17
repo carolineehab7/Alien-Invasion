@@ -19,8 +19,6 @@ private:
 	LinkedQueue<int> Empty_Monst_Index;
 	AM** Monsters_Arr;
 	AD** ADArr;
-	//int Mcount;
-	//int j;
 public:
 	AlienArmy();
 	int monstersCounter;
