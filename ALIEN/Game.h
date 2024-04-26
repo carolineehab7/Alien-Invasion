@@ -28,6 +28,7 @@ public:
 	AlienArmy* getAlienArmyptr();
 	void printKillList();
 
+	void PrintSilent();
 	void PrintALL();
 	void TestCode();
 
