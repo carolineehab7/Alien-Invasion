@@ -53,6 +53,9 @@ public:
 		return true;
 
 	}
+
+ ////////////////////////////////////////////////////////////////////////////////
+
 	void printDE() {
 		Node<AD>* Temp2 = getfrontPtr();
 		while (Temp2) {

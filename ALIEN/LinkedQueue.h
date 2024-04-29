@@ -222,6 +222,9 @@ LinkedQueue<T>::~LinkedQueue()
 	*/
 
 }
+
+ ////////////////////////////////////////////////////////////////////////////////
+
 template <typename T>
 void LinkedQueue<T>::printLQ() const {
 	
