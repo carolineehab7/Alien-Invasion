@@ -6,21 +6,21 @@
 using namespace std;
 
 class Dequeue :public LinkedQueue<AD> {
-private:
-	Node<AD>* backPtr;
-	Node<AD>* frontPtr;
 
 public:
-
 	bool frontenqueue( AD&ad) {
 
 		Node<AD>* newNodePtr = new Node<AD>(ad);  // Insert the new node
 
-		if (isEmpty())	//special case if this is the first node to insert
-			setbackPtr(newNodePtr); // The queue is empty
-		else
+		if (isEmpty()) {
+			setbackPtr(newNodePtr); 
+			setfrontPtr(newNodePtr);//special case if this is the first node to insert
+		}// The queue is empty
+		else {
 			newNodePtr->setNext(getfrontPtr());
-		    setfrontPtr(newNodePtr);
+			setfrontPtr(newNodePtr);
+		}
+			
 
 		length++;
 		return true;
@@ -54,11 +54,13 @@ public:
 
 	}
 
-	Node<AD>* getFrontPTR() {
-		return frontPtr;
-	}
+ ////////////////////////////////////////////////////////////////////////////////
 
-	Node<AD>* getBackPTR() {
-		return backPtr;
+	void printDE() {
+		Node<AD>* Temp2 = getfrontPtr();
+		while (Temp2) {
+			cout << Temp2->getItem().getID() << " ,";
+			Temp2 = Temp2->getNext();
+		}
 	}
 };

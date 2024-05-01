@@ -9,10 +9,8 @@ using namespace std;
 
 int main() {
 	Game p;
-	//ptr->TestCode();
 	p.TestCode();
-	//EarthArmy p;
-	//AlienArmy t;
-	//p.printEA();
-	//t.printAA();
+
+	//p.ProgramMode();
+	
 }

@@ -63,7 +63,18 @@ public:
     priNode<T>* getHead() {
         return head;
     }
+ 
+ ////////////////////////////////////////////////////////////////////////////////
 
+    void printPriQ() const {
+        priNode<T>* Temp2 = head;
+        int x;
+        while (Temp2) {
+            cout << Temp2->getItem(x)->getID() << ", ";
+            Temp2 = Temp2->getNext();
+        }
+    }
+        
     ~priQueue() {
         T tmp;
         int p;

@@ -12,9 +12,7 @@
 using namespace std;
 
 EarthArmy::EarthArmy() {
-	/*ES_LIST = new LinkedQueue<ES*>;
-	EG_LIST = new priQueue<EG*>;
-	ET_LIST = new ArrayStack<ET*>;*/
+	
 ;
 }
 
@@ -61,31 +59,20 @@ ET* EarthArmy::pickET()
 
 
 void EarthArmy::printEA() {
-	if (!(ES_LIST.isEmpty() || EG_LIST.isEmpty() || ET_LIST.isEmpty())) {
 
 		Units* U;
 
 		cout << "============== Earth Army Alive Units ==============" << endl;
 
 		cout << ES_LIST.length << " ES [ ";
-		Node<ES*>* Temp = ES_LIST.getfrontPtr();  // Temp Points to the Head
-
-		while (Temp) {
-			cout << Temp->getItem()->getID() << ", ";
-			Temp = Temp->getNext();
-		}
+		ES_LIST.printLQ();
 
 		cout << " ]" << endl;
 
 		////////////////////////////////////////////////////////////////////////
 
 		cout << EG_LIST.length << " EG [ ";
-		priNode<EG*>* Temp2 = EG_LIST.getHead();  // Temp Points to the Head
-		int x;
-		while (Temp2) {
-			cout << Temp2->getItem(x)->getID() << " ";
-			Temp2 = Temp2->getNext();
-		}
+		EG_LIST.printPriQ();
 
 		cout << " ]" << endl;
 
@@ -109,7 +96,7 @@ void EarthArmy::printEA() {
 			Temp3.pop(t);
 			ET_LIST.push(t);
 		}
-	}
+	
 }
 
 	/*

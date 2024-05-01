@@ -14,16 +14,15 @@ class AlienArmy {
 private:
 
 	int M_ArrSize;
-	LinkedQueue<AS*>* AS_LIST;
-	Dequeue AD_LIST;
+	LinkedQueue<AS*> AS_LIST;
+	Dequeue AD_LIST;  ///////////////////////// Drone DS of objects not Pointers ///////////////////////// 
 	LinkedQueue<int> Empty_Monst_Index;
 	AM** Monsters_Arr;
-	//int Mcount;
-	//int j;
+	AD** ADArr;
+
 public:
 	AlienArmy();
 	int monstersCounter;
-	AlienArmy(int M_ArrSize);
 	bool addUnit(Units* U);
 	AS* pickAS();
 	AM* pickAM();

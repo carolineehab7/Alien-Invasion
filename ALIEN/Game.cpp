@@ -2,6 +2,7 @@
 #include "RandGen.h"
 #include <fstream>
 #include <iostream>
+#include <windows.h>
 #include "LinkedQueue.h"
 
 using namespace std;
@@ -68,20 +69,33 @@ void Game::LoadFromFile() {
 
 	inpfile.close();
 }
+
 RandGen* Game::getRandGenptr() {
 	return randGenPtr;
 }
+
 EarthArmy* Game::getEarthArmyptr() {
 	return EA;
 }
+
 AlienArmy* Game::getAlienArmyptr() {
 	return AA;
 }
+
+void Game::PrintSilent() {
+	cout << "Silent Mode" << endl;
+	cout << "Simulation Starts..." << endl;
+	cout << "Simulation ends, Output file is created" << endl;
+}
+
 void Game::PrintALL() {
+	cout << "Current Timestep " << Time_step<<endl;
 	getEarthArmyptr()->printEA();
 	getAlienArmyptr()->printAA();
 	printKillList();
+	cout << "Press any key to move to the next timestep" << endl;
 }
+
 void Game::printKillList() {
 	cout << "============== Killed/Destructed Units ==============" << endl;
 	cout << KilledList->length << " Units" << " [";
@@ -95,11 +109,15 @@ void Game::printKillList() {
 	}
 	cout << " ]" << endl;
 }
+
 void Game::TestCode() {
 	LinkedQueue<Units*>* TempList;
 	TempList = new LinkedQueue<Units*>;
 	LoadFromFile();
-	while (Time_step<50)
+	char Mode = 0;
+	cout << "Select the Program Mode (S || I): ";
+	cin >> Mode;
+	while (Time_step<=50)
 	{
 		randGenPtr->createUnit(randGenPtr->getN(), randGenPtr->getProb(), Time_step, randGenPtr->getES(), randGenPtr->getET(), randGenPtr->getEG(),randGenPtr->getAS()
 			, randGenPtr->getAD(), randGenPtr->getAM(), randGenPtr->getminHE(), randGenPtr->getmaxHE(), randGenPtr->getminPE(), randGenPtr->getmaxPE(),
@@ -132,17 +150,24 @@ void Game::TestCode() {
 			}
 		}
 		else if (X > 40 && X < 50) {
-			getAlienArmyptr()->pickAM();
+			for (int i=0; i<5; i++)
+				getAlienArmyptr()->pickAM();
 		}
 		else if (X > 50 && X < 60) {
-			
+			getAlienArmyptr()->pickAD();
 		}
-		cout << "Current Timestep " << Time_step << endl;
-		PrintALL();
-		cout << "Press any key to move to next timestep" << endl;
-		Time_step++;
-	}
 
+		if (Mode == 'I') {
+			PrintALL();
+		}
+		else {
+			PrintSilent();
+		}
+
+		Sleep(300);
+		Time_step++;
+		system("CLS");
+	}
 }
 
 Game::~Game() {

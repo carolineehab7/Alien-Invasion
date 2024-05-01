@@ -61,13 +61,22 @@ public:
 
 		return top;
 	}
+	/*void printARS() const {
+		int x;
+		ArrayStack<T*> Temp3;
+		for (int i=0; i<getTop()+1; ++i){
+			peek(x);
+			cout<<
+		}
+	}
 
-	/*
+	
 	T getItems() {
 
 		return items[MAX_SIZE];
-	}
-	*/
+	}*/
+	
+
 
 }; // end ArrayStack
 

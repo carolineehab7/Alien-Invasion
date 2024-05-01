@@ -62,6 +62,7 @@ public:
 	bool peek(T& frntEntry) ;
 	void setbackPtr(Node<T>* bptr);
 	void setfrontPtr(Node<T>* fptr);
+	void printLQ() const;
 	Node<T>* getbackPtr();
 	Node<T>* getfrontPtr();
 	~LinkedQueue();
@@ -220,6 +221,18 @@ LinkedQueue<T>::~LinkedQueue()
 	cout << "\nEnding LinkedQueue destructor..." << endl;
 	*/
 
+}
+
+ ////////////////////////////////////////////////////////////////////////////////
+
+template <typename T>
+void LinkedQueue<T>::printLQ() const {
+	
+	Node<T>* Temp = frontPtr;
+	while (Temp) {
+		cout << Temp->getItem()->getID() << ", ";
+		Temp = Temp->getNext();
+	}
 }
 
 #endif
