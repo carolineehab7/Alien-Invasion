@@ -137,6 +137,7 @@ void Game::TestCode() {
 		else if (X > 50 && X < 60) {
 			
 		}
+		cout << "Current Timestep " << Time_step << endl;
 		PrintALL();
 		cout << "Press any key to move to next timestep" << endl;
 		Time_step++;
