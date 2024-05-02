@@ -5,8 +5,7 @@
 using namespace std;
 
 class Units
-{
-	
+{	
 protected:
 	int ID;
 	string Type;

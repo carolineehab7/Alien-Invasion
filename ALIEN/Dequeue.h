@@ -5,12 +5,12 @@
 #include"Node.h"
 using namespace std;
 
-class Dequeue :public LinkedQueue<AD> {
+class Dequeue :public LinkedQueue<AD*> {
 
 public:
 	bool frontenqueue( AD&ad) {
 
-		Node<AD>* newNodePtr = new Node<AD>(ad);  // Insert the new node
+		Node<AD*>* newNodePtr = new Node<AD*> (ad);  // Insert the new node
 
 		if (isEmpty()) {
 			setbackPtr(newNodePtr); 
@@ -34,8 +34,8 @@ public:
 		if (isEmpty())
 			return false; 
 
-		Node<AD>* nodeToDeletePtr = getbackPtr();
-		Node<AD>* curr = getfrontPtr();
+		Node<AD*>* nodeToDeletePtr = getbackPtr();
+		Node<AD*>* curr = getfrontPtr();
 
 		if (curr == nodeToDeletePtr) {
 			delete curr;
@@ -57,9 +57,9 @@ public:
  ////////////////////////////////////////////////////////////////////////////////
 
 	void printDE() {
-		Node<AD>* Temp2 = getfrontPtr();
+		Node<AD*>* Temp2 = getfrontPtr();
 		while (Temp2) {
-			cout << Temp2->getItem().getID() << " ,";
+			cout << Temp2->getItem()->getID() << " ,";
 			Temp2 = Temp2->getNext();
 		}
 	}

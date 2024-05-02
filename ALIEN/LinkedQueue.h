@@ -63,6 +63,7 @@ public:
 	void setbackPtr(Node<T>* bptr);
 	void setfrontPtr(Node<T>* fptr);
 	void printLQ() const;
+	int getlength();
 	Node<T>* getbackPtr();
 	Node<T>* getfrontPtr();
 	~LinkedQueue();
@@ -230,9 +231,14 @@ void LinkedQueue<T>::printLQ() const {
 	
 	Node<T>* Temp = frontPtr;
 	while (Temp) {
-		cout << Temp->getItem()->getID() << ", ";
+		cout << Temp->getItem() << ", ";
 		Temp = Temp->getNext();
 	}
+}
+template <typename T>
+int LinkedQueue<T>::getlength() {
+
+	return length;
 }
 
 #endif

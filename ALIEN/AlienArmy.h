@@ -21,6 +21,7 @@ private:
 	AD** ADArr;
 
 public:
+	
 	AlienArmy();
 	int monstersCounter;
 	bool addUnit(Units* U);
@@ -28,6 +29,7 @@ public:
 	AM* pickAM();
 	AD** pickAD();
 	void printAA();
+	LinkedQueue<AS*>& getASList();
 	~AlienArmy();
 
 };
