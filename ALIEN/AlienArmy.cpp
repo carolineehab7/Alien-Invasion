@@ -11,7 +11,7 @@ using namespace std;
 
 AlienArmy::AlienArmy() {
 	ADArr = new AD *[2];
-	M_ArrSize = 100; /////////////////////////  Very Small Alien Array Size  /////////////////////////   
+	M_ArrSize = 100;    
 	monstersCounter = 0;
 	Monsters_Arr = new AM * [M_ArrSize];
 	for (int i = 0; i < M_ArrSize; ++i) {
@@ -32,7 +32,7 @@ AM* AlienArmy::pickAM() {
 	if (monstersCounter == 0)
 		return NULL;
 	int ind = rand() % monstersCounter;
-	AM* temp = Monsters_Arr[ind]; /////////////////////////  Always Picking AM at Index[0]  ///////////////////////// 
+	AM* temp = Monsters_Arr[ind]; 
 	Monsters_Arr[ind] = Monsters_Arr[monstersCounter - 1];
 	monstersCounter--;
 
