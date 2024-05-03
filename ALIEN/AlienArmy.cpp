@@ -60,8 +60,9 @@ bool AlienArmy::addUnit(Units* U) {
 
 	else if (U->getType() == "AD")
 	{
-		return AD_LIST.frontenqueue(*dynamic_cast<AD*>(U));
+	  return AD_LIST.frontenqueue(dynamic_cast<AD*>(U));
 	}
+
 	else if (U->getType() == "AM") {
 
 		if (Empty_Monst_Index.isEmpty())

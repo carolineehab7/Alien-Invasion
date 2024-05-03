@@ -7,9 +7,6 @@
 #include "AlienArmy.h"
 using namespace std;
 
-ostream operator<<(ostream& op, Units* uni) {
-	op << uni->getID();
-}
 
 int main() {
 	Game p;

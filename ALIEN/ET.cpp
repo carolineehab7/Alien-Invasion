@@ -9,6 +9,7 @@ ET::ET(int id, string type, int jt, int health, int power, int AC) :Units(id, ty
 }
 void ET::attack()
 {
+
 }
 //void ET::attack(Game * gm) {
 //	et->setAttackCapacity(ET_LIST.getCount());

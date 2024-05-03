@@ -29,7 +29,7 @@ public:
 
 	bool isEmpty() 
 	{
-		return top == -1 || count = 0;
+		return top == -1 || count == 0;
 	}  // end isEmpty
 
 	bool push(const T& newEntry)
