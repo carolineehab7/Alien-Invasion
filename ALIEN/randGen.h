@@ -75,9 +75,7 @@ public:
 	int getmaxCA();
 
 
-	void createUnit(int n, int prob, int jt, int es, int et, int eg, int as, int ad,
-		int am, int minHealthE, int maxHealthE, int minPowerE, int maxPowerE, int minAttckCapE, int maxAttckCapE,
-		int minHealthA, int maxHealthA, int minPowerA, int maxPowerA, int minAttckCapA, int maxAttckCapA);
+	void createUnit();
 
 
 };

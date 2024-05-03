@@ -19,6 +19,9 @@ private:
 	RandGen* randGenPtr;
 	LinkedQueue<Units*>* KilledList;
 	int Time_step;
+	/*ArrayStack<Units*>*HealList;
+	priQueue<Units*>* UML_ES;
+	LinkedQueue<Units*>* UML_ET;*/
 public:
 	Game();
 	bool KilledListfunc(Units* killunit);
@@ -27,11 +30,11 @@ public:
 	EarthArmy* getEarthArmyptr();
 	AlienArmy* getAlienArmyptr();
 	void printKillList();
-
+	void createoutfile();
 	void PrintSilent();
 	void PrintALL();
 	void TestCode();
-
+	int getTime();
 	~Game();
 
 

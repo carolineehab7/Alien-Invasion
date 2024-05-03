@@ -32,7 +32,7 @@ public:
 	~Units();
 };
 
-ostream &operator<<(ostream& op, Units* uni) {
-	op << uni->getID();
-	return op;
-}
+//ostream& operator<<(ostream& op, Units* uni) {
+	//	op << uni->getID();
+	//	return op;
+	//}

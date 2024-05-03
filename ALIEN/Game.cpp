@@ -69,6 +69,13 @@ void Game::LoadFromFile() {
 
 	inpfile.close();
 }
+void Game::createoutfile() {
+	ofstream outfile;
+
+}
+int Game::getTime() {
+	return Time_step;
+}
 
 RandGen* Game::getRandGenptr() {
 	return randGenPtr;
@@ -89,7 +96,7 @@ void Game::PrintSilent() {
 }
 
 void Game::PrintALL() {
-	cout << "Current Timestep " << Time_step<<endl;
+	cout << "Current Timestep " << Time_step <<endl;
 	getEarthArmyptr()->printEA();
 	getAlienArmyptr()->printAA();
 	printKillList();
