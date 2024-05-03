@@ -5,8 +5,7 @@
 using namespace std;
 
 class Units
-{
-	
+{	
 protected:
 	int ID;
 	string Type;
@@ -35,3 +34,7 @@ public:
 	~Units();
 };
 
+ostream &operator<<(ostream& op, Units* uni) {
+	op << uni->getID();
+	return op;
+}

@@ -3,7 +3,7 @@
 #include"Units.h"
 #include"EG.h"
 #include"ES.h"
-#include"ET.h"
+#include "ET.h"
 #include"LinkedQueue.h"
 #include"ArrayStack.h"
 #include"priQueue.h"
@@ -16,8 +16,12 @@ private:
 	LinkedQueue<ES*> ES_LIST;
 	priQueue <EG*> EG_LIST;
 	ArrayStack<ET*> ET_LIST;
+	ArrayStack<ES*> HL_LIST;
+	priQueue <ES*> ES_Maintain;
+	LinkedQueue<ET*> ET_Maintain;
 
 public:
+	
 	EarthArmy();
 	bool addUnit(Units* U);
 	ES* pickES();

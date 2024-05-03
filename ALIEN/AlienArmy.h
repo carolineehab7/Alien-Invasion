@@ -15,12 +15,13 @@ private:
 
 	int M_ArrSize;
 	LinkedQueue<AS*> AS_LIST;
-	Dequeue AD_LIST;  ///////////////////////// Drone DS of objects not Pointers ///////////////////////// 
+	Dequeue AD_LIST; 
 	LinkedQueue<int> Empty_Monst_Index;
 	AM** Monsters_Arr;
 	AD** ADArr;
 
 public:
+	
 	AlienArmy();
 	int monstersCounter;
 	bool addUnit(Units* U);
@@ -28,6 +29,7 @@ public:
 	AM* pickAM();
 	AD** pickAD();
 	void printAA();
+	LinkedQueue<AS*>& getASList();
 	~AlienArmy();
 
 };

@@ -19,11 +19,16 @@ EarthArmy::EarthArmy() {
 bool EarthArmy::addUnit(Units* U) {
 
 	if (U->getType() == "ES")
+	{
 		ES_LIST.enqueue(dynamic_cast<ES*>(U));
-	else if (U->getType() == "EG")
-		EG_LIST.enqueue(dynamic_cast<EG*>(U),dynamic_cast<EG*>(U)->getScore());
-	else if (U->getType() == "ET")
+	}
+	else if (U->getType() == "EG") {
+		EG_LIST.enqueue(dynamic_cast<EG*>(U), dynamic_cast<EG*>(U)->getScore());
+	}
+	else if (U->getType() == "ET") {
+
 		ET_LIST.push(dynamic_cast<ET*>(U));
+	}
 	else
 		return false;
 	return true;
@@ -98,6 +103,7 @@ void EarthArmy::printEA() {
 		}
 	
 }
+
 
 	/*
 	cout << ET_LIST.getTop()+1 << " ET [ ";

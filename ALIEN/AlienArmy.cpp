@@ -11,7 +11,7 @@ using namespace std;
 
 AlienArmy::AlienArmy() {
 	ADArr = new AD *[2];
-	M_ArrSize = 50; /////////////////////////  Very Small Alien Array Size  /////////////////////////   
+	M_ArrSize = 100;    
 	monstersCounter = 0;
 	Monsters_Arr = new AM * [M_ArrSize];
 	for (int i = 0; i < M_ArrSize; ++i) {
@@ -31,11 +31,9 @@ AS* AlienArmy::pickAS() {
 AM* AlienArmy::pickAM() {
 	if (monstersCounter == 0)
 		return NULL;
-	AM* temp = Monsters_Arr[0]; /////////////////////////  Always Picking AM at Index[0]  ///////////////////////// 
-	for (int i = 0; i < monstersCounter-1; i++)
-	{
-		Monsters_Arr[i] = Monsters_Arr[i + 1];
-	}
+	int ind = rand() % monstersCounter;
+	AM* temp = Monsters_Arr[ind]; 
+	Monsters_Arr[ind] = Monsters_Arr[monstersCounter - 1];
 	monstersCounter--;
 
 	return temp;
@@ -46,7 +44,7 @@ AD** AlienArmy::pickAD() {
 	if (AD_LIST.length % 2 == 0) {
 		AD* front = new AD();
 		AD* rear = new AD();
-		AD_LIST.dequeue(*front);
+		AD_LIST.dequeue(front);
 		AD_LIST.backdequeue(*rear);
 		ADArr[0] = front;
 		ADArr[1] = rear;
@@ -56,10 +54,14 @@ AD** AlienArmy::pickAD() {
 
 bool AlienArmy::addUnit(Units* U) {
 	if (U->getType() == "AS")
+	{
 		return AS_LIST.enqueue(dynamic_cast<AS*>(U));
+	}
 
 	else if (U->getType() == "AD")
-		return AD_LIST.frontenqueue(*dynamic_cast<AD*>(U));
+	{
+	  return AD_LIST.frontenqueue(dynamic_cast<AD*>(U));
+	}
 
 	else if (U->getType() == "AM") {
 
