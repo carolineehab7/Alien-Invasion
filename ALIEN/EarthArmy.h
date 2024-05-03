@@ -27,6 +27,9 @@ public:
 	ES* pickES();
 	EG* pickEG();
 	ET* pickET();
+	LinkedQueue<ES*> getESList();
+	priQueue <EG*> getEGList();
+	ArrayStack<ET*> getETList();
 	void printEA();
 	~EarthArmy();
 

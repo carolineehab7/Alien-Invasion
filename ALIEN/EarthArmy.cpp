@@ -62,6 +62,21 @@ ET* EarthArmy::pickET()
 	return ETptr;
 }
 
+LinkedQueue<ES*> EarthArmy::getESList()
+{
+	return ES_LIST;
+}
+
+priQueue<EG*> EarthArmy::getEGList()
+{
+	return EG_LIST;
+}
+
+ArrayStack<ET*> EarthArmy::getETList()
+{
+	return ET_LIST;
+}
+
 
 void EarthArmy::printEA() {
 
@@ -105,19 +120,7 @@ void EarthArmy::printEA() {
 }
 
 
-	/*
-	cout << ET_LIST.getTop()+1 << " ET [ ";
 	
-		for (int i = ET_LIST.getTop() + 1; i >= 0; --i) {
-			cout << ET_LIST.getItems()->getID() << " ";
-		}
-
-	cout << " ]" << endl;
-	*/
-
-//}
-
-
 EarthArmy::~EarthArmy() {
 
 }

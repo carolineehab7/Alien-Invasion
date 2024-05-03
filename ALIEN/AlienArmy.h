@@ -16,6 +16,7 @@ private:
 	int M_ArrSize;
 	LinkedQueue<AS*> AS_LIST;
 	Dequeue AD_LIST; 
+
 	LinkedQueue<int> Empty_Monst_Index;
 	AM** Monsters_Arr;
 	AD** ADArr;
@@ -29,7 +30,10 @@ public:
 	AM* pickAM();
 	AD** pickAD();
 	void printAA();
-	LinkedQueue<AS*>& getASList();
+	LinkedQueue<AS*> getASList();
+	Dequeue getADList();
+	AM** getMonstersArr();
+	int getMonstersArrSize();
 	~AlienArmy();
 
 };

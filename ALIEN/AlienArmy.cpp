@@ -58,9 +58,9 @@ bool AlienArmy::addUnit(Units* U) {
 		return AS_LIST.enqueue(dynamic_cast<AS*>(U));
 	}
 
-	else if (U->getType() == "AD")
-	{
-	  return AD_LIST.frontenqueue(dynamic_cast<AD*>(U));
+	else if (U->getType() == "AD") {
+			AD* ADUnit = dynamic_cast<AD*>(U);
+			return AD_LIST.frontenqueue(ADUnit);
 	}
 
 	else if (U->getType() == "AM") {
@@ -110,6 +110,27 @@ void AlienArmy::printAA() {
 	
 
 }
+
+LinkedQueue<AS*> AlienArmy::getASList()
+{
+	return AS_LIST;
+}
+
+Dequeue AlienArmy::getADList()
+{
+	return AD_LIST;
+}
+
+AM** AlienArmy::getMonstersArr()
+{
+	return Monsters_Arr;
+}
+
+int AlienArmy::getMonstersArrSize()
+{
+	return M_ArrSize;
+}
+
 
 
 AlienArmy::~AlienArmy() {
