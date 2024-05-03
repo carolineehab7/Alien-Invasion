@@ -1,6 +1,7 @@
 #pragma once
 #include <iostream>
 #include"Units.h"
+using namespace std;
 
 
 class EG :public Units {

@@ -1,6 +1,5 @@
 #include "AD.h"
-#include<string>
-using namespace std;
+
 AD::AD() {
 
 }

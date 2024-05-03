@@ -1,13 +1,4 @@
-#include<iostream>
 #include"AlienArmy.h"
-#include "Units.h"
-#include"AS.h"
-#include"AM.h"
-#include"AD.h"
-#include"LinkedQueue.h"
-#include"ArrayStack.h"
-#include "Dequeue.h"
-using namespace std;
 
 AlienArmy::AlienArmy() {
 	ADArr = new AD *[2];

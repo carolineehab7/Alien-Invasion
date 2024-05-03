@@ -1,15 +1,4 @@
-#include<iostream>
-#include"Units.h"
-#include"EG.h"
-#include"ES.h"
-#include"ET.h"
-#include"ArrayStack.h"
-#include"priQueue.h"
-#include"priNode.h"
 #include"EarthArmy.h"
-#include"LinkedQueue.h"
-#include"Node.h"
-using namespace std;
 
 EarthArmy::EarthArmy() {
 	

@@ -1,7 +1,4 @@
 #include "AS.h"
-#include "Units.h"
-#include <iostream>
-using namespace std;
 
 AS::AS() {
 

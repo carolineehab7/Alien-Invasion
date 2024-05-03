@@ -3,11 +3,10 @@
 #include"Units.h"
 #include"EG.h"
 #include"ES.h"
-#include "ET.h"
-#include"LinkedQueue.h"
+#include"ET.h"
 #include"ArrayStack.h"
 #include"priQueue.h"
-#include"priNode.h"
+#include"LinkedQueue.h"
 using namespace std;
 
 class EarthArmy {

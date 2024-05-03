@@ -1,14 +1,4 @@
 #include "ET.h"
-#include "Units.h"
-#include <iostream>
-#include "ArrayStack.h"
-#include "AM.h"
-#include "AS.h"
-#include "Game.h"
-#include "ES.h"
-#include"AlienArmy.h"
-#include"EarthArmy.h"
-using namespace std;
 
 ET::ET(int id, string type, int jt, int health, int power, int AC) :Units(id, type, jt, health, power, AC) {
 

@@ -1,8 +1,4 @@
 #include "ES.h"
-#include "Units.h"
-#include"LinkedQueue.h"
-#include <iostream>
-using namespace std;
 
 ES::ES()
 {

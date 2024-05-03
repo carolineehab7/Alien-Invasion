@@ -1,12 +1,12 @@
 #pragma once
 #include<iostream>
 #include "Units.h"
+#include "Dequeue.h"
+#include"LinkedQueue.h"
+#include"ArrayStack.h"
 #include"AS.h"
 #include"AM.h"
 #include"AD.h"
-#include"LinkedQueue.h"
-#include"ArrayStack.h"
-#include "Dequeue.h"
 using namespace std;
 
 class AlienArmy {
