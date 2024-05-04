@@ -82,6 +82,10 @@ int Units::getPower() {
 int Units::getAttackCapacity() {
 	return AttackCapacity;
 }
+
+void Units::setTa(int ta) {
+
+}
 Units::~Units() {
 
 }

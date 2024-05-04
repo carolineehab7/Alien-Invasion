@@ -11,6 +11,12 @@ protected:
 	int Health;
 	int Power;
 	int AttackCapacity;
+	int Ta;		//(First Attacked Time)
+	int Td;		//(Destruction Time)
+	int Df;		//(First Attack Delay)
+	int Dd;		//(Destruction Delay)
+	int Db;		//(Battle Time)
+	int UAP;	//Unit Attack Power
 	
 public:
 	Units();
@@ -28,6 +34,18 @@ public:
 	int getPower();
 	int getAttackCapacity();
 	virtual void attack() = 0;
+	void setTa(int);
+	void setTd(int);
+	void setDf(int);
+	void setDd(int);
+	void setDb(int);
+	void setUAP(int);
+	int getTa();
+	int getTd();
+	int getDf();
+	int getDd();
+	int getDb();
+	int getUAP();
 
 	~Units();
 };
