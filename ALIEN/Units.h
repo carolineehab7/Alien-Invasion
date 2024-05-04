@@ -1,5 +1,6 @@
 #pragma once
 #include <iostream>
+#include "Game.h"
 using namespace std;
 
 class Units
@@ -19,6 +20,7 @@ protected:
 	int UAP;	//Unit Attack Power
 	
 public:
+	Game* gm;
 	Units();
 	Units(int id, string type,int JT, int health, int power, int AC);
 	void setID(int);

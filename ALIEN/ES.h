@@ -1,6 +1,9 @@
 #pragma once
 #include <iostream>
 #include "Units.h"
+#include "LinkedQueue.h"
+#include <cmath>
+#include "AS.h"
 using namespace std;
 
 

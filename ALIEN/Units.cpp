@@ -11,6 +11,7 @@ Units::Units(int id, string type, int JT, int health, int power, int AC) {
 	setHealth(health);
 	setPower(power);
 	setAttackCapacity(AC);
+	gm = new Game;
 
 }
 void Units::setID(int id) {

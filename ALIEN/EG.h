@@ -1,6 +1,11 @@
 #pragma once
 #include <iostream>
 #include"Units.h"
+#include"priQueue.h"
+#include <cmath>
+#include "AD.h"
+#include"Dequeue.h"
+#include"AM.h"
 using namespace std;
 
 
