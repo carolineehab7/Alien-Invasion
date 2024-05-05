@@ -70,7 +70,10 @@ void Game::LoadFromFile() {
 	inpfile.close();
 }
 void Game::createoutfile() {
-	ofstream outfile;
+	ofstream outfile("trial.txt");
+	outfile << "TD " << "ID " << "Tj " << "Df " << "Dd " << "Db " << endl;
+	//outfile<< 
+
 
 }
 int Game::getTime() {
@@ -126,10 +129,7 @@ void Game::TestCode() {
 	cin >> Mode;
 	while (Time_step<=50)
 	{
-		randGenPtr->createUnit(randGenPtr->getN(), randGenPtr->getProb(), Time_step, randGenPtr->getES(), randGenPtr->getET(), randGenPtr->getEG(),randGenPtr->getAS()
-			, randGenPtr->getAD(), randGenPtr->getAM(), randGenPtr->getminHE(), randGenPtr->getmaxHE(), randGenPtr->getminPE(), randGenPtr->getmaxPE(),
-			randGenPtr->getminCE(), randGenPtr->getmaxCE(), randGenPtr->getminHA(), randGenPtr->getmaxHA(), randGenPtr->getminPA(), randGenPtr->getmaxPA(),
-			randGenPtr->getminCA(), randGenPtr->getmaxCA());
+		randGenPtr->createUnit();
 		
 		int X = rand() % (100 - 1 + 1) + 1;
 

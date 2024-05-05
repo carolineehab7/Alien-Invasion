@@ -85,8 +85,43 @@ int Units::getAttackCapacity() {
 }
 
 void Units::setTa(int ta) {
+	Ta = ta;
+}
+void Units::setTd(int td) {
+	Td = td;
+}
+void Units::setDf(int ta, int tj) {
+	Df = ta - tj;
+}
+void Units::setDd(int td, int ta) {
+	Dd = td - ta;
+}
+void Units::setDb(int td, int tj) {
+	Db = td - tj;
+}
+void Units::setUAP(int a) {
 
 }
+
+int Units::getTa() {
+	return Ta;
+}
+int Units::getTd() {
+	return Td;
+}
+int Units::getDf() {
+	return Df;
+}
+int Units::getDd() {
+	return Dd;
+}
+int Units::getDb() {
+	return Db;
+}
+int Units::getUAP() {
+	return UAP;
+}
+
 Units::~Units() {
 
 }
