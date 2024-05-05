@@ -14,7 +14,7 @@ void AS::attack() {
 		Node<ES*>* currES = earths.getfrontPtr();
 		ES* ESptr;
 		earths.dequeue(ESptr);
-		double damage = (getHealth() * getPower()/100 ) / sqrt(currES->getItem()->getPower());
+		double damage = (getHealth() * getPower()/100 ) / sqrt(currES->getItem()->getHealth());
 		if (getHealth()-damage == 0) {
 			gm->KilledListfunc(currES->getItem());
 		}

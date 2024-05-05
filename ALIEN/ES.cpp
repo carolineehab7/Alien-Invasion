@@ -7,7 +7,7 @@ ES::ES()
 ES::ES(int id, string type, int jt, int health, int power, int AC) :Units(id, type, jt, health, power, AC) {	
 
 }
-void AS::attack() {
+void ES::attack() {
 	LinkedQueue<AS*> alians = gm->getAlienArmyptr()->getASList();
 	LinkedQueue<AS*>templist;
 	for (int i = 0; i < getAttackCapacity(); i++) {
