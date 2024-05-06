@@ -6,6 +6,7 @@
 #include "AD.h"
 #include"Dequeue.h"
 #include"AM.h"
+#include"StackADT.h"
 using namespace std;
 
 

@@ -15,7 +15,7 @@ void ES::attack() {
 		Node<AS*>* currAS = alians.getfrontPtr();
 		AS* ASptr;
 		alians.dequeue(ASptr);
-		double damage = (getHealth() * getPower()/100) / sqrt(currAS->getItem()->getPower());
+		double damage = (getHealth() * getPower()/100) / sqrt(currAS->getItem()->getHealth());
 		if (getHealth()-damage == 0) {
 			gm->KilledListfunc(currAS->getItem());
 		}
@@ -28,3 +28,6 @@ void ES::attack() {
 		templist.dequeue(orgAS);
 		alians.enqueue(tempAS->getItem());
 }
+
+
+
