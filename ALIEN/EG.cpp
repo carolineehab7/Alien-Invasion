@@ -17,57 +17,93 @@ int EG::getScore() {
 void EG::attack() {
 	Dequeue drones = gm->getAlienArmyptr()->getADList();
 	AM** monsters = gm->getAlienArmyptr()->getMonstersArr();
+	AM** templistAM = new AM*[sizeof(monsters)];
+	Dequeue templistAD;
 
-	priQueue<AM*>templistAM;
-	priQueue<AD*>templistAD;
+	int capacity = getAttackCapacity();
+	int ADcount = capacity / 2 + capacity % 2;
+	int AMcount = capacity / 2;
+	int tempCounter = 0;
 
-	
-	int ADcount = getAttackCapacity() / 2 + getAttackCapacity() % 2;
-	int AMcount = getAttackCapacity() / 2;
-
-	for (int i = 0; i < ADcount; i+2) {
-		Node<AD*>* currAD = drones.getfrontPtr();
-		Node<AD*>* backAD = drones.getbackPtr();
+	int i = 0;
+	for (i = 0; i < ADcount; i+2) {
 		AM* AMptr;
 		AD* ADptr;
 		AD* ADB;
+
+		Node<AD*>* currAD = drones.getfrontPtr();
+		Node<AD*>* backAD = drones.getbackPtr();
+		
 		drones.dequeue(ADptr);
 		drones.backdequeue(*ADB);
-		double damage = (getHealth() * getPower() / 100) / sqrt(currAD->getItem()->getPower());
-		double damage2 = (getHealth() * getPower() / 100) / sqrt(backAD->getItem()->getPower());
-		if (getHealth() - damage == 0) {
+
+		double frontDamage = (getHealth() * getPower() / 100) / sqrt(currAD->getItem()->getHealth());
+		double backDamage = (getHealth() * getPower() / 100) / sqrt(backAD->getItem()->getHealth());
+
+		if (currAD->getItem()->getHealth() - frontDamage == 0) {
 			gm->KilledListfunc(currAD->getItem());
 		}
 		else
-			templistAD.enqueue(currAD->getItem(),);
+		{
+			templistAD.enqueue(currAD->getItem());
+		}
+
+		if (backAD->getItem()->getHealth() - backDamage == 0) {
+			gm->KilledListfunc(backAD->getItem());
+		}
+		else
+		{
+			templistAD.enqueue(backAD->getItem());
+		}
 	}
 
+	if (i > ADcount)
+	{
+		AD* sAD;
+		Node<AD*>* currSAD = drones.getfrontPtr();
+		drones.dequeue(sAD);
+		double DamageS= (getHealth() * getPower() / 100) / sqrt(currSAD->getItem()->getHealth());
+		if (currSAD->getItem()->getHealth() - DamageS == 0) {
+			gm->KilledListfunc(currSAD->getItem());
+		}
+		else
+		{
+			templistAD.enqueue(currSAD->getItem());
+		}
+	}
 
 	for (int j = 0; j < AMcount; j++)
 	{
 		double damage = (getHealth() * getPower() / 100) / sqrt(monsters[j]->getHealth());
-		if (getHealth() - damage == 0) {
+
+		if (monsters[j]->getHealth() - damage == 0) {
 			gm->KilledListfunc(monsters[j]);
 		}
 		else
-			templistAM.enqueue(monsters[j], );
+		{
+			templistAM[tempCounter] = monsters[j];
+			tempCounter++;
+		}
 	}
-	AM** newmonster = new AM*[sizeof(monsters)+ templistAM.length];
+	/*AM** newMonster = new AM * [sizeof(monsters) + tempCounter];
+	
 	for (int s = 0; s < sizeof(monsters); ++s) {
-		newmonster[s] = monsters[s];
-	}
+		newMonster[s] = monsters[s];
+	}*/
 	while (!templistAD.isEmpty()) {
-		priNode<AD*>* tempAD = templistAD.getHead();
+	  Node<AD*>* tempAD = templistAD.getfrontPtr();
 		AD* orgAD;
-		templistAD.dequeue(orgAD,);
-		drones.enqueue(tempAD->getItem(),);
+		templistAD.dequeue(orgAD);
+		drones.enqueue(tempAD->getItem());
 	}
-	while (!templistAM.isEmpty()) {
-		priNode<AM*>* tempAM = templistAM.getHead();
+
+	monsters = templistAM;
+	/*while (!templistAM) {
+		Node<AM*>* tempAM = templistAM;
 		AM* orgAM;
 		templistAM.dequeue(orgAM);
 		monsters.enqueue(tempAM->getItem());
-	}
+	}*/
 	
 
 
