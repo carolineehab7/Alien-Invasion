@@ -19,9 +19,6 @@ private:
 	RandGen* randGenPtr;
 	LinkedQueue<Units*>* KilledList;
 	int Time_step;
-	/*ArrayStack<Units*>*HealList;
-	priQueue<Units*>* UML_ES;
-	LinkedQueue<Units*>* UML_ET;*/
 public:
 	Game();
 	bool KilledListfunc(Units* killunit);
