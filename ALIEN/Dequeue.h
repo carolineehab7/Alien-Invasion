@@ -8,7 +8,7 @@ using namespace std;
 class Dequeue :public LinkedQueue<AD*> {
 
 public:
-	bool frontenqueue( AD* &ad) {
+	bool frontenqueue(AD* &ad) {
 
 		Node<AD*>* newNodePtr = new Node<AD*> (ad);  // Insert the new node
 

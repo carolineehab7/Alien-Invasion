@@ -108,6 +108,11 @@ void EarthArmy::printEA() {
 	
 }
 
+void EarthArmy::addtoES_UML(ES* es_uml) {
+	//ES_Maintain.enqueue(dynamic_cast<ES*>(es_uml));
+
+}
+
 
 	
 EarthArmy::~EarthArmy() {

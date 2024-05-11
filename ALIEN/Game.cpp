@@ -70,7 +70,9 @@ void Game::LoadFromFile() {
 	inpfile.close();
 }
 void Game::createoutfile() {
+	int TD, ID, TJ, DF, Dd, Db;
 	ofstream outfile("trial.txt");
+	
 	outfile << "TD " << "ID " << "Tj " << "Df " << "Dd " << "Db " << endl;
 	//outfile<< 
 
@@ -124,7 +126,7 @@ void Game::TestCode() {
 	LinkedQueue<Units*>* TempList;
 	TempList = new LinkedQueue<Units*>;
 	LoadFromFile();
-	char Mode = 0;
+	char Mode;
 	cout << "Select the Program Mode (S || I): ";
 	cin >> Mode;
 	while (Time_step<=50)
@@ -169,6 +171,7 @@ void Game::TestCode() {
 		}
 		else {
 			PrintSilent();
+			createoutfile();
 		}
 
 		Sleep(300);

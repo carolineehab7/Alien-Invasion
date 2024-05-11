@@ -29,6 +29,8 @@ public:
 	LinkedQueue<ES*> getESList();
 	priQueue <EG*> getEGList();
 	ArrayStack<ET*> getETList();
+	void addtoES_UML(ES*);
+	void addtoET_UML(ET*);
 	void printEA();
 	~EarthArmy();
 
