@@ -1,10 +1,15 @@
 #include "ES.h"
+#include <iostream>
+#include"LinkedQueue.h"
+#include"AS.h"
+using namespace std;
+#include"Game.h"
 
 ES::ES()
 {
 }
 
-ES::ES(int id, string type, int jt, int health, int power, int AC) :Units(id, type, jt, health, power, AC) {	
+ES::ES(int id, string type, int jt, int health, int power, int AC) :Units(id, type, jt, health, power, AC) {
 
 }
 void ES::attack() {
@@ -15,8 +20,8 @@ void ES::attack() {
 		Node<AS*>* currAS = alians.getfrontPtr();
 		AS* ASptr;
 		alians.dequeue(ASptr);
-		double damage = (getHealth() * getPower()/100) / sqrt(currAS->getItem()->getHealth());
-		if (currAS->getItem()->getHealth()-damage == 0) {
+		double damage = (getHealth() * getPower() / 100) / sqrt(currAS->getItem()->getHealth());
+		if (currAS->getItem()->getHealth() - damage == 0) {
 			gm->KilledListfunc(currAS->getItem());
 		}
 		else
@@ -27,7 +32,6 @@ void ES::attack() {
 		AS* orgAS;
 		templist.dequeue(orgAS);
 		alians.enqueue(tempAS->getItem());
+
+	}
 }
-
-
-

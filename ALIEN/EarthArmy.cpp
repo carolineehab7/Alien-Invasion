@@ -1,4 +1,6 @@
+#include<iostream>
 #include"EarthArmy.h"
+using namespace std;
 
 EarthArmy::EarthArmy() {
 	
@@ -8,16 +10,11 @@ EarthArmy::EarthArmy() {
 bool EarthArmy::addUnit(Units* U) {
 
 	if (U->getType() == "ES")
-	{
 		ES_LIST.enqueue(dynamic_cast<ES*>(U));
-	}
-	else if (U->getType() == "EG") {
-		EG_LIST.enqueue(dynamic_cast<EG*>(U), dynamic_cast<EG*>(U)->getScore());
-	}
-	else if (U->getType() == "ET") {
-
+	else if (U->getType() == "EG")
+		EG_LIST.enqueue(dynamic_cast<EG*>(U),dynamic_cast<EG*>(U)->getScore());
+	else if (U->getType() == "ET")
 		ET_LIST.push(dynamic_cast<ET*>(U));
-	}
 	else
 		return false;
 	return true;
@@ -89,32 +86,46 @@ void EarthArmy::printEA() {
 
 		cout << ET_LIST.getTop() + 1 << " ET [ ";
 		ArrayStack<ET*> Temp3;
-		ET* t;
+		ET* et;
 		for (int i = 0; i < ET_LIST.getTop() + 1; ++i) {
 
-			ET_LIST.peek(t);
+			ET_LIST.peek(et);
 
-			cout << t->getID() << ', ';
+			cout << et->getID() << ', ';
 
-			ET_LIST.pop(t);
-			Temp3.push(t);
+			ET_LIST.pop(et);
+			Temp3.push(et);
 		}
 		cout << " ]" << endl;
 		for (int i = 0; i < Temp3.getTop() + 1; ++i) {
-			Temp3.peek(t);
-			Temp3.pop(t);
-			ET_LIST.push(t);
+			Temp3.peek(et);
+			Temp3.pop(et);
+			ET_LIST.push(et);
 		}
 	
 }
 
-void EarthArmy::addtoES_UML(ES* es_uml) {
-	//ES_Maintain.enqueue(dynamic_cast<ES*>(es_uml));
+void EarthArmy::AttackAA()
+{
+	ES* esAttacker;
+	if (ES_LIST.peek(esAttacker)) //if there is ES let it attack 
+		esAttacker->attack();
+
+	ET* etAttacker;
+	if (ET_LIST.peek(etAttacker)) //if there is ET let it attack 
+		etAttacker->attack();
+
+	/*
+	
+	EG* egAttacker;
+	int EGscore;
+	if (EG_LIST.peek(egAttacker, EGscore)) // if there is ET let it attack
+		egAttacker->attack();
+
+	*/
 
 }
 
-
-	
 EarthArmy::~EarthArmy() {
 
 }

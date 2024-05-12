@@ -1,0 +1,12 @@
+﻿  AS.cpp
+  AlienArmy.cpp
+  EG.cpp
+C:\Users\water\OneDrive\Desktop\1-4 _T02 Phase 1\ALIEN\EG.cpp(32,29): warning C4552: '+': result of expression not used
+C:\Users\water\OneDrive\Desktop\1-4 _T02 Phase 1\ALIEN\EG.cpp(33,7): warning C4101: 'AMptr': unreferenced local variable
+  ES.cpp
+  Game.cpp
+  RandGen.cpp
+  Units.cpp
+  main.cpp
+  Generating Code...
+  ALIEN.vcxproj -> C:\Users\water\OneDrive\Desktop\1-4 _T02 Phase 1\x64\Debug\ALIEN.exe

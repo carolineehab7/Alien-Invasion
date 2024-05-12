@@ -1,8 +1,10 @@
+#include<iostream>
 #include"AlienArmy.h"
+using namespace std;
 
 AlienArmy::AlienArmy() {
 	ADArr = new AD *[2];
-	M_ArrSize = 100;    
+	M_ArrSize = 100; // Max size of AM
 	monstersCounter = 0;
 	Monsters_Arr = new AM * [M_ArrSize];
 	for (int i = 0; i < M_ArrSize; ++i) {
@@ -19,12 +21,15 @@ AS* AlienArmy::pickAS() {
 	return ASptr;
 }
 
+
 AM* AlienArmy::pickAM() {
 	if (monstersCounter == 0)
 		return NULL;
-	int ind = rand() % monstersCounter;
-	AM* temp = Monsters_Arr[ind]; 
-	Monsters_Arr[ind] = Monsters_Arr[monstersCounter - 1];
+	AM* temp = Monsters_Arr[0];
+	for (int i = 0; i < monstersCounter-1; i++)
+	{
+		Monsters_Arr[i] = Monsters_Arr[i + 1];
+	}
 	monstersCounter--;
 
 	return temp;
@@ -43,15 +48,33 @@ AD** AlienArmy::pickAD() {
 	return ADArr;
 }
 
+LinkedQueue<AS*> AlienArmy::getASList()
+{
+	return AS_LIST;
+}
+
+Dequeue AlienArmy::getADList()
+{
+	return AD_LIST;
+}
+
+AM** AlienArmy::getMonstersArr()
+{
+	return Monsters_Arr;
+}
+
+int AlienArmy::getMonstersArrSize()
+{
+	return M_ArrSize;
+}
+
 bool AlienArmy::addUnit(Units* U) {
 	if (U->getType() == "AS")
-	{
 		return AS_LIST.enqueue(dynamic_cast<AS*>(U));
-	}
 
 	else if (U->getType() == "AD") {
-			AD* ADUnit = dynamic_cast<AD*>(U);
-			return AD_LIST.frontenqueue(ADUnit);
+		AD* ADUnit = dynamic_cast<AD*>(U);
+		return AD_LIST.frontenqueue(ADUnit);
 	}
 
 	else if (U->getType() == "AM") {
@@ -102,26 +125,20 @@ void AlienArmy::printAA() {
 
 }
 
-LinkedQueue<AS*> AlienArmy::getASList()
+void AlienArmy::AttackEA()
 {
-	return AS_LIST;
-}
+	AS* asAttacker;
+	if (AS_LIST.peek(asAttacker)) //if there is AS let it attack 
+		asAttacker->attack();
 
-Dequeue AlienArmy::getADList()
-{
-	return AD_LIST;
-}
+	AM* amAttacker{};
+	if (monstersCounter>0) //if there is AM let it attack 
+		amAttacker->attack();
 
-AM** AlienArmy::getMonstersArr()
-{
-	return Monsters_Arr;
+	AD* adAttacker;
+	if (AD_LIST.peek(adAttacker)) // if there is AD let it attack
+		adAttacker->attack();
 }
-
-int AlienArmy::getMonstersArrSize()
-{
-	return M_ArrSize;
-}
-
 
 
 AlienArmy::~AlienArmy() {

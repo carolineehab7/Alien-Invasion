@@ -69,31 +69,15 @@ void Game::LoadFromFile() {
 
 	inpfile.close();
 }
-void Game::createoutfile() {
-	int TD, ID, TJ, DF, Dd, Db;
-	ofstream outfile("trial.txt");
-	
-	outfile << "TD " << "ID " << "Tj " << "Df " << "Dd " << "Db " << endl;
-	//outfile<< 
-
-
-}
-int Game::getTime() {
-	return Time_step;
-}
-
 RandGen* Game::getRandGenptr() {
 	return randGenPtr;
 }
-
 EarthArmy* Game::getEarthArmyptr() {
 	return EA;
 }
-
 AlienArmy* Game::getAlienArmyptr() {
 	return AA;
 }
-
 void Game::PrintSilent() {
 	cout << "Silent Mode" << endl;
 	cout << "Simulation Starts..." << endl;
@@ -101,7 +85,7 @@ void Game::PrintSilent() {
 }
 
 void Game::PrintALL() {
-	cout << "Current Timestep " << Time_step <<endl;
+	cout << "Current Timestep " << Time_step << endl;
 	getEarthArmyptr()->printEA();
 	getAlienArmyptr()->printAA();
 	printKillList();
@@ -121,17 +105,21 @@ void Game::printKillList() {
 	}
 	cout << " ]" << endl;
 }
-
 void Game::TestCode() {
 	LinkedQueue<Units*>* TempList;
 	TempList = new LinkedQueue<Units*>;
 	LoadFromFile();
-	char Mode;
+
+	char Mode = 0;
 	cout << "Select the Program Mode (S || I): ";
 	cin >> Mode;
+
 	while (Time_step<=50)
 	{
-		randGenPtr->createUnit();
+		randGenPtr->createUnit(randGenPtr->getN(), randGenPtr->getProb(), Time_step, randGenPtr->getES(), randGenPtr->getET(), randGenPtr->getEG(),randGenPtr->getAS()
+			, randGenPtr->getAD(), randGenPtr->getAM(), randGenPtr->getminHE(), randGenPtr->getmaxHE(), randGenPtr->getminPE(), randGenPtr->getmaxPE(),
+			randGenPtr->getminCE(), randGenPtr->getmaxCE(), randGenPtr->getminHA(), randGenPtr->getmaxHA(), randGenPtr->getminPA(), randGenPtr->getmaxPA(),
+			randGenPtr->getminCA(), randGenPtr->getmaxCA());
 		
 		int X = rand() % (100 - 1 + 1) + 1;
 
@@ -171,13 +159,14 @@ void Game::TestCode() {
 		}
 		else {
 			PrintSilent();
-			createoutfile();
 		}
-
+		
 		Sleep(300);
 		Time_step++;
 		system("CLS");
+		
 	}
+
 }
 
 Game::~Game() {

@@ -1,4 +1,7 @@
 #include "EG.h"
+#include <iostream>
+using namespace std;
+#include"Game.h"
 
 EG::EG(int id, string type, int jt, int health, int power, int AC) :Units(id, type, jt, health, power, AC) {
 
@@ -17,7 +20,7 @@ int EG::getScore() {
 void EG::attack() {
 	Dequeue drones = gm->getAlienArmyptr()->getADList();
 	AM** monsters = gm->getAlienArmyptr()->getMonstersArr();
-	AM** templistAM = new AM*[sizeof(monsters)];
+	AM** templistAM = new AM * [sizeof(monsters)];
 	Dequeue templistAD;
 
 	int capacity = getAttackCapacity();
@@ -26,14 +29,14 @@ void EG::attack() {
 	int tempCounter = 0;
 
 	int i = 0;
-	for (i = 0; i < ADcount; i+2) {
+	for (i = 0; i < ADcount; i + 2) {
 		AM* AMptr;
 		AD* ADptr;
-		AD* ADB;
+		AD* ADB{};
 
 		Node<AD*>* currAD = drones.getfrontPtr();
 		Node<AD*>* backAD = drones.getbackPtr();
-		
+
 		drones.dequeue(ADptr);
 		drones.backdequeue(*ADB);
 
@@ -62,7 +65,7 @@ void EG::attack() {
 		AD* sAD;
 		Node<AD*>* currSAD = drones.getfrontPtr();
 		drones.dequeue(sAD);
-		double DamageS= (getHealth() * getPower() / 100) / sqrt(currSAD->getItem()->getHealth());
+		double DamageS = (getHealth() * getPower() / 100) / sqrt(currSAD->getItem()->getHealth());
 		if (currSAD->getItem()->getHealth() - DamageS == 0) {
 			gm->KilledListfunc(currSAD->getItem());
 		}
@@ -86,12 +89,12 @@ void EG::attack() {
 		}
 	}
 	/*AM** newMonster = new AM * [sizeof(monsters) + tempCounter];
-	
+
 	for (int s = 0; s < sizeof(monsters); ++s) {
 		newMonster[s] = monsters[s];
 	}*/
 	while (!templistAD.isEmpty()) {
-	  Node<AD*>* tempAD = templistAD.getfrontPtr();
+		Node<AD*>* tempAD = templistAD.getfrontPtr();
 		AD* orgAD;
 		templistAD.dequeue(orgAD);
 		drones.enqueue(tempAD->getItem());
@@ -104,8 +107,5 @@ void EG::attack() {
 		templistAM.dequeue(orgAM);
 		monsters.enqueue(tempAM->getItem());
 	}*/
-	
 
-
-	
 }

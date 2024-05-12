@@ -92,6 +92,9 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="AD.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="AM.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -107,7 +110,7 @@
     <ClCompile Include="ET.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="AD.cpp">
+    <ClCompile Include="TEST.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

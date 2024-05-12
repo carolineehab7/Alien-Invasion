@@ -1,16 +1,14 @@
 #pragma once
 #include"LinkedQueue.h"
-#include"QueueADT.h"
 #include"AD.h"
-#include"Node.h"
 using namespace std;
 
 class Dequeue :public LinkedQueue<AD*> {
 
 public:
-	bool frontenqueue(AD* &ad) {
+	bool frontenqueue( AD*&ad) {
 
-		Node<AD*>* newNodePtr = new Node<AD*> (ad);  // Insert the new node
+		Node<AD*>* newNodePtr = new Node<AD*>(ad);  // Insert the new node
 
 		if (isEmpty()) {
 			setbackPtr(newNodePtr); 
@@ -53,9 +51,6 @@ public:
 		return true;
 
 	}
-
- ////////////////////////////////////////////////////////////////////////////////
-
 	void printDE() {
 		Node<AD*>* Temp2 = getfrontPtr();
 		while (Temp2) {

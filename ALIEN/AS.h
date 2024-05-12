@@ -1,10 +1,8 @@
 #pragma once
 #include <iostream>
 #include "Units.h"
-#include "LinkedQueue.h"
-#include <cmath>
-#include "ES.h"
 using namespace std;
+class Game;
 
 
 class AS : public Units{

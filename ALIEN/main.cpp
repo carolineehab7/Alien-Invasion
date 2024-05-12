@@ -6,16 +6,8 @@
 #include "EarthArmy.h"
 #include "AlienArmy.h"
 using namespace std;
-//ostream &operator<<(ostream& op, Units* uni) {
-//	op << uni->getID();
-//	return op;
-//}
-
 
 int main() {
 	Game p;
 	p.TestCode();
-
-	//p.ProgramMode();
-	
 }

@@ -10,5 +10,4 @@ private:
 public:
 	ET(int id, string type, int jt, int health, int power, int AC);
 	void attack();
-
 };

@@ -7,26 +7,27 @@ RandGen::RandGen(Game* p)
 	IDA = 2000;
 	IDE = 1;
 }
-void RandGen::createUnit() {
-	int jt = gameptr->getTime();
+void RandGen::createUnit(int n, int prob, int jt, int es, int et, int eg, int as, int ad,
+	int am, int minHealthE, int maxHealthE, int minPowerE, int maxPowerE, int minAttckCapE, int maxAttckCapE,
+	int minHealthA, int maxHealthA, int minPowerA, int maxPowerA, int minAttckCapA, int maxAttckCapA) {
 	int A = rand() % (100 - 1 + 1) + 1;
-	if (A <= Prob) {
-		int healthE = rand() % (maxHE - minHE + 1) + minHE;
-		int powerE = rand() % (maxPE - minPE + 1) + minPE;
-		int attckCapE = rand() % (maxCE - minCE + 1) + minCE;
-		int healthA = rand() % (maxHA - minHA + 1) + minHA;
-		int powerA = rand() % (maxPA - minPA + 1) + minPA;
-		int attckCapA = rand() % (maxCA - minCA + 1) + minCA;
+	if (A <= prob) {
+		int healthE = rand() % (maxHealthE - minHealthE + 1) + minHealthE;
+		int powerE = rand() % (maxPowerE - minPowerE + 1) + minPowerE;
+		int attckCapE = rand() % (maxAttckCapE - minAttckCapE + 1) + minAttckCapE;
+		int healthA = rand() % (maxHealthA - minHealthA + 1) + minHealthA;
+		int powerA = rand() % (maxPowerA - minPowerA + 1) + minPowerA;
+		int attckCapA = rand() % (maxAttckCapA - minAttckCapA + 1) + minAttckCapA;
 
-		for (int i = 0; i <= N; i++) {
+		for (int i = 0; i <= n; i++) {
 
 			int B = rand() % (100 - 1 + 1) + 1;
-			if (B < eS) {
+			if (B < es) {
 				ES* es1 = new ES(IDE, "ES",jt, healthE, powerE, attckCapE);
 				IDE++;
 				gameptr->getEarthArmyptr()->addUnit(es1);
 			}
-			else if (B < eS + eT) {
+			else if (B < es + et) {
 				ET* et1 = new ET(IDE, "ET", jt, healthE, powerE, attckCapE);
 				IDE++;
 				gameptr->getEarthArmyptr()->addUnit(et1);
@@ -37,16 +38,18 @@ void RandGen::createUnit() {
 				gameptr->getEarthArmyptr()->addUnit(eg1);
 			}
 
-			if (B < aS) {
+			if (B < as) {
 				AS* as1 = new AS(IDA, "AS", jt, healthA, powerA, attckCapA);
 				IDA++;
 				gameptr->getAlienArmyptr()->addUnit(as1);
 			}
-			else if (B < aS + aD) {
+
+			else if (B < as + ad) {
 				AD* ad1 = new AD(IDA, "AD", jt, healthA, powerA, attckCapA);
 				IDA++;
 				gameptr->getAlienArmyptr()->addUnit(ad1);
 			}
+
 			else {
 				AM* am1 = new AM(IDA, "AM", jt, healthA, powerA, attckCapA);
 				IDA++;

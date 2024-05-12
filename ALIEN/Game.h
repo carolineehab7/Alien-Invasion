@@ -26,12 +26,11 @@ public:
 	RandGen* getRandGenptr();
 	EarthArmy* getEarthArmyptr();
 	AlienArmy* getAlienArmyptr();
-	void printKillList();
-	void createoutfile();
 	void PrintSilent();
+	void printKillList();
 	void PrintALL();
 	void TestCode();
-	int getTime();
+
 	~Game();
 
 

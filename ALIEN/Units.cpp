@@ -1,4 +1,6 @@
 #include "Units.h"
+#include <string>
+#include"Game.h"
 
 Units::Units() {
 
@@ -11,7 +13,6 @@ Units::Units(int id, string type, int JT, int health, int power, int AC) {
 	setHealth(health);
 	setPower(power);
 	setAttackCapacity(AC);
-	gm = new Game;
 
 }
 void Units::setID(int id) {
@@ -83,45 +84,6 @@ int Units::getPower() {
 int Units::getAttackCapacity() {
 	return AttackCapacity;
 }
-
-void Units::setTa(int ta) {
-	Ta = ta;
-}
-void Units::setTd(int td) {
-	Td = td;
-}
-void Units::setDf(int ta, int tj) {
-	Df = ta - tj;
-}
-void Units::setDd(int td, int ta) {
-	Dd = td - ta;
-}
-void Units::setDb(int td, int tj) {
-	Db = td - tj;
-}
-void Units::setUAP(int a) {
-
-}
-
-int Units::getTa() {
-	return Ta;
-}
-int Units::getTd() {
-	return Td;
-}
-int Units::getDf() {
-	return Df;
-}
-int Units::getDd() {
-	return Dd;
-}
-int Units::getDb() {
-	return Db;
-}
-int Units::getUAP() {
-	return UAP;
-}
-
 Units::~Units() {
 
 }

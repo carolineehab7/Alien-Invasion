@@ -1,4 +1,7 @@
 #include "AS.h"
+#include <iostream>
+using namespace std;
+#include"Game.h"
 
 AS::AS() {
 
@@ -14,8 +17,8 @@ void AS::attack() {
 		Node<ES*>* currES = earths.getfrontPtr();
 		ES* ESptr;
 		earths.dequeue(ESptr);
-		double damage = (getHealth() * getPower()/100 ) / sqrt(currES->getItem()->getHealth());
-		if (currES->getItem()->getHealth()-damage == 0) {
+		double damage = (getHealth() * getPower() / 100) / sqrt(currES->getItem()->getHealth());
+		if (currES->getItem()->getHealth() - damage == 0) {
 			gm->KilledListfunc(currES->getItem());
 		}
 		else
