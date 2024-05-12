@@ -19,7 +19,7 @@ void ET::attack()
 			if (monster[j]->getHealth() - damage == 0) {
 				gm->KilledListfunc(monster[j]);
 			}
-			else 
+			else  
 			{
 				templistAM[tempCounter] = monster[j];
 				tempCounter++;
