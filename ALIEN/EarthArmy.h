@@ -31,6 +31,8 @@ public:
 	ArrayStack<ET*> getETList();
 	void addtoES_UML(ES*);
 	void addtoET_UML(ET*);
+	ES* removefromES_uml();
+	ET* removefromET_uml();
 	void printEA();
 	~EarthArmy();
 

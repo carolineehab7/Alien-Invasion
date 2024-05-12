@@ -189,3 +189,10 @@ int RandGen::getminHA() {
 int RandGen::getmaxHA() {
 	return maxHA;
 }
+
+void RandGen::setHU_PER(int hu) {
+	HU_PER = hu;
+}
+int RandGen::getHU_PER() {
+	return HU_PER;
+}

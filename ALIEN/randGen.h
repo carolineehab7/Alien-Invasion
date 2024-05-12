@@ -26,6 +26,7 @@ private:
 	int maxHA, minHA;
 	int maxCA, minCA;
 	int IDE, IDA;
+	int HU_PER;
 public:
 	RandGen(Game* p);
 	void setN(int n);
@@ -74,7 +75,8 @@ public:
 	int getminCA();
 	int getmaxCA();
 
-
+	void setHU_PER(int hu);
+	int getHU_PER();
 	void createUnit();
 
 

@@ -26,7 +26,7 @@ bool EarthArmy::addUnit(Units* U) {
 ES* EarthArmy::pickES()
 {
 	ES* ESptr = new ES(); 
-	if((ES_LIST.isEmpty()))
+	if(!ES_LIST.isEmpty())
 		ES_LIST.dequeue(ESptr);
 	return ESptr;
 }
@@ -105,16 +105,44 @@ void EarthArmy::printEA() {
 			Temp3.pop(t);
 			ET_LIST.push(t);
 		}
+		////////////////////////////////////////////////////////////////////////
+		//
+		//here should be the print of HL LIST
+		// 
+		////////////////////////////////////////////////////////////////////////
+		cout << ES_Maintain.length << " ES UML [ ";
+		ES_Maintain.printPriQ();
+
+		cout << " ]" << endl;
+
+		////////////////////////////////////////////////////////////////////////
+
 	
 }
 
 void EarthArmy::addtoES_UML(ES* es_uml) {
-	//ES_Maintain.enqueue(dynamic_cast<ES*>(es_uml));
+	ES_Maintain.enqueue(es_uml,1);
 
 }
-
+void EarthArmy::addtoET_UML(ET* et_uml) {
+	ET_Maintain.enqueue(et_uml);
+}
+ES* EarthArmy::removefromES_uml() {
+	ES* ESptr = new ES();
+	int pri = 1;
+	if (!ES_Maintain.isEmpty())
+		ES_Maintain.dequeue(ESptr,pri);
+	return ESptr;
+}
+ET* EarthArmy::removefromET_uml() {
+	ET* ETptr = NULL;
+	if (!ET_Maintain.isEmpty()) {
+		ET_Maintain.dequeue(ETptr);
+	}
+	return ETptr;
+}
 
 	
 EarthArmy::~EarthArmy() {
-
+	
 }

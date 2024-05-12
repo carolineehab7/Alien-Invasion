@@ -20,7 +20,7 @@ bool Game::KilledListfunc(Units* killunit) {
 }
 
 void Game::LoadFromFile() {
-	int n, prob, ES, ET, EG, AS, AM, AD;
+	int n, prob, ES, ET, EG, AS, AM, AD, HU_PER;
 	int maxPE, minPE, maxHE, minHE, maxCE, minCE;
 	int maxPA, minPA, maxHA, minHA, maxCA, minCA;
 	ifstream inpfile;
@@ -30,7 +30,7 @@ void Game::LoadFromFile() {
 		cout << "Unable to open file" << endl;
 		return;
 	}
-	inpfile >> n >> ES >> ET >> EG >> AS >> AM >> AD >> prob;
+	inpfile >> n >> HU_PER >> ES >> ET >> EG >> AS >> AM >> AD >> prob;
 	inpfile >> minPE;
 	inpfile.ignore();
 	inpfile >> maxPE >> minHE;
@@ -47,6 +47,7 @@ void Game::LoadFromFile() {
 	inpfile >> maxCA;
 
 	randGenPtr->setN(n);
+	randGenPtr->setHU_PER(HU_PER);
 	randGenPtr->setES(ES);
 	randGenPtr->setET(ET);
 	randGenPtr->setEG(EG);
