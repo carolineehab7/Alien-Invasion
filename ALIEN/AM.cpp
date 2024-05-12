@@ -8,7 +8,7 @@ AM::AM(int id, string type, int jt, int health, int power, int AC) :Units(id, ty
 void AM::attack()
 {
 	LinkedQueue<ES*> Searth = gm->getEarthArmyptr()->getESList();
-	ArrayStack<ET*> Tearth = gm->getEarthArmyptr()->getETList();
+	ArrayStack<ET*> Tearth = gm->getEarthArmyptr()->getETList();  
 	LinkedQueue<ES*> Stemplist;
 	ArrayStack<ET*> Ttemplist;
 	for (int i = 0; i < getAttackCapacity(); i++) {
