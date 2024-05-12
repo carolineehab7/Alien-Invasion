@@ -1,6 +1,8 @@
 #pragma once
 #include <iostream>
 #include "Units.h"
+#include "AlienArmy.h"
+#include"EarthArmy.h"
 using namespace std;
 
 
@@ -12,4 +14,4 @@ public:
 
 	void attack();
 
-};
+}; 
