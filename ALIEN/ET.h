@@ -1,6 +1,8 @@
 #pragma once
 #include <iostream>
 #include "Units.h"
+#include "EarthArmy.h"
+#include "cmath"
 using namespace std;
 
 
