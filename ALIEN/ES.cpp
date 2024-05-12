@@ -27,6 +27,7 @@ void ES::attack() {
 		AS* orgAS;
 		templist.dequeue(orgAS);
 		alians.enqueue(tempAS->getItem());
+	}
 }
 
 

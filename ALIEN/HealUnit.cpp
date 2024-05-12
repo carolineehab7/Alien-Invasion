@@ -1,11 +1,19 @@
 #include "HealUnit.h"
 #include <iostream>
-#include <cmath>
+
 using namespace std;
 
+HealUnit::HealUnit() {
 
-void HealUnit::attack(Units *U) {
-	int HealthImprov;
+}
+
+HealUnit::HealUnit(int id, string type, int jt, int health, int power, int AC) :Units(id, type, jt, health, power, AC) {
+
+}
+
+
+void HealUnit::attack() {
+
 
 	
 }

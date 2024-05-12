@@ -10,6 +10,7 @@
 #include"AS.h"
 #include"AD.h"
 #include"AM.h"
+#include"HealUnit.h"
 class Game;
 
 class RandGen

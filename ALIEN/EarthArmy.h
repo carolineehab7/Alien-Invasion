@@ -15,9 +15,11 @@ private:
 	LinkedQueue<ES*> ES_LIST;
 	priQueue <EG*> EG_LIST;
 	ArrayStack<ET*> ET_LIST;
-	ArrayStack<ES*> HL_LIST;
+
+	ArrayStack<HealUnit*> HL_LIST;
 	priQueue <ES*> ES_Maintain;
 	LinkedQueue<ET*> ET_Maintain;
+	LinkedQueue<Units*>TempList;
 
 public:
 	
@@ -29,10 +31,13 @@ public:
 	LinkedQueue<ES*> getESList();
 	priQueue <EG*> getEGList();
 	ArrayStack<ET*> getETList();
+	void addtoHeal(HealUnit*);
 	void addtoES_UML(ES*);
 	void addtoET_UML(ET*);
 	ES* removefromES_uml();
 	ET* removefromET_uml();
+	HealUnit* removefromHeal();
+	void Heal();
 	void printEA();
 	~EarthArmy();
 

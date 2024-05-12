@@ -1,7 +1,8 @@
 #include"EarthArmy.h"
-
+#include <cmath>
 EarthArmy::EarthArmy() {
 	
+
 ;
 }
 
@@ -121,7 +122,9 @@ void EarthArmy::printEA() {
 }
 
 void EarthArmy::addtoES_UML(ES* es_uml) {
-	ES_Maintain.enqueue(es_uml,1);
+	int pri = es_uml->getHealth();
+	ES_Maintain.enqueue(es_uml,pri);
+	//pri 100-gethealth
 
 }
 void EarthArmy::addtoET_UML(ET* et_uml) {
@@ -141,7 +144,48 @@ ET* EarthArmy::removefromET_uml() {
 	}
 	return ETptr;
 }
+void EarthArmy::addtoHeal(HealUnit* HU) {
+	HL_LIST.push(HU);
+}
+HealUnit* EarthArmy::removefromHeal() {
+	HealUnit* HUptr = new HealUnit();
+	if (!HL_LIST.isEmpty()) {
+		HL_LIST.pop(HUptr);
+	}
+	return HUptr;
+}
 
+void EarthArmy::Heal() {
+	HealUnit* H = removefromHeal();
+	int oldhealth;
+	if (!ES_Maintain.isEmpty()) {
+		ES* ptr = removefromES_uml();
+		oldhealth = ptr->getHealth();
+		int healthimprov = ((H->getPower() * H->getHealth() / 100) / sqrt(ptr->getHealth()));
+		ptr->setHealth(healthimprov);
+		if ((ptr->getHealth()/ oldhealth)*100 > 20) {
+			ES_LIST.enqueue(ptr);
+		}
+		else {
+			TempList.enqueue(ptr);
+		}
+	}
+	else {
+		ET* ptr = removefromET_uml();
+		oldhealth = ptr->getHealth();
+		int healthimprov = ((H->getPower() * H->getHealth() / 100) / sqrt(ptr->getHealth()));
+		ptr->setHealth(healthimprov);
+		if ((ptr->getHealth()/ oldhealth)*100 > 20) {
+			ET_LIST.push(ptr);
+		}
+		else {
+			TempList.enqueue(ptr);
+		}
+
+
+	}
+
+}
 	
 EarthArmy::~EarthArmy() {
 	
