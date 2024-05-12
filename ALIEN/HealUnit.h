@@ -3,7 +3,7 @@
 class HealUnit
 {
 public:
-	void attack();
+	void attack(Units *U);
 
 };
 

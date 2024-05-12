@@ -72,7 +72,7 @@ void Game::LoadFromFile() {
 }
 void Game::createoutfile() {
 	int TD, ID, TJ, DF, Dd, Db;
-	ofstream outfile("trial.txt");
+	ofstream outfile("OutFile.txt");
 	
 	outfile << "TD " << "ID " << "Tj " << "Df " << "Dd " << "Db " << endl;
 	//outfile<< 
@@ -130,55 +130,25 @@ void Game::TestCode() {
 	char Mode;
 	cout << "Select the Program Mode (S || I): ";
 	cin >> Mode;
-	while (Time_step<=50)
-	{
-		randGenPtr->createUnit();
-		
-		int X = rand() % (100 - 1 + 1) + 1;
+	if (Mode == 'I'){
+		while (Time_step <= 50) {
 
-		if (X > 0 && X < 10) {
-			EA->addUnit(EA->pickES());
-		}
-		else if (X > 10 && X < 20) {
-			KilledListfunc(EA->pickET());
-		}
-		else if (X > 20 && X < 30) {
-			EG* p = getEarthArmyptr()->pickEG();
-			if (p)
-			{
-				p->setHealth(p->getHealth() / 2);
-				getEarthArmyptr()->addUnit(p);
-			}
 
-		}
-		else if (X > 30 && X < 40) {
-			for (int i = 0; i < 5; i++) {
-				AS* s = getAlienArmyptr()->pickAS();
-				s->setHealth((s->getHealth() - 1));
-				TempList->enqueue(s);
-				getAlienArmyptr()->addUnit(s);
-			}
-		}
-		else if (X > 40 && X < 50) {
-			for (int i=0; i<5; i++)
-				getAlienArmyptr()->pickAM();
-		}
-		else if (X > 50 && X < 60) {
-			getAlienArmyptr()->pickAD();
-		}
 
-		if (Mode == 'I') {
+
 			PrintALL();
 		}
-		else {
-			PrintSilent();
-			createoutfile();
-		}
-
 		Sleep(300);
 		Time_step++;
 		system("CLS");
+	
 	}
+	else if (Mode == 'S') {
+		PrintSilent();
+		createoutfile();
+
+	}
+
 }
 
 Game::~Game() {
