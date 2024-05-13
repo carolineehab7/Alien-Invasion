@@ -23,11 +23,11 @@ void AM::attack()
 		Tearth.pop(tptr);
 		Searth.dequeue(sptr);
 		double damage = (getHealth() * getPower() / 100) / sqrt(NET->getItem()->getHealth());
-		double damage = (getHealth() * getPower() / 100) / sqrt(NES->getItem()->getHealth());
+		double damage1 = (getHealth() * getPower() / 100) / sqrt(NES->getItem()->getHealth());
 		if (NET->getItem()->getHealth() - damage == 0) {
 			gm->KilledListfunc(NET->getItem());
 		}
-		if (NES->getItem()->getHealth() - damage == 0) { 
+		if (NES->getItem()->getHealth() - damage1 == 0) { 
 			gm->KilledListfunc(NES->getItem());
 		}
 		else

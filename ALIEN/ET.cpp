@@ -11,7 +11,7 @@ void ET::attack()
 	AM** monster = gm->getAlienArmyptr()->getMonstersArr();
 	LinkedQueue<ES*> esolider = gm->getEarthArmyptr() ->getESList();
 	LinkedQueue<AS*> asolider = gm->getAlienArmyptr()->getASList();
-	LinkedQueue<AS*> temp;
+	LinkedQueue<AS*> templist;
 	AM** templistAM = new AM * [sizeof(monster)];
 	int tempCounter = 0;
 
@@ -32,7 +32,7 @@ void ET::attack()
 			templistAM[i] = monster[i];
 		}
 		
-		if (esolider.length() < (0.3 *asolider.length()))
+		if (esolider.getlength() < (0.3 * asolider.getlength()))
 		{
 			for (int i = 0; i < getAttackCapacity(); i++)
 			{
@@ -41,7 +41,7 @@ void ET::attack()
 				asolider.dequeue(ASptr);
 				double damage = (getHealth() * getPower() / 100) / sqrt(NAS->getItem()->getHealth());
 				if (NAS->getItem()->getHealth() - damage == 0) {
-					gm->KilledListfunc(currAS->getItem());
+					gm->KilledListfunc(NAS->getItem());
 				}
 				else
 					templist.enqueue(NAS->getItem());
