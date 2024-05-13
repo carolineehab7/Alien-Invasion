@@ -1,9 +1,8 @@
 #pragma once
 #include <iostream>
 #include "Units.h"
-#include "AlienArmy.h"
-#include"EarthArmy.h"
 using namespace std;
+class Game;
 
 
 class AM : public Units {

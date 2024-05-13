@@ -1,5 +1,7 @@
+#include<iostream>
 #include"EarthArmy.h"
-#include <cmath>
+using namespace std;
+
 EarthArmy::EarthArmy() {
 	
 
@@ -139,14 +141,34 @@ void EarthArmy::printEA() {
 
 }
 
+void EarthArmy::AttackAA()
+{
+	ES* esAttacker;
+	if (ES_LIST.peek(esAttacker)) //if there is ES let it attack 
+		esAttacker->attack();
+
+	ET* etAttacker;
+	if (ET_LIST.peek(etAttacker)) //if there is ET let it attack 
+		etAttacker->attack();
+
+	/*
+	EG* egAttacker;
+	int EGscore;
+	if (EG_LIST.peek(egAttacker, EGscore)) // if there is ET let it attack
+		egAttacker->attack();
+	*/
+}
+
 void EarthArmy::addtoES_UML(ES* es_uml) {
 	int pri = 100 - es_uml->getHealth();
 	ES_Maintain.enqueue(es_uml,pri);
 
 }
+
 void EarthArmy::addtoET_UML(ET* et_uml) {
 	ET_Maintain.enqueue(et_uml);
 }
+
 ES* EarthArmy::removefromES_uml() {
 	ES* ESptr = new ES();
 	int pri = 1;
@@ -154,6 +176,7 @@ ES* EarthArmy::removefromES_uml() {
 		ES_Maintain.dequeue(ESptr,pri);
 	return ESptr;
 }
+
 ET* EarthArmy::removefromET_uml() {
 	ET* ETptr = NULL;
 	if (!ET_Maintain.isEmpty()) {
@@ -161,9 +184,11 @@ ET* EarthArmy::removefromET_uml() {
 	}
 	return ETptr;
 }
+
 void EarthArmy::addtoHeal(HealUnit* HU) {
 	HL_LIST.push(HU);
 }
+
 HealUnit* EarthArmy::removefromHeal() {
 	HealUnit* HUptr = new HealUnit();
 	if (!HL_LIST.isEmpty()) {

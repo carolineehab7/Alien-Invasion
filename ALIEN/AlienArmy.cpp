@@ -1,4 +1,6 @@
+#include<iostream>
 #include"AlienArmy.h"
+using namespace std;
 
 AlienArmy::AlienArmy() {
 	ADArr = new AD *[2];
@@ -100,6 +102,21 @@ void AlienArmy::printAA() {
 		
 	
 
+}
+
+void AlienArmy::AttackEA()
+{
+	AS* asAttacker;
+	if (AS_LIST.peek(asAttacker)) //if there is AS let it attack 
+		asAttacker->attack();
+
+	AM* amAttacker{};
+	if (monstersCounter > 0) //if there is AM let it attack 
+		amAttacker->attack();
+
+	AD* adAttacker;
+	if (AD_LIST.peek(adAttacker)) // if there is AD let it attack
+		adAttacker->attack();
 }
 
 LinkedQueue<AS*> AlienArmy::getASList()

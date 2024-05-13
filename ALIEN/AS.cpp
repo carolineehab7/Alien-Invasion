@@ -1,4 +1,7 @@
 #include "AS.h"
+#include <iostream>
+using namespace std;
+#include"Game.h"
 
 AS::AS() {
 

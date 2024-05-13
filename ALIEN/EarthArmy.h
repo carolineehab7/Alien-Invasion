@@ -1,12 +1,12 @@
 #pragma once
 #include<iostream>
-#include"Units.h"
 #include"EG.h"
 #include"ES.h"
 #include"ET.h"
+#include"LinkedQueue.h"
 #include"ArrayStack.h"
 #include"priQueue.h"
-#include"LinkedQueue.h"
+#include "HealUnit.h"
 using namespace std;
 
 class EarthArmy {
@@ -15,7 +15,6 @@ private:
 	LinkedQueue<ES*> ES_LIST;
 	priQueue <EG*> EG_LIST;
 	ArrayStack<ET*> ET_LIST;
-
 	ArrayStack<HealUnit*> HL_LIST;
 	priQueue <ES*> ES_Maintain;
 	LinkedQueue<ET*> ET_Maintain;
@@ -39,6 +38,7 @@ public:
 	HealUnit* removefromHeal();
 	void Heal();
 	void printEA();
+	void AttackAA();
 	~EarthArmy();
 
 };

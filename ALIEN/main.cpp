@@ -6,6 +6,7 @@
 #include "EarthArmy.h"
 #include "AlienArmy.h"
 using namespace std;
+
 //ostream &operator<<(ostream& op, Units* uni) {
 //	op << uni->getID();
 //	return op;

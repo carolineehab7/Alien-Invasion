@@ -1,8 +1,6 @@
 #pragma once
 #include"LinkedQueue.h"
-#include"QueueADT.h"
 #include"AD.h"
-#include"Node.h"
 using namespace std;
 
 class Dequeue :public LinkedQueue<AD*> {

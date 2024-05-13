@@ -7,7 +7,6 @@
 #include "QueueADT.h"
 #include "LinkedQueue.h"
 #include "RandGen.h"
-
 using namespace std;
 class RandGen;
 

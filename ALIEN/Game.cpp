@@ -4,8 +4,8 @@
 #include <iostream>
 #include <windows.h>
 #include "LinkedQueue.h"
-
 using namespace std;
+
 Game::Game() {
 	Time_step = 1;
 	KilledList = new LinkedQueue<Units*>;

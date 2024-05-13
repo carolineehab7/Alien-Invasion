@@ -1,4 +1,8 @@
 #include "EG.h"
+#include <iostream>
+using namespace std;
+#include"Game.h"
+
 
 EG::EG(int id, string type, int jt, int health, int power, int AC) :Units(id, type, jt, health, power, AC) {
 
@@ -29,7 +33,7 @@ void EG::attack() {
 	for (i = 0; i < ADcount; i+2) {
 		AM* AMptr;
 		AD* ADptr;
-		AD* ADB;
+		AD* ADB = nullptr;
 
 		Node<AD*>* currAD = drones.getfrontPtr();
 		Node<AD*>* backAD = drones.getbackPtr();

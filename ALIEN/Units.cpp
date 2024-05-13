@@ -1,4 +1,7 @@
 #include "Units.h"
+#include <string>
+#include"Game.h"
+
 
 Units::Units() {
 

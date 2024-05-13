@@ -1,4 +1,9 @@
 #include "ES.h"
+#include <iostream>
+#include"LinkedQueue.h"
+#include"AS.h"
+using namespace std;
+#include"Game.h"
 
 ES::ES()
 {

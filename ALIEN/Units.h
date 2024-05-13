@@ -1,7 +1,8 @@
 #pragma once
 #include <iostream>
-#include "Game.h"
+#include <string>
 using namespace std;
+class Game;
 
 class Units
 {	

@@ -2,7 +2,7 @@
 #include <iostream>
 #include "Units.h"
 using namespace std;
-
+class Game;
 
 class AD : public Units{
 private:
