@@ -15,7 +15,10 @@ ES::ES(int id, string type, int jt, int health, int power, int AC) :Units(id, ty
 void ES::attack() {
 	LinkedQueue<AS*> alians = gm->getAlienArmyptr()->getASList();
 	LinkedQueue<AS*>templist;
-	for (int i = 0; i < getAttackCapacity(); i++) {
+
+	int Cap = this->AttackCapacity;
+
+	while (Cap != 0) {
 
 		Node<AS*>* currAS = alians.getfrontPtr();
 		AS* ASptr;
@@ -24,8 +27,10 @@ void ES::attack() {
 		if (currAS->getItem()->getHealth()-damage == 0) {
 			gm->KilledListfunc(currAS->getItem());
 		}
-		else
+		else {
 			templist.enqueue(currAS->getItem());
+		}
+		Cap--;
 	}
 	while (!templist.isEmpty()) {
 		Node<AS*>* tempAS = templist.getfrontPtr();
