@@ -70,61 +70,78 @@ ArrayStack<ET*> EarthArmy::getETList()
 
 void EarthArmy::printEA() {
 
-		Units* U;
+	Units* U;
 
-		cout << "============== Earth Army Alive Units ==============" << endl;
+	cout << "============== Earth Army Alive Units ==============" << endl;
 
-		cout << ES_LIST.length << " ES [ ";
-		ES_LIST.printLQ();
+	cout << ES_LIST.length << " ES [ ";
+	ES_LIST.printLQ();
 
-		cout << " ]" << endl;
+	cout << " ]" << endl;
 
-		////////////////////////////////////////////////////////////////////////
+	////////////////////////////////////////////////////////////////////////
 
-		cout << EG_LIST.length << " EG [ ";
-		EG_LIST.printPriQ();
+	cout << EG_LIST.length << " EG [ ";
+	EG_LIST.printPriQ();
 
-		cout << " ]" << endl;
+	cout << " ]" << endl;
 
-		////////////////////////////////////////////////////////////////////////
+	////////////////////////////////////////////////////////////////////////
 
-		cout << ET_LIST.getTop() + 1 << " ET [ ";
-		ArrayStack<ET*> Temp3;
-		ET* t;
-		for (int i = 0; i < ET_LIST.getTop() + 1; ++i) {
+	cout << ET_LIST.getTop() + 1 << " ET [ ";
+	ArrayStack<ET*> Temp3;
+	ET* t;
+	for (int i = 0; i < ET_LIST.getTop() + 1; ++i) {
 
-			ET_LIST.peek(t);
+		ET_LIST.peek(t);
 
-			cout << t->getID() << ', ';
+		cout << t->getID() << ', ';
 
-			ET_LIST.pop(t);
-			Temp3.push(t);
-		}
-		cout << " ]" << endl;
-		for (int i = 0; i < Temp3.getTop() + 1; ++i) {
-			Temp3.peek(t);
-			Temp3.pop(t);
-			ET_LIST.push(t);
-		}
-		////////////////////////////////////////////////////////////////////////
-		//
-		//here should be the print of HL LIST
-		// 
-		////////////////////////////////////////////////////////////////////////
-		cout << ES_Maintain.length << " ES UML [ ";
-		ES_Maintain.printPriQ();
+		ET_LIST.pop(t);
+		Temp3.push(t);
+	}
+	cout << " ]" << endl;
+	for (int i = 0; i < Temp3.getTop() + 1; ++i) {
+		Temp3.peek(t);
+		Temp3.pop(t);
+		ET_LIST.push(t);
+	}
+	////////////////////////////////////////////////////////////////////////
+	cout << HL_LIST.getTop() + 1 << " HL [ ";
+	ArrayStack<HealUnit*> Temp4;
+	HealUnit* hl;
+	for (int i = 0; i < HL_LIST.getTop() + 1; ++i) {
 
-		cout << " ]" << endl;
+		HL_LIST.peek(hl);
 
-		////////////////////////////////////////////////////////////////////////
+		cout << hl->getID() << ', ';
 
-	
+		HL_LIST.pop(hl);
+		Temp4.push(hl);
+	}
+	cout << " ]" << endl;
+	for (int i = 0; i < Temp3.getTop() + 1; ++i) {
+		Temp4.peek(hl);
+		Temp4.pop(hl);
+		HL_LIST.push(hl);
+	}
+
+	////////////////////////////////////////////////////////////////////////
+	cout << ES_Maintain.length << " ES UML [ ";
+	ES_Maintain.printPriQ();
+
+	cout << " ]" << endl;
+
+	////////////////////////////////////////////////////////////////////////
+	cout << ET_Maintain.length << " ET UML [ ";
+	ET_Maintain.printLQ();
+	cout << " ]" << endl;
+
 }
 
 void EarthArmy::addtoES_UML(ES* es_uml) {
-	int pri = es_uml->getHealth();
+	int pri = 100 - es_uml->getHealth();
 	ES_Maintain.enqueue(es_uml,pri);
-	//pri 100-gethealth
 
 }
 void EarthArmy::addtoET_UML(ET* et_uml) {
