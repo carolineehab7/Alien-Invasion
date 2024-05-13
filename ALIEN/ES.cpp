@@ -24,6 +24,9 @@ void ES::attack() {
 		AS* ASptr;
 		alians.dequeue(ASptr);
 		double damage = (getHealth() * getPower()/100) / sqrt(currAS->getItem()->getHealth());
+
+		ASptr->setHealth(ASptr->getHealth()-damage);
+
 		if (currAS->getItem()->getHealth()-damage == 0) {
 			gm->KilledListfunc(currAS->getItem());
 		}

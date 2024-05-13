@@ -40,7 +40,9 @@ void AD::attack()
 
                 double damage = (getHealth() * getPower() / 100) / sqrt(et->getHealth());
 
-                if (getHealth() - damage <= 0) {
+                et->setHealth(et->getHealth()-damage);
+
+                if (et->getHealth() - damage <= 0) {
                     gm->KilledListfunc(et);
                 }
 
@@ -60,7 +62,9 @@ void AD::attack()
 
                 double damage = (getHealth() * getPower() / 100) / sqrt(CurrEG->getItem(s)->getHealth());
 
-                if (getHealth() - damage <= 0) {
+                eg->setHealth(eg->getHealth()-damage);
+
+                if (eg->getHealth() - damage <= 0) {
                     gm->KilledListfunc(CurrEG->getItem(s));
                 }
 

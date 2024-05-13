@@ -21,6 +21,9 @@ void AS::attack() {
 		ES* ESptr;
 		earths.dequeue(ESptr);
 		double damage = (getHealth() * getPower()/100 ) / sqrt(currES->getItem()->getHealth());
+
+		ESptr->setHealth(ESptr->getHealth()-damage);
+
 		if (currES->getItem()->getHealth()-damage == 0) {
 			gm->KilledListfunc(currES->getItem());
 		}
