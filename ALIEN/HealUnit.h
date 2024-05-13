@@ -1,5 +1,6 @@
 #pragma once
 #include "Units.h"
+#include <string>
 class HealUnit: public Units
 {
 public:

@@ -14,31 +14,40 @@ void AM::attack()
 	ArrayStack<ET*> Tearth = gm->getEarthArmyptr()->getETList();  
 	LinkedQueue<ES*> Stemplist;
 	ArrayStack<ET*> Ttemplist;
-	for (int i = 0; i < getAttackCapacity(); i++) {
+	int Cap = this->AttackCapacity;
+
+	while (Cap != 0) {
 
 		Node<ES*>* NES = Searth.getfrontPtr();
-		Node<ET*>* NET = Tearth.getTop();
+		ET* Net;
 		ES* sptr ;
-		ET* tptr = nullptr;
-		Tearth.pop(tptr);
+		Tearth.pop(Net);
 		Searth.dequeue(sptr);
-		double damage = (getHealth() * getPower() / 100) / sqrt(NET->getItem()->getHealth());
+		double damage = (getHealth() * getPower() / 100) / sqrt(Net->getHealth());
 		double damage1 = (getHealth() * getPower() / 100) / sqrt(NES->getItem()->getHealth());
-		if (NET->getItem()->getHealth() - damage == 0) {
-			gm->KilledListfunc(NET->getItem());
-		}
+		if (Net->getHealth() - damage == 0) {
+			gm->KilledListfunc(Net);
+		 }
+		 else
+		 {
+			Net->setHealth(Net->getHealth() - damage);
+			Ttemplist.push(Net);
+		 }
+	
 		if (NES->getItem()->getHealth() - damage1 == 0) { 
 			gm->KilledListfunc(NES->getItem());
 		}
 		else
+		{
+			NES->getItem()->setHealth(NES->getItem()->getHealth() - damage1);
 			Stemplist.enqueue(NES->getItem());
-
+		}
+		Cap--;
 	}
 	while (!Ttemplist.isEmpty()) {
-		Node<ET*>* tempET = Ttemplist.getTop();
-		ET* orgET;
-		Ttemplist.pop(orgET);
-		Tearth.push(tempET->getItem());
+		ET* tempET;
+		Ttemplist.pop(tempET);
+		Tearth.push(tempET);
 	}
 	while (!Stemplist.isEmpty()) {
 		Node<ES*>* tempES = Stemplist.getfrontPtr();

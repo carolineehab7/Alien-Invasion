@@ -14,9 +14,12 @@ void ET::attack()
 	LinkedQueue<AS*> templist;
 	AM** templistAM = new AM * [sizeof(monster)];
 	int tempCounter = 0;
+	int Cap = this->AttackCapacity;
 
-		for (int j = 0; j < getAttackCapacity() ; j++)
+
+		while(Cap !=0)
 		{
+			int j=0;
 			double damage = (getHealth() * getPower() / 100) / sqrt(monster[j]->getHealth());
 
 			if (monster[j]->getHealth() - damage == 0) {
@@ -24,17 +27,24 @@ void ET::attack()
 			}
 			else  
 			{
+				monster[j]->setHealth(monster[j]->getHealth() - damage);
 				templistAM[tempCounter] = monster[j];
 				tempCounter++;
 			} 
+			j++;
+			Cap--;
 		}
- 		for (int i = 0; i < tempCounter; i++) {
-			templistAM[i] = monster[i];
+		for (int Z = 0; Z < sizeof(monster); Z++) {
+			if (monster[Z] = NULL) {
+			for (int i = 0; i < tempCounter; i++) {
+				monster[Z]= templistAM[i];
+			}
+			}
 		}
 		
 		if (esolider.getlength() < (0.3 * asolider.getlength()))
 		{
-			for (int i = 0; i < getAttackCapacity(); i++)
+			while(Cap != 0)
 			{
 				Node<AS*>* NAS = asolider.getfrontPtr();
 				AS* ASptr;
@@ -44,9 +54,18 @@ void ET::attack()
 					gm->KilledListfunc(NAS->getItem());
 				}
 				else
+					NAS->getItem()->setHealth(NAS->getItem()->getHealth() - damage);
 					templist.enqueue(NAS->getItem());
+				Cap--;
 		    }
 	   }
+		while (!templist.isEmpty())
+		{
+			Node<AS*>* tempAS = templist.getfrontPtr();
+			AS* orgAS;
+			templist.dequeue(orgAS);
+			asolider.enqueue(tempAS->getItem());
+		}
 }
 
 
