@@ -310,6 +310,16 @@ void Game::Simulation() {
 
 		Time_step++;
 	}
+	if (Time_step == 500) {
+		cout << "Select the Program Mode (S || I): ";
+		cin >> Mode;
+		if (Mode == 'I')
+			PrintALL();
+		else if (Mode == 'S') {
+			PrintSilent();
+			createoutfile();
+		}
+	}
 
 	Sleep(300);
 	system("CLS");
