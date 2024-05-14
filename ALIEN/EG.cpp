@@ -19,6 +19,7 @@ int EG::getScore() {
 
 void EG::attack() {
 	Dequeue drones = gm->getAlienArmyptr()->getADList();
+	AlienArmy* alienm = gm->getAlienArmyptr();
 	AM** monsters = gm->getAlienArmyptr()->getMonstersArr();
 
 	Dequeue templistAD;
@@ -34,7 +35,7 @@ void EG::attack() {
 	int AMcount = capacity / 2;
 	int tempCounter = 0;
 
-	AM** templistAM = new AM * [sizeof(AMcount)];
+	LinkedQueue<AM*> templistAM;
 
 	int i = 0;
 	for (i = 0; i < ADcount; i + 2) {
@@ -129,25 +130,25 @@ void EG::attack() {
 
 	for (int j = 0; j < AMcount; j++)
 	{
+		AM* am = alienm->pickAM();
 
-		if (!monsters[j]->getattck()) {
-			monsters[j]->setattck();
+		if (!am->getattck()) {
+			am->setattck();
 			int s = gm->getTime();
-			monsters[j]->setTa(s);
+			am->setTa(s);
 		}
-		double damage = (getHealth() * getPower() / 100) / sqrt(monsters[j]->getHealth());
+		double damage = (getHealth() * getPower() / 100) / sqrt(am->getHealth());
 		if (gm->getMode() == 'I')
-			cout << monsters[j]->getID();
+			cout << am->getID();
 
-		if (monsters[j]->getHealth() - damage == 0) {
+		if (am->getHealth() - damage == 0) {
 
-			gm->KilledListfunc(monsters[j]);
-			monsters[j] = nullptr;
+			gm->KilledListfunc(am);
+			am = nullptr;
 		}
 		else
 		{
-			templistAM[tempCounter] = monsters[j];
-			tempCounter++;
+			templistAM.enqueue(am);
 		}
 	}
 
@@ -157,8 +158,15 @@ void EG::attack() {
 		templistAD.dequeue(orgAD);
 		drones.enqueue(tempAD->getItem());
 	}
-
-	AM** monstersAfterAttack = new AM * [sizeof(monsters)];
+	while (!templistAM.isEmpty()) {
+		//Node<AM*>* tempAM = templistAM.getfrontPtr();
+		AM* orgAM;
+		templistAM.dequeue(orgAM);
+		
+		alienm->addUnit(orgAM);
+	//	drones.enqueue(tempAM->getItem());
+	}
+	/*AM** monstersAfterAttack = new AM * [sizeof(monsters)];
 	int monstersAfterAttackIndex = 0;
 
 	for (int m = AMcount; m < sizeof(monsters); m++)
@@ -172,7 +180,7 @@ void EG::attack() {
 		monstersAfterAttack[monstersAfterAttackIndex] = templistAM[m];
 		monstersAfterAttackIndex++;
 	}
-	monsters = monstersAfterAttack;
+	monsters = monstersAfterAttack;*/
 
 }
 //void EG::attack() {
