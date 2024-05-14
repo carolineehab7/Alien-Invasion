@@ -188,12 +188,10 @@ void Game::Simulation() {
 	LinkedQueue<Units*>* TempList;
 	TempList = new LinkedQueue<Units*>;
 	LoadFromFile();
-
 	cout << "Select the Program Mode (S || I): ";
 	cin >> Mode;
 	if (Mode == 'I') {
 		bool  win = false;
-
 		while (true) {
 
 			int totalEA = this->EA->getETList().getCount() + this->EA->getESList().length + this->EA->getEGList().length;

@@ -67,16 +67,28 @@ void AM::attack()
 
 
 	while (!Ttemplist.isEmpty()) {
-		ET* tempET;
-		Ttemplist.pop(tempET);
-		Tearth.push(tempET);
+		ET* tempET=nullptr;
+		if (tempET->getHealth() > 0 && tempET->getHealth() < 20) {
+			Ttemplist.pop(tempET);
+			gm->addtoET_UML(tempET);
+		}
+		else {
+			Ttemplist.pop(tempET);
+			Tearth.push(tempET);
+		}
 	}
-
-
+	
 	while (!Stemplist.isEmpty()) {
-		Node<ES*>* tempES = Stemplist.getfrontPtr();
-		ES* orgES;
-		Stemplist.dequeue(orgES);
-		Searth.enqueue(tempES->getItem());
+		
+		ES* orgES=nullptr;
+		if (orgES->getHealth() > 0 && orgES->getHealth() < 20)
+		{
+			Stemplist.dequeue(orgES);
+			gm->addtoES_UML(orgES);
+		}
+		else {
+			Stemplist.dequeue(orgES);
+			Searth.enqueue(orgES);
+		}
 	}
 }

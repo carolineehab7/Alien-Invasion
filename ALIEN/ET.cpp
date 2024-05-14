@@ -85,10 +85,9 @@ void ET::attack()
 
 	while (!templist.isEmpty())
 	{
-		Node<AS*>* tempAS = templist.getfrontPtr();
 		AS* orgAS;
 		templist.dequeue(orgAS);
-		asolider.enqueue(tempAS->getItem());
+		asolider.enqueue(orgAS);
 	}
 }
 
