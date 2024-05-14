@@ -137,6 +137,11 @@ int Game::getTime() {
 	return Time_step;
 }
 
+char Game::getMode() const
+{
+	return Mode;
+}
+
 RandGen* Game::getRandGenptr() {
 	return randGenPtr;
 }
@@ -177,20 +182,20 @@ void Game::printKillList() {
 	cout << " ]" << endl;
 }
 
-void Game::TestCode() {
+void Game::Simulation() {
+
 	LinkedQueue<Units*>* TempList;
 	TempList = new LinkedQueue<Units*>;
 	LoadFromFile();
-
-	char Mode = 0;
+	char Mode;
 	cout << "Select the Program Mode (S || I): ";
 	cin >> Mode;
+	if (Mode == 'I'){
+		while (Time_step <= 50) {
 
-	while (Time_step <= 50)
-	{
-		randGenPtr->createUnit();
 
-		if (Mode == 'I') {
+
+
 			PrintALL();
 		}
 		else {
@@ -199,7 +204,7 @@ void Game::TestCode() {
 		}
 
 		Sleep(300);
-		Time_step++;
+		//Time_step++;
 		system("CLS");
 
 	}

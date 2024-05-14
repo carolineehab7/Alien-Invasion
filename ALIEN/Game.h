@@ -33,7 +33,7 @@ public:
 	void createoutfile();
 	void PrintSilent();
 	void PrintALL();
-	void TestCode();
+	void Simulation();
 	int getTime();
 	LinkedQueue<ET*>getET_UML();
 	priQueue <ES*>getES_UML();
@@ -45,7 +45,5 @@ public:
 	ET* removefromET_uml();
 	HealUnit* removefromHeal();
 	~Game();
-
-
 };
 

@@ -61,4 +61,15 @@ public:
 			Temp2 = Temp2->getNext();
 		}
 	}
+
+	
+	bool peekback(AD*& frntEntry)
+	{
+		if (isEmpty())
+			return false;
+
+		frntEntry = getbackPtr()->getItem();
+		return true;
+
+	}
 };
