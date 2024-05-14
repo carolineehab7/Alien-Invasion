@@ -23,18 +23,21 @@ void AD::attack()
     priQueue <EG*> Gunnery = gm->getEarthArmyptr()->getEGList();
     priQueue <EG*> TempEGList;
 
+    //int Cap = this->AttackCapacity; // Total AD Attack Capacity
 
-    int Cap = this->AttackCapacity;
+    AD* front;
+    AD* rear{};
+    gm->getAlienArmyptr()->getADList().dequeue(front);
+    gm->getAlienArmyptr()->getADList().backdequeue(*rear);
+
+    int Cap1 = front->getAttackCapacity(); //Attack Capacity of Drone 1
+    int Cap2 = rear->getAttackCapacity(); //Attack Capacity of Drone 2
+    int TCap = Cap1 + Cap2; // Total Capacity of 2 Drones 
     int oddEven = 0;
 
-    while (Cap != 0) {
+    while (TCap != 0) {
 
-        AD* front = new AD();
-        AD* rear = new AD();
-        gm->getAlienArmyptr()->getADList().dequeue(front);
-        gm->getAlienArmyptr()->getADList().backdequeue(*rear);
-
-        if (oddEven % 2 != 0) { // Means that number is odd
+        if (oddEven % 2 != 0) {
             ET* et;
             if (gm->getEarthArmyptr()->getETList().pop(et)) {
 
@@ -49,10 +52,10 @@ void AD::attack()
                 else {
                     TempETList.push(et);
                 }
-                Cap--;
-            }
+                TCap--;
+            } //end if attack
 
-        }
+        } //end if odd
 
         else {// mean that number is even
             priNode<EG*>* CurrEG = Gunnery.getHead();
@@ -71,12 +74,13 @@ void AD::attack()
                 else {
                     TempEGList.enqueue(CurrEG->getItem(s), s);
                 }
-                Cap--;
+                TCap--;
             }
 
         }
+
         oddEven++;
-    }
+    } //end while
 
     while (!(TempEGList.isEmpty())) {
         EG* EG = nullptr;
