@@ -151,12 +151,10 @@ void EarthArmy::AttackAA()
 	if (ET_LIST.peek(etAttacker)) //if there is ET let it attack 
 		etAttacker->attack();
 
-	/*
 	EG* egAttacker;
 	int EGscore;
 	if (EG_LIST.peek(egAttacker, EGscore)) // if there is ET let it attack
 		egAttacker->attack();
-	*/
 }
 
 void EarthArmy::addtoES_UML(ES* es_uml) {

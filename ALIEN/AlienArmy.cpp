@@ -117,6 +117,10 @@ void AlienArmy::AttackEA()
 	AD* adAttacker;
 	if (AD_LIST.peek(adAttacker)) // if there is AD let it attack
 		adAttacker->attack();
+
+	
+	if (AD_LIST.peekback(adAttacker)) // if there is AD let it attack
+		adAttacker->attack();
 }
 
 LinkedQueue<AS*> AlienArmy::getASList()

@@ -83,6 +83,11 @@ int Game::getTime() {
 	return Time_step;
 }
 
+char Game::getMode() const
+{
+	return Mode;
+}
+
 RandGen* Game::getRandGenptr() {
 	return randGenPtr;
 }
@@ -123,23 +128,31 @@ void Game::printKillList() {
 	cout << " ]" << endl;
 }
 
-void Game::TestCode() {
+void Game::Simulation() {
+
 	LinkedQueue<Units*>* TempList;
 	TempList = new LinkedQueue<Units*>;
 	LoadFromFile();
-	char Mode;
+	
 	cout << "Select the Program Mode (S || I): ";
 	cin >> Mode;
 	if (Mode == 'I'){
-		while (Time_step <= 50) {
+		bool  win = false;
+		while (true) {
+			
+			int totalEA = this->EA->getETList().getCount() + this->EA->getESList().length + this->EA->getEGList().length;
 
 
 
-
+			if (totalEA == 0) {
+				win = true;
+				break;
+			
+			}
 			PrintALL();
 		}
 		Sleep(300);
-		Time_step++;
+		//Time_step++;
 		system("CLS");
 	
 	}

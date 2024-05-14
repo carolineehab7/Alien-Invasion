@@ -72,6 +72,9 @@
     <ClInclude Include="Node.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="HealUnit.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Units.cpp">
@@ -109,6 +112,9 @@
     </ClCompile>
     <ClCompile Include="AD.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="HealUnit.cpp">
+      <Filter>Header Files</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

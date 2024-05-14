@@ -18,6 +18,8 @@ private:
 	RandGen* randGenPtr;
 	LinkedQueue<Units*>* KilledList;
 	int Time_step;
+	char Mode;
+
 public:
 	Game();
 	bool KilledListfunc(Units* killunit);
@@ -29,8 +31,9 @@ public:
 	void createoutfile();
 	void PrintSilent();
 	void PrintALL();
-	void TestCode();
+	void Simulation();
 	int getTime();
+	char getMode() const;
 	~Game();
 };
 
