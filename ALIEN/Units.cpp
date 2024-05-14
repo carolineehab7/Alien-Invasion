@@ -96,16 +96,16 @@ void Units::setTa(int ta) {
 void Units::setTd(int td) {
 	Td = td;
 }
-void Units::setDf(int ta, int tj) {
-	//Df = ta - tj;
+void Units::setDf() {
+	
 	Df = Ta - JoinTime;
 }
-void Units::setDd(int td, int ta) {
-	//Dd = td - ta;
+void Units::setDd() {
+	
 	Dd = Td - Ta;
 }
-void Units::setDb(int td, int tj) {
-//	Db = td - tj;
+void Units::setDb() {
+
 	Dd = Td - JoinTime;
 }
 void Units::setUAP(int a) {

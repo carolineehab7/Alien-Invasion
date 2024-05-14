@@ -23,6 +23,7 @@ private:
 	LinkedQueue<ET*> ET_Maintain;
 	char Mode;
 	Units* unitptr;
+	bool battlewin = false;
 
 public:
 	Game();

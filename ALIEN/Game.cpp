@@ -16,6 +16,7 @@ Game::Game() {
 }
 
 bool Game::KilledListfunc(Units* killunit) {
+	unitptr->setDd();
 	return KilledList->enqueue(killunit);
 }
 
@@ -75,7 +76,14 @@ void Game::createoutfile() {
 	int DBSUM = 0;
 	int DDSUM = 0;
 	int DFSUM = 0;
-	 
+	int Descount = 0;
+	int Detcount = 0;
+	int Degcount = 0;
+	int Dascount = 0;
+	int Damcount = 0;
+	int Dadcount = 0;
+	int Dhcount = 0;
+
 	ofstream outfile("OutFile.txt");
 
 
@@ -84,10 +92,35 @@ void Game::createoutfile() {
 		KilledList->dequeue(unitptr);
 		outfile << unitptr->getTd() << unitptr->getID() << unitptr->getJoinTime() << unitptr->getDf()
 			<< unitptr->getDd() << unitptr->getDb() << endl;
-
+		if (unitptr->getType() == "ES") {
+			Descount++;
+		}
+		else if (unitptr->getType() == "ET") {
+			Detcount++;
+		}
+		else if (unitptr->getType() == "EG") {
+			Degcount++;
+		}
+		else if (unitptr->getType() == "AS") {
+			Dascount++;
+		}
+		else if (unitptr->getType() == "AM") {
+			Damcount++;
+		}
+		else if (unitptr->getType() == "AD") {
+			Dadcount++;
+		}
+		else {
+			Dhcount++;
+		}
 
 	}
-	outfile << "BattleResult " << endl;
+	outfile << "Battle Result ";
+	if (battlewin)
+		outfile << "Win" << endl;
+	else
+		outfile << "Lose" << endl;
+
 
 	outfile  << "Total Number of Earth Army Units " << endl;
 	outfile  << "Earth Soldiers: " << getEarthArmyptr()->getESList().getlength() << endl;
@@ -95,15 +128,21 @@ void Game::createoutfile() {
 	outfile  << "Earth Gunneries: " << getEarthArmyptr()->getEGList().length<< endl;
 	outfile << "Heal Units: " << getHL_LIST().getCount() << endl;
 
-	outfile << "Percentage of destructed units relative to their total: " << endl;
-
-
+	/*outfile << "Percentage of destructed Earth units relative to their total: " << endl;
+	outfile << "Earth Soldiers: " << 100* Descount/ getEarthArmyptr()->getESList().getlength() << "%" << endl;
+	outfile << "Earth Gunneries: " << 100 * Degcount / getEarthArmyptr()->getEGList().length << "%" << endl;
+	outfile << "Earth Tanks: " << 100 * Detcount / getEarthArmyptr()->getETList().getCount() << "%" << endl;
+	outfile  << "Heal Units: " << 100 * Dhcount/ getHL_LIST().getCount() << "%" << endl;*/
 
 	outfile << "Total Number of Alien Army Units " << endl;
 	outfile << "Alien Soldiers: " << getAlienArmyptr()->getASList().getlength() << endl;
 	outfile << "Alien Monsters: " << getAlienArmyptr()->getMonstersArrSize() << endl;
 	outfile << "Alien Drones: " << getAlienArmyptr()->getADList().getlength()<< endl;
 
+	//outfile << "Percentage of destructed Alien Army units relative to their total: " << endl;
+	//outfile << "Alien Soldiers: " << 100 *Dascount/ getAlienArmyptr()->getASList().getlength() << "%" << endl;
+	//outfile << "Alien Monsters: " << 100*Damcount/ getAlienArmyptr()->getMonstersArrSize() << "%" << endl;
+	//outfile << "Alien Drones " << 100*Dadcount/ getAlienArmyptr()->getADList().getlength() << "%" << endl;
 
 }
 
@@ -246,37 +285,39 @@ void Game::Simulation() {
 	LoadFromFile();
 	cout << "Select the Program Mode (S || I): ";
 	cin >> Mode;
-	if (Mode == 'I') {
-		bool  winA = false;
-		bool winB = false;
-		while (true) {
 
-			randGenPtr->createUnit();
+	while (Time_step <= 500) {
 
-			int totalEA = this->EA->getETList().getCount() + this->EA->getESList().length + this->EA->getEGList().length;
-			int totalAA = this->AA->getADList().length + this->AA->getASList().length + this->AA->getMonstersArrSize();
+		randGenPtr->createUnit();
 
-			if (totalEA == 0) {
-				winA = true; 
-				break;
+		int totalEA = this->EA->getETList().getCount() + this->EA->getESList().length + this->EA->getEGList().length;
+		int totalAA = this->AA->getADList().length + this->AA->getASList().length + this->AA->getMonstersArrSize();
+
+		EA->AttackAA();
+		AA->AttackEA();
+
+		if (Time_step >= 40) {
+			if (totalEA > totalAA) {
+				battlewin = true;
+				// EA WON
 			}
 
-			else if (totalAA == 0) {
-				winB = true;
-				break;
+			else if (totalAA < totalEA) {
+				//AA WON
+				battlewin = false;
 			}
-
-			EA->AttackAA();
-			AA->AttackEA();
-
-			PrintALL();
 		}
-		Sleep(300);
-		//Time_step++;
-		system("CLS");
 
-
+		Time_step++;
 	}
+
+	Sleep(300);
+	system("CLS");
+
+	if (Mode == 'I') {
+		PrintALL();
+	}
+
 	else if (Mode == 'S') {
 		PrintSilent();
 		createoutfile();
@@ -284,6 +325,7 @@ void Game::Simulation() {
 	}
 
 }
+
 
 
 Game::~Game() {
