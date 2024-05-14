@@ -23,6 +23,12 @@ void EG::attack() {
 
 	Dequeue templistAD;
 
+	if (gm->getAlienArmyptr()->getMonstersArrSize()==0 && gm->getAlienArmyptr()->getADList().isEmpty())
+		return;
+
+	if (gm->getMode() == 'I')
+		cout << "EG Attacker " << this->ID << " [";
+
 	int capacity = getAttackCapacity();
 	int ADcount = capacity / 2 + capacity % 2;
 	int AMcount = capacity / 2;
@@ -35,6 +41,9 @@ void EG::attack() {
 		AM* AMptr;
 		AD* ADptr;
 		AD* ADB = NULL;
+
+		if (gm->getAlienArmyptr()->getMonstersArrSize() == 0 && gm->getAlienArmyptr()->getADList().isEmpty())
+			break;
 
 		Node<AD*>* currAD = drones.getfrontPtr();
 		Node<AD*>* backAD = drones.getbackPtr();
@@ -53,6 +62,10 @@ void EG::attack() {
 				backAD->getItem()->setTa(s);
 			}*/
 			double frontDamage = (getHealth() * getPower() / 100) / sqrt(currAD->getItem()->getHealth());
+
+			if (gm->getMode() == 'I')
+				cout << ADptr->getID();
+
 			/*double backDamage = (getHealth() * getPower() / 100) / sqrt(backAD->getItem()->getHealth());*/
 
 			if (currAD->getItem()->getHealth() - frontDamage == 0) {
@@ -78,6 +91,10 @@ void EG::attack() {
 				Node<AD*>* currSAD = drones.getfrontPtr();
 				drones.dequeue(sAD);
 				double DamageS = (getHealth() * getPower() / 100) / sqrt(currSAD->getItem()->getHealth());
+
+				if (gm->getMode() == 'I')
+					cout <<sAD ->getID();
+
 				if (currSAD->getItem()->getHealth() - DamageS == 0) {
 					gm->KilledListfunc(currSAD->getItem());
 				}
@@ -94,6 +111,8 @@ void EG::attack() {
 				backAD->getItem()->setTa(s);
 			}
 			double backDamage = (getHealth() * getPower() / 100) / sqrt(backAD->getItem()->getHealth());
+			if (gm->getMode() == 'I')
+				cout << ADptr->getID();
 			if (backAD->getItem()->getHealth() - backDamage == 0) {
 				gm->KilledListfunc(backAD->getItem());
 			}
@@ -110,12 +129,15 @@ void EG::attack() {
 
 	for (int j = 0; j < AMcount; j++)
 	{
+
 		if (!monsters[j]->getattck()) {
 			monsters[j]->setattck();
 			int s = gm->getTime();
 			monsters[j]->setTa(s);
 		}
 		double damage = (getHealth() * getPower() / 100) / sqrt(monsters[j]->getHealth());
+		if (gm->getMode() == 'I')
+			cout << monsters[j]->getID();
 
 		if (monsters[j]->getHealth() - damage == 0) {
 

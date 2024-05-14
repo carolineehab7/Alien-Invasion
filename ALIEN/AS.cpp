@@ -12,13 +12,16 @@ AS::AS(int id, string type, int jt, int health, int power, int AC) :Units(id, ty
 void AS::attack() {
 	LinkedQueue<ES*> earths = gm->getEarthArmyptr()->getESList();
 	LinkedQueue<ES*> templist;
-
+	if (gm->getEarthArmyptr()->getESList() .isEmpty())
+		return;
  int Cap = this->AttackCapacity;
 	
 	while (Cap != 0) {
 
 		Node<ES*>* currES = earths.getfrontPtr();
 		ES* ESptr;
+		if (gm->getEarthArmyptr()->getESList().isEmpty())
+			break;
 	bool check=	earths.dequeue(ESptr);
 	if (check) {
 		if (!ESptr->getattck()) {
@@ -28,6 +31,8 @@ void AS::attack() {
 		}
 
 		double damage = (getHealth() * getPower() / 100) / sqrt(currES->getItem()->getHealth());
+		if (gm->getMode() == 'I')
+			cout <<ESptr ->getID();
 
 		ESptr->setHealth(ESptr->getHealth() - damage);
 

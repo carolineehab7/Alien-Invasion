@@ -16,6 +16,9 @@ void ES::attack() {
 	LinkedQueue<AS*> alians = gm->getAlienArmyptr()->getASList();
 	LinkedQueue<AS*>templist;
 
+	if (gm->getAlienArmyptr()->getASList().isEmpty())
+		return;
+
 	int Cap = this->AttackCapacity;
 
 
@@ -23,6 +26,8 @@ void ES::attack() {
 
 		Node<AS*>* currAS = alians.getfrontPtr();
 		AS* ASptr;
+		if (gm->getAlienArmyptr()->getASList().isEmpty())
+			break;
 		bool check = alians.dequeue(ASptr);
 		if (check) {
 			if (!ASptr->getattck()) {
@@ -31,6 +36,9 @@ void ES::attack() {
 				ASptr->setTa(firstAtime);
 			}
 			double damage = (getHealth() * getPower() / 100) / sqrt(currAS->getItem()->getHealth());
+
+			if (gm->getMode() == 'I')
+				cout << ASptr->getID();
 
 			ASptr->setHealth(ASptr->getHealth() - damage);
 
