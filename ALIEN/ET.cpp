@@ -67,6 +67,12 @@ void ET::attack()
 			asolider.enqueue(tempAS->getItem());
 		}
 }
+void ET::setET_UML_TIME(int y) {
+	ET_UML_TIME = y;
+}
+int ET::getET_UML_TIME() {
+	return ET_UML_TIME;
+}
 
 
 

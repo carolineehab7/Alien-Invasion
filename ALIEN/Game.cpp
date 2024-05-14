@@ -19,6 +19,7 @@ bool Game::KilledListfunc(Units* killunit) {
 	return KilledList->enqueue(killunit);
 }
 
+
 void Game::LoadFromFile() {
 	int n, prob, ES, ET, EG, AS, AM, AD, HU_PER;
 	int maxPE, minPE, maxHE, minHE, maxCE, minCE;
@@ -72,18 +73,72 @@ void Game::LoadFromFile() {
 }
 void Game::createoutfile() {
 	int TD, ID, TJ, DF, Dd, Db;
+
 	ofstream outfile("OutFile.txt");
-	
+
 	outfile << "TD " << "ID " << "Tj " << "Df " << "Dd " << "Db " << endl;
 	//outfile<< 
 
 
 }
+
+LinkedQueue<ET*> Game::getET_UML() {
+	return ET_Maintain;
+}
+priQueue <ES*> Game::getES_UML() {
+	return ES_Maintain;
+}
+ArrayStack<HealUnit*> Game::getHL_LIST() {
+	return HL_LIST;
+}
+
+void Game::addtoES_UML(ES* es_uml) {
+	ES* esptr = NULL;
+	int pri = 100 - es_uml->getHealth();
+	esptr->setES_UML_TIME(getTime());
+	ES_Maintain.enqueue(es_uml, pri);
+
+}
+void Game::addtoET_UML(ET* et_uml) {
+	ET* etptr = NULL;
+	etptr->setET_UML_TIME(getTime());
+	ET_Maintain.enqueue(et_uml);
+}
+
+ES* Game::removefromES_uml() {
+	ES* ESptr = new ES();
+	int pri = 1;
+	if (!ES_Maintain.isEmpty())
+		ES_Maintain.dequeue(ESptr, pri);
+	return ESptr;
+}
+
+ET* Game::removefromET_uml() {
+	ET* ETptr = NULL;
+	if (!ET_Maintain.isEmpty()) {
+		ET_Maintain.dequeue(ETptr);
+	}
+	return ETptr;
+}
+
+void Game::addtoHeal(HealUnit* HU) {
+	HL_LIST.push(HU);
+}
+
+HealUnit* Game::removefromHeal() {
+	HealUnit* HUptr = new HealUnit();
+	if (!HL_LIST.isEmpty()) {
+		HL_LIST.pop(HUptr);
+	}
+	return HUptr;
+}
+
+
 int Game::getTime() {
 	return Time_step;
 }
 
-char Game::getMode() const
+char Game::getMode() 
 {
 	return Mode;
 }
@@ -107,7 +162,7 @@ void Game::PrintSilent() {
 }
 
 void Game::PrintALL() {
-	cout << "Current Timestep " << Time_step <<endl;
+	cout << "Current Timestep " << Time_step << endl;
 	getEarthArmyptr()->printEA();
 	getAlienArmyptr()->printAA();
 	printKillList();
@@ -133,13 +188,14 @@ void Game::Simulation() {
 	LinkedQueue<Units*>* TempList;
 	TempList = new LinkedQueue<Units*>;
 	LoadFromFile();
-	
+
 	cout << "Select the Program Mode (S || I): ";
 	cin >> Mode;
-	if (Mode == 'I'){
+	if (Mode == 'I') {
 		bool  win = false;
+
 		while (true) {
-			
+
 			int totalEA = this->EA->getETList().getCount() + this->EA->getESList().length + this->EA->getEGList().length;
 
 
@@ -147,14 +203,14 @@ void Game::Simulation() {
 			if (totalEA == 0) {
 				win = true;
 				break;
-			
+
 			}
 			PrintALL();
 		}
 		Sleep(300);
 		//Time_step++;
 		system("CLS");
-	
+
 	}
 	else if (Mode == 'S') {
 		PrintSilent();
@@ -163,6 +219,7 @@ void Game::Simulation() {
 	}
 
 }
+
 
 Game::~Game() {
 	delete KilledList;

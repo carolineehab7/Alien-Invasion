@@ -63,3 +63,11 @@ void ES::attack() {
 
 
 }
+
+void ES::setES_UML_TIME(int x) {
+	ES_UML_TIME = x;
+}
+
+int ES::getES_UML_TIME() {
+	return ES_UML_TIME;
+}
