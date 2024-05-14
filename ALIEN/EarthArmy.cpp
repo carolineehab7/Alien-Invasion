@@ -109,35 +109,35 @@ void EarthArmy::printEA() {
 		ET_LIST.push(t);
 	}
 	////////////////////////////////////////////////////////////////////////
-	cout << HL_LIST.getTop() + 1 << " HL [ ";
-	ArrayStack<HealUnit*> Temp4;
-	HealUnit* hl;
-	for (int i = 0; i < HL_LIST.getTop() + 1; ++i) {
+	//cout << HL_LIST.getTop() + 1 << " HL [ ";
+	//ArrayStack<HealUnit*> Temp4;
+	//HealUnit* hl;
+	//for (int i = 0; i < HL_LIST.getTop() + 1; ++i) {
 
-		HL_LIST.peek(hl);
+	//	HL_LIST.peek(hl);
 
-		cout << hl->getID() << ', ';
+	//	cout << hl->getID() << ', ';
 
-		HL_LIST.pop(hl);
-		Temp4.push(hl);
-	}
-	cout << " ]" << endl;
-	for (int i = 0; i < Temp3.getTop() + 1; ++i) {
-		Temp4.peek(hl);
-		Temp4.pop(hl);
-		HL_LIST.push(hl);
-	}
+	//	HL_LIST.pop(hl);
+	//	Temp4.push(hl);
+	//}
+	//cout << " ]" << endl;
+	//for (int i = 0; i < Temp3.getTop() + 1; ++i) {
+	//	Temp4.peek(hl);
+	//	Temp4.pop(hl);
+	//	HL_LIST.push(hl);
+	//}
 
-	////////////////////////////////////////////////////////////////////////
-	cout << ES_Maintain.length << " ES UML [ ";
-	ES_Maintain.printPriQ();
+	//////////////////////////////////////////////////////////////////////////
+	//cout << ES_Maintain.length << " ES UML [ ";
+	//ES_Maintain.printPriQ();
 
-	cout << " ]" << endl;
+	//cout << " ]" << endl;
 
-	////////////////////////////////////////////////////////////////////////
-	cout << ET_Maintain.length << " ET UML [ ";
-	ET_Maintain.printLQ();
-	cout << " ]" << endl;
+	//////////////////////////////////////////////////////////////////////////
+	//cout << ET_Maintain.length << " ET UML [ ";
+	//ET_Maintain.printLQ();
+	//cout << " ]" << endl;
 
 }
 
@@ -159,75 +159,38 @@ void EarthArmy::AttackAA()
 	*/
 }
 
-void EarthArmy::addtoES_UML(ES* es_uml) {
-	int pri = 100 - es_uml->getHealth();
-	ES_Maintain.enqueue(es_uml,pri);
 
-}
-
-void EarthArmy::addtoET_UML(ET* et_uml) {
-	ET_Maintain.enqueue(et_uml);
-}
-
-ES* EarthArmy::removefromES_uml() {
-	ES* ESptr = new ES();
-	int pri = 1;
-	if (!ES_Maintain.isEmpty())
-		ES_Maintain.dequeue(ESptr,pri);
-	return ESptr;
-}
-
-ET* EarthArmy::removefromET_uml() {
-	ET* ETptr = NULL;
-	if (!ET_Maintain.isEmpty()) {
-		ET_Maintain.dequeue(ETptr);
-	}
-	return ETptr;
-}
-
-void EarthArmy::addtoHeal(HealUnit* HU) {
-	HL_LIST.push(HU);
-}
-
-HealUnit* EarthArmy::removefromHeal() {
-	HealUnit* HUptr = new HealUnit();
-	if (!HL_LIST.isEmpty()) {
-		HL_LIST.pop(HUptr);
-	}
-	return HUptr;
-}
-
-void EarthArmy::Heal() {
-	HealUnit* H = removefromHeal();
-	int oldhealth;
-	if (!ES_Maintain.isEmpty()) {
-		ES* ptr = removefromES_uml();
-		oldhealth = ptr->getHealth();
-		int healthimprov = ((H->getPower() * H->getHealth() / 100) / sqrt(ptr->getHealth()));
-		ptr->setHealth(healthimprov);
-		if ((ptr->getHealth()/ oldhealth)*100 > 20) {
-			ES_LIST.enqueue(ptr);
-		}
-		else {
-			TempList.enqueue(ptr);
-		}
-	}
-	else {
-		ET* ptr = removefromET_uml();
-		oldhealth = ptr->getHealth();
-		int healthimprov = ((H->getPower() * H->getHealth() / 100) / sqrt(ptr->getHealth()));
-		ptr->setHealth(healthimprov);
-		if ((ptr->getHealth()/ oldhealth)*100 > 20) {
-			ET_LIST.push(ptr);
-		}
-		else {
-			TempList.enqueue(ptr);
-		}
-
-
-	}
-
-}
+//void EarthArmy::Heal() {
+//	HealUnit* H = removefromHeal();
+//	int oldhealth;
+//	if (!ES_Maintain.isEmpty()) {
+//		ES* ptr = removefromES_uml();
+//		oldhealth = ptr->getHealth();
+//		int healthimprov = ((H->getPower() * H->getHealth() / 100) / sqrt(ptr->getHealth()));
+//		ptr->setHealth(healthimprov);
+//		if ((ptr->getHealth()/ oldhealth)*100 > 20) {
+//			ES_LIST.enqueue(ptr);
+//		}
+//		else {
+//			H->addtotemp(ptr);
+//		}
+//	}
+//	else {
+//		ET* ptr2 = removefromET_uml();
+//		oldhealth = ptr2->getHealth();
+//		int healthimprov = ((H->getPower() * H->getHealth() / 100) / sqrt(ptr2->getHealth()));
+//		ptr2->setHealth(healthimprov);
+//		if ((ptr2->getHealth()/ oldhealth)*100 > 20) {
+//			ET_LIST.push(ptr2);
+//		}
+//		else {
+//			H->addtotemp(ptr2);
+//		}
+//
+//
+//	}
+//
+//}
 	
 EarthArmy::~EarthArmy() {
 	

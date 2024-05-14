@@ -231,7 +231,7 @@ void LinkedQueue<T>::printLQ() const {
 	
 	Node<T>* Temp = frontPtr;
 	while (Temp) {
-		cout << Temp->getItem() << ", ";
+		cout << Temp->getItem()->getID() << ", ";
 		Temp = Temp->getNext();
 	}
 }
