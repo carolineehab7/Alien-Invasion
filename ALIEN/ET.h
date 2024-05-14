@@ -12,6 +12,6 @@ private:
 public:
 	ET(int id, string type, int jt, int health, int power, int AC);
 	void attack();
-	void setET_UML_TIME(int);
+	void setET_UML_TIME(int y);
 	int getET_UML_TIME();
 }; 

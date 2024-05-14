@@ -9,64 +9,89 @@ ET::ET(int id, string type, int jt, int health, int power, int AC) :Units(id, ty
 void ET::attack()
 {
 	AM** monster = gm->getAlienArmyptr()->getMonstersArr();
-	LinkedQueue<ES*> esolider = gm->getEarthArmyptr() ->getESList();
+	LinkedQueue<ES*> esolider = gm->getEarthArmyptr()->getESList();
 	LinkedQueue<AS*> asolider = gm->getAlienArmyptr()->getASList();
 	LinkedQueue<AS*> templist;
 	AM** templistAM = new AM * [sizeof(monster)];
 	int tempCounter = 0;
 	int Cap = this->AttackCapacity;
 
+	if (gm->getAlienArmyptr()->getMonstersArrSize())
+		return;
 
-		while(Cap !=0)
+	if (gm->getMode() == 'I')
+		cout << "ET Attacker " << this->ID << " [";
+
+	while (Cap != 0)
+	{
+		if (gm->getAlienArmyptr()->getMonstersArrSize())
+			break;
+
+		int j = 0;
+		double damage = (getHealth() * getPower() / 100) / sqrt(monster[j]->getHealth());
+
+		if (gm->getMode() == 'I')
+			cout << monster[j]->getID();
+
+		if (monster[j]->getHealth() - damage == 0) {
+			gm->KilledListfunc(monster[j]);
+		}
+		else
 		{
-			int j=0;
-			double damage = (getHealth() * getPower() / 100) / sqrt(monster[j]->getHealth());
-
-			if (monster[j]->getHealth() - damage == 0) {
-				gm->KilledListfunc(monster[j]);
+			monster[j]->setHealth(monster[j]->getHealth() - damage);
+			templistAM[tempCounter] = monster[j];
+			tempCounter++;
+		}
+		j++;
+		Cap--;
+		if (gm->getMode() == 'I')
+			cout << "\b\b" << "]";
+	}
+	for (int Z = 0; Z < sizeof(monster); Z++) {
+		if (monster[Z] = NULL) {
+			for (int i = 0; i < tempCounter; i++) {
+				monster[Z] = templistAM[i];
 			}
-			else  
-			{
-				monster[j]->setHealth(monster[j]->getHealth() - damage);
-				templistAM[tempCounter] = monster[j];
-				tempCounter++;
-			} 
-			j++;
+		}
+	}
+
+	if (esolider.getlength() < (0.3 * asolider.getlength()))
+	{
+		while (Cap != 0)
+		{
+			if (gm->getAlienArmyptr()->getASList().isEmpty())
+				break;
+
+			Node<AS*>* NAS = asolider.getfrontPtr();
+			AS* ASptr;
+			asolider.dequeue(ASptr);
+			double damage = (getHealth() * getPower() / 100) / sqrt(NAS->getItem()->getHealth());
+
+			if (gm->getMode() == 'I')
+				cout << ASptr->getID();
+
+			if (NAS->getItem()->getHealth() - damage == 0) {
+				gm->KilledListfunc(NAS->getItem());
+			}
+			else {
+				NAS->getItem()->setHealth(NAS->getItem()->getHealth() - damage);
+				templist.enqueue(NAS->getItem());
+			}
+			if (gm->getMode() == 'I')
+				cout << "\b\b" << "]";
 			Cap--;
 		}
-		for (int Z = 0; Z < sizeof(monster); Z++) {
-			if (monster[Z] = NULL) {
-			for (int i = 0; i < tempCounter; i++) {
-				monster[Z]= templistAM[i];
-			}
-			}
-		}
-		
-		if (esolider.getlength() < (0.3 * asolider.getlength()))
-		{
-			while(Cap != 0)
-			{
-				Node<AS*>* NAS = asolider.getfrontPtr();
-				AS* ASptr;
-				asolider.dequeue(ASptr);
-				double damage = (getHealth() * getPower() / 100) / sqrt(NAS->getItem()->getHealth());
-				if (NAS->getItem()->getHealth() - damage == 0) {
-					gm->KilledListfunc(NAS->getItem());
-				}
-				else
-					NAS->getItem()->setHealth(NAS->getItem()->getHealth() - damage);
-					templist.enqueue(NAS->getItem());
-				Cap--;
-		    }
-	   }
-		while (!templist.isEmpty())
-		{
-			Node<AS*>* tempAS = templist.getfrontPtr();
-			AS* orgAS;
-			templist.dequeue(orgAS);
-			asolider.enqueue(tempAS->getItem());
-		}
+	}
+
+	while (!templist.isEmpty())
+	{
+		Node<AS*>* tempAS = templist.getfrontPtr();
+		AS* orgAS;
+		templist.dequeue(orgAS);
+		asolider.enqueue(tempAS->getItem());
+	}
 }
+
 void ET::setET_UML_TIME(int y) {
 	ET_UML_TIME = y;
 }
