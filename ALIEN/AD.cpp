@@ -102,7 +102,7 @@ void AD::attack()
             TempETList.pop(ET);
             gm->addtoET_UML(ET);
         }
-        // ❤
+        // ❤ 
         else {
             TempETList.pop(ET);
             Tanks.push(ET);
