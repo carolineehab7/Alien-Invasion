@@ -18,30 +18,37 @@ void ES::attack() {
 
 	int Cap = this->AttackCapacity;
 
+
 	while (Cap != 0) {
 
 		Node<AS*>* currAS = alians.getfrontPtr();
 		AS* ASptr;
-		alians.dequeue(ASptr);
-		double damage = (getHealth() * getPower()/100) / sqrt(currAS->getItem()->getHealth());
+		bool check = alians.dequeue(ASptr);
+		if (check) {
+			if (!ASptr->getattck()) {
+				ASptr->setattck();
+				int s = gm->getTime();
+				ASptr->setTa(s);
+			}
+			double damage = (getHealth() * getPower() / 100) / sqrt(currAS->getItem()->getHealth());
 
-		ASptr->setHealth(ASptr->getHealth()-damage);
+			ASptr->setHealth(ASptr->getHealth() - damage);
 
-		if (currAS->getItem()->getHealth()-damage == 0) {
-			gm->KilledListfunc(currAS->getItem());
+			if (currAS->getItem()->getHealth() - damage == 0) {
+				gm->KilledListfunc(currAS->getItem());
+			}
+			else {
+				templist.enqueue(currAS->getItem());
+			}
+			Cap--;
 		}
-		else {
-			templist.enqueue(currAS->getItem());
+		while (!templist.isEmpty()) {
+			Node<AS*>* tempAS = templist.getfrontPtr();
+			AS* orgAS;
+			templist.dequeue(orgAS);
+			alians.enqueue(tempAS->getItem());
 		}
-		Cap--;
 	}
-	while (!templist.isEmpty()) {
-		Node<AS*>* tempAS = templist.getfrontPtr();
-		AS* orgAS;
-		templist.dequeue(orgAS);
-		alians.enqueue(tempAS->getItem());
-	}
+
+
 }
-
-
-

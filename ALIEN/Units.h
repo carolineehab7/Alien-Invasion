@@ -19,7 +19,7 @@ protected:
 	int Dd;		//(Destruction Delay)
 	int Db;		//(Battle Time)
 	int UAP;	//Unit Attack Power
-	
+	bool attck;
 public:
 	Game* gm;
 	Units();
@@ -49,7 +49,8 @@ public:
 	int getDd();
 	int getDb();
 	int getUAP();
-
+	int getattck() ;
+	void setattck() ;
 	~Units();
 };
 

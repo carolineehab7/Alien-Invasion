@@ -19,18 +19,26 @@ void AS::attack() {
 
 		Node<ES*>* currES = earths.getfrontPtr();
 		ES* ESptr;
-		earths.dequeue(ESptr);
-		double damage = (getHealth() * getPower()/100 ) / sqrt(currES->getItem()->getHealth());
+	bool check=	earths.dequeue(ESptr);
+	if (check) {
+		if (!ESptr->getattck()) {
+			ESptr->setattck();
+			int s = gm->getTime();
+			ESptr->setTa(s);
+		}
 
-		ESptr->setHealth(ESptr->getHealth()-damage);
+		double damage = (getHealth() * getPower() / 100) / sqrt(currES->getItem()->getHealth());
 
-		if (currES->getItem()->getHealth()-damage == 0) {
+		ESptr->setHealth(ESptr->getHealth() - damage);
+
+		if (currES->getItem()->getHealth() - damage == 0) {
 			gm->KilledListfunc(currES->getItem());
 		}
 		else {
 			templist.enqueue(currES->getItem());
 		}
 		Cap--;
+	}
 	}
 	while (!templist.isEmpty()) {
 		Node<ES*>* tempES = templist.getfrontPtr();

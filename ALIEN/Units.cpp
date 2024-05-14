@@ -15,11 +15,14 @@ Units::Units(int id, string type, int JT, int health, int power, int AC) {
 	setPower(power);
 	setAttackCapacity(AC);
 	gm = new Game;
+	attck = false;
+
 
 }
 void Units::setID(int id) {
 	if (id > 0) {
 		ID = id;
+		attck = false;
 	}
 }
 void Units::setType(string type) {
@@ -94,13 +97,16 @@ void Units::setTd(int td) {
 	Td = td;
 }
 void Units::setDf(int ta, int tj) {
-	Df = ta - tj;
+	//Df = ta - tj;
+	Df = Ta - JoinTime;
 }
 void Units::setDd(int td, int ta) {
-	Dd = td - ta;
+	//Dd = td - ta;
+	Dd = Td - Ta;
 }
 void Units::setDb(int td, int tj) {
-	Db = td - tj;
+//	Db = td - tj;
+	Dd = Td - JoinTime;
 }
 void Units::setUAP(int a) {
 
@@ -123,6 +129,16 @@ int Units::getDb() {
 }
 int Units::getUAP() {
 	return UAP;
+}
+
+int Units::getattck()
+{
+	return attck;
+}
+
+void Units::setattck()
+{
+	attck = true;
 }
 
 Units::~Units() {
