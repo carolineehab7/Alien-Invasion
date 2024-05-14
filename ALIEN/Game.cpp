@@ -19,6 +19,7 @@ bool Game::KilledListfunc(Units* killunit) {
 	return KilledList->enqueue(killunit);
 }
 
+
 void Game::LoadFromFile() {
 	int n, prob, ES, ET, EG, AS, AM, AD, HU_PER;
 	int maxPE, minPE, maxHE, minHE, maxCE, minCE;
@@ -137,7 +138,7 @@ int Game::getTime() {
 	return Time_step;
 }
 
-char Game::getMode() const
+char Game::getMode() 
 {
 	return Mode;
 }
@@ -187,29 +188,38 @@ void Game::Simulation() {
 	LinkedQueue<Units*>* TempList;
 	TempList = new LinkedQueue<Units*>;
 	LoadFromFile();
-	char Mode;
+
 	cout << "Select the Program Mode (S || I): ";
 	cin >> Mode;
-	if (Mode == 'I'){
-		while (Time_step <= 50) {
+	if (Mode == 'I') {
+		bool  win = false;
+
+		while (true) {
+
+			int totalEA = this->EA->getETList().getCount() + this->EA->getESList().length + this->EA->getEGList().length;
 
 
 
+			if (totalEA == 0) {
+				win = true;
+				break;
 
+			}
 			PrintALL();
 		}
-		else {
-			PrintSilent();
-			createoutfile();
-		}
-
 		Sleep(300);
 		//Time_step++;
 		system("CLS");
 
 	}
+	else if (Mode == 'S') {
+		PrintSilent();
+		createoutfile();
+
+	}
 
 }
+
 
 Game::~Game() {
 	delete KilledList;

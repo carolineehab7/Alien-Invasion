@@ -48,7 +48,7 @@ void AS::attack() {
 		ES* orgES = nullptr;
 		if (orgES->getHealth() > 0 && orgES->getHealth() < 20) {
 			templist.dequeue(orgES);
-			gm->getEarthArmyptr()->addtoES_UML(orgES);
+			gm->addtoES_UML(orgES);
 		}
 		else {
 			templist.dequeue(orgES);

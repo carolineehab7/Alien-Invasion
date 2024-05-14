@@ -100,7 +100,7 @@ void AD::attack()
         ET* ET{};
         if (ET->getHealth() > 0 && ET->getHealth() < 20) {
             TempETList.pop(ET);
-            gm->getEarthArmyptr()->addtoET_UML(ET);
+            gm->addtoET_UML(ET);
         }
         // ❤
         else {

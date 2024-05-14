@@ -21,6 +21,7 @@ private:
 	ArrayStack<HealUnit*> HL_LIST;
 	priQueue <ES*> ES_Maintain;
 	LinkedQueue<ET*> ET_Maintain;
+	char Mode;
 
 public:
 	Game();
@@ -35,6 +36,7 @@ public:
 	void PrintALL();
 	void Simulation();
 	int getTime();
+	char getMode(); 
 	LinkedQueue<ET*>getET_UML();
 	priQueue <ES*>getES_UML();
 	ArrayStack<HealUnit*>getHL_LIST();
