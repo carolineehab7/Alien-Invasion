@@ -144,7 +144,7 @@ void EarthArmy::printEA() {
 void EarthArmy::AttackAA()
 {
 	ES* esAttacker = NULL;
-	if (ES_LIST.peek(esAttacker)) //if there is ES let it attack 
+	if (ES_LIST.peek(esAttacker) && esAttacker!=NULL ) //if there is ES let it attack 
 		esAttacker->attack();
 
 	ET* etAttacker = NULL;

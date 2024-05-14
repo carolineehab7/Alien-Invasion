@@ -285,10 +285,10 @@ void Game::Simulation() {
 	LoadFromFile();
 	cout << "Select the Program Mode (S || I): ";
 	cin >> Mode;
+	randGenPtr->createUnit();
 
 	while (Time_step <= 500) {
 
-		randGenPtr->createUnit();
 
 		int totalEA = this->EA->getETList().getCount() + this->EA->getESList().length + this->EA->getEGList().length;
 		int totalAA = this->AA->getADList().length + this->AA->getASList().length + this->AA->getMonstersArrSize();
