@@ -47,6 +47,7 @@ void ES::attack() {
 			}
 			else {
 				templist.enqueue(currAS->getItem());
+
 			}
 		}
 		Cap--;
