@@ -22,6 +22,7 @@ private:
 	priQueue <ES*> ES_Maintain;
 	LinkedQueue<ET*> ET_Maintain;
 	char Mode;
+	Units* unitptr;
 
 public:
 	Game();

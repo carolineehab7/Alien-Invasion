@@ -156,39 +156,6 @@ void EarthArmy::AttackAA()
 	if (EG_LIST.peek(egAttacker, EGscore)) // if there is ET let it attack
 		egAttacker->attack();
 }
-
-
-//void EarthArmy::Heal() {
-//	HealUnit* H = removefromHeal();
-//	int oldhealth;
-//	if (!ES_Maintain.isEmpty()) {
-//		ES* ptr = removefromES_uml();
-//		oldhealth = ptr->getHealth();
-//		int healthimprov = ((H->getPower() * H->getHealth() / 100) / sqrt(ptr->getHealth()));
-//		ptr->setHealth(healthimprov);
-//		if ((ptr->getHealth()/ oldhealth)*100 > 20) {
-//			ES_LIST.enqueue(ptr);
-//		}
-//		else {
-//			H->addtotemp(ptr);
-//		}
-//	}
-//	else {
-//		ET* ptr2 = removefromET_uml();
-//		oldhealth = ptr2->getHealth();
-//		int healthimprov = ((H->getPower() * H->getHealth() / 100) / sqrt(ptr2->getHealth()));
-//		ptr2->setHealth(healthimprov);
-//		if ((ptr2->getHealth()/ oldhealth)*100 > 20) {
-//			ET_LIST.push(ptr2);
-//		}
-//		else {
-//			H->addtotemp(ptr2);
-//		}
-//
-//
-//	}
-//
-//}
 	
 EarthArmy::~EarthArmy() {
 	

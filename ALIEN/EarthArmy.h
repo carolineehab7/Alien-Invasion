@@ -28,7 +28,6 @@ public:
 	LinkedQueue<ES*> getESList();
 	priQueue <EG*> getEGList();
 	ArrayStack<ET*> getETList();
-	void Heal();
 	void printEA();
 	void AttackAA();
 	~EarthArmy();

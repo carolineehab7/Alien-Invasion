@@ -72,12 +72,37 @@ void Game::LoadFromFile() {
 	inpfile.close();
 }
 void Game::createoutfile() {
-	int TD, ID, TJ, DF, Dd, Db;
-
+	int DBSUM = 0;
+	int DDSUM = 0;
+	int DFSUM = 0;
+	 
 	ofstream outfile("OutFile.txt");
 
+
 	outfile << "TD " << "ID " << "Tj " << "Df " << "Dd " << "Db " << endl;
-	//outfile<< 
+	while (!KilledList->isEmpty()) {
+		KilledList->dequeue(unitptr);
+		outfile << unitptr->getTd() << unitptr->getID() << unitptr->getJoinTime() << unitptr->getDf()
+			<< unitptr->getDd() << unitptr->getDb() << endl;
+
+
+	}
+	outfile << "BattleResult " << endl;
+
+	outfile  << "Total Number of Earth Army Units " << endl;
+	outfile  << "Earth Soldiers: " << getEarthArmyptr()->getESList().getlength() << endl;
+	outfile << "Earth Tanks: " << getEarthArmyptr()->getETList().getCount() << endl;
+	outfile  << "Earth Gunneries: " << getEarthArmyptr()->getEGList().length<< endl;
+	outfile << "Heal Units: " << getHL_LIST().getCount() << endl;
+
+	outfile << "Percentage of destructed units relative to their total: " << endl;
+
+
+
+	outfile << "Total Number of Alien Army Units " << endl;
+	outfile << "Alien Soldiers: " << getAlienArmyptr()->getASList().getlength() << endl;
+	outfile << "Alien Monsters: " << getAlienArmyptr()->getMonstersArrSize() << endl;
+	outfile << "Alien Drones: " << getAlienArmyptr()->getADList().getlength()<< endl;
 
 
 }
@@ -164,6 +189,37 @@ void Game::PrintSilent() {
 void Game::PrintALL() {
 	cout << "Current Timestep " << Time_step << endl;
 	getEarthArmyptr()->printEA();
+	////////////////////////////////////////////////////////////////////////
+	cout << HL_LIST.getTop() + 1 << " HL [ ";
+	ArrayStack<HealUnit*> Temp4;
+	HealUnit* hl;
+	for (int i = 0; i < HL_LIST.getTop() + 1; ++i) {
+
+		HL_LIST.peek(hl);
+
+		cout << hl->getID() << ', ';
+
+		HL_LIST.pop(hl);
+		Temp4.push(hl);
+	}
+	cout << " ]" << endl;
+	for (int i = 0; i < Temp4.getTop() + 1; ++i) {
+		Temp4.peek(hl);
+		Temp4.pop(hl);
+		HL_LIST.push(hl);
+	}
+
+	//////////////////////////////////////////////////////////////////////////
+		cout << ES_Maintain.length << " ES UML [ ";
+		ES_Maintain.printPriQ();
+
+		cout << " ]" << endl;
+
+	//////////////////////////////////////////////////////////////////////////
+	cout << ET_Maintain.length << " ET UML [ ";
+	ET_Maintain.printLQ();
+	cout << " ]" << endl;
+
 	getAlienArmyptr()->printAA();
 	printKillList();
 	cout << "Press any key to move to the next timestep" << endl;
@@ -208,6 +264,7 @@ void Game::Simulation() {
 		Sleep(300);
 		//Time_step++;
 		system("CLS");
+
 
 	}
 	else if (Mode == 'S') {
