@@ -11,8 +11,9 @@ void ET::attack()
 	AM** monster = gm->getAlienArmyptr()->getMonstersArr();
 	LinkedQueue<ES*> esolider = gm->getEarthArmyptr()->getESList();
 	LinkedQueue<AS*> asolider = gm->getAlienArmyptr()->getASList();
+	int gg = gm->getAlienArmyptr()->getMonstersArrSize();
 	LinkedQueue<AS*> templist;
-	AM** templistAM = new AM * [sizeof(monster)];
+	AM** templistAM = new AM * [gg];
 	int tempCounter = 0;
 	int Cap = this->AttackCapacity;
 
@@ -47,7 +48,7 @@ void ET::attack()
 		if (gm->getMode() == 'I')
 			cout << "\b\b" << "]";
 	}
-	for (int Z = 0; Z < sizeof(monster); Z++) {
+	for (int Z = 0; Z < gm ->getAlienArmyptr()->getMonstersArrSize(); Z++) {
 		if (monster[Z] = NULL) {
 			for (int i = 0; i < tempCounter; i++) {
 				monster[Z] = templistAM[i];
