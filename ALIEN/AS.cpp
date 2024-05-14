@@ -36,9 +36,11 @@ void AS::attack() {
 		}
 		else {
 			templist.enqueue(currES->getItem());
+
 		}
-		Cap--;
 	}
+		Cap--;
+	
 	}
 	while (!templist.isEmpty()) {
 		Node<ES*>* tempES = templist.getfrontPtr();

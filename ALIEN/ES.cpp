@@ -27,8 +27,8 @@ void ES::attack() {
 		if (check) {
 			if (!ASptr->getattck()) {
 				ASptr->setattck();
-				int s = gm->getTime();
-				ASptr->setTa(s);
+				int firstAtime = gm->getTime();
+				ASptr->setTa(firstAtime);
 			}
 			double damage = (getHealth() * getPower() / 100) / sqrt(currAS->getItem()->getHealth());
 
@@ -40,15 +40,17 @@ void ES::attack() {
 			else {
 				templist.enqueue(currAS->getItem());
 			}
-			Cap--;
 		}
+		Cap--;
+	}
+		
 		while (!templist.isEmpty()) {
 			Node<AS*>* tempAS = templist.getfrontPtr();
 			AS* orgAS;
 			templist.dequeue(orgAS);
 			alians.enqueue(tempAS->getItem());
 		}
-	}
+	
 
 
 }
