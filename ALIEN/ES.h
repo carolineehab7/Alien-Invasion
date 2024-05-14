@@ -1,6 +1,7 @@
 #pragma once
 #include <iostream>
 #include "Units.h"
+#include<string>
 using namespace std;
 class Game;
 
