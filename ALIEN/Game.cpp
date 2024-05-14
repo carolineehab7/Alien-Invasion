@@ -191,18 +191,28 @@ void Game::Simulation() {
 	cout << "Select the Program Mode (S || I): ";
 	cin >> Mode;
 	if (Mode == 'I') {
-		bool  win = false;
+		bool  winA = false;
+		bool winB = false;
 		while (true) {
 
+			randGenPtr->createUnit();
+
 			int totalEA = this->EA->getETList().getCount() + this->EA->getESList().length + this->EA->getEGList().length;
-
-
+			int totalAA = this->AA->getADList().length + this->AA->getASList().length + this->AA->getMonstersArrSize();
 
 			if (totalEA == 0) {
-				win = true;
+				winA = true; 
 				break;
-
 			}
+
+			else if (totalAA == 0) {
+				winB = true;
+				break;
+			}
+
+			EA->AttackAA();
+			AA->AttackEA();
+
 			PrintALL();
 		}
 		Sleep(300);
