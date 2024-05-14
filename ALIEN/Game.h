@@ -32,7 +32,5 @@ public:
 	void TestCode();
 	int getTime();
 	~Game();
-
-
 };
 

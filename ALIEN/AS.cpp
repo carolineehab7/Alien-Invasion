@@ -42,10 +42,17 @@ void AS::attack() {
 		Cap--;
 	
 	}
+
 	while (!templist.isEmpty()) {
 		Node<ES*>* tempES = templist.getfrontPtr();
-		ES* orgES;
-		templist.dequeue(orgES);
-		earths.enqueue(tempES->getItem());
+		ES* orgES = nullptr;
+		if (orgES->getHealth() > 0 && orgES->getHealth() < 20) {
+			templist.dequeue(orgES);
+			gm->getEarthArmyptr()->addtoES_UML(orgES);
+		}
+		else {
+			templist.dequeue(orgES);
+			earths.enqueue(tempES->getItem());
+		}
 	}
 }

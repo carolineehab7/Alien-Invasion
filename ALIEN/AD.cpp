@@ -1,4 +1,4 @@
-#include "AD.h"
+﻿#include "AD.h"
 #include<string>
 using namespace std;
 #include"Game.h"
@@ -90,8 +90,15 @@ void AD::attack()
     }
 
     while (!(TempETList.isEmpty())) {
-        ET* ET;
-        TempETList.pop(ET);
-        Tanks.push(ET);
+        ET* ET{};
+        if (ET->getHealth() > 0 && ET->getHealth() < 20) {
+            TempETList.pop(ET);
+            gm->getEarthArmyptr()->addtoET_UML(ET);
+        }
+        // ❤
+        else {
+            TempETList.pop(ET);
+            Tanks.push(ET);
+        }
     }
 }
