@@ -18,6 +18,13 @@ private:
 	RandGen* randGenPtr;
 	LinkedQueue<Units*>* KilledList;
 	int Time_step;
+	ArrayStack<HealUnit*> HL_LIST;
+	priQueue <ES*> ES_Maintain;
+	LinkedQueue<ET*> ET_Maintain;
+	char Mode;
+	Units* unitptr;
+	bool battlewin = false;
+
 public:
 	Game();
 	bool KilledListfunc(Units* killunit);
@@ -29,10 +36,18 @@ public:
 	void createoutfile();
 	void PrintSilent();
 	void PrintALL();
-	void TestCode();
+	void Simulation();
 	int getTime();
+	char getMode();
+	LinkedQueue<ET*>getET_UML();
+	priQueue <ES*>getES_UML();
+	ArrayStack<HealUnit*>getHL_LIST();
+	void addtoHeal(HealUnit*);
+	void addtoES_UML(ES*);
+	void addtoET_UML(ET*);
+	ES* removefromES_uml();
+	ET* removefromET_uml();
+	HealUnit* removefromHeal();
 	~Game();
-
-
 };
 

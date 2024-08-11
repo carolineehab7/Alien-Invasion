@@ -22,7 +22,7 @@ void RandGen::createUnit() {
 
 			int B = rand() % (100 - 1 + 1) + 1;
 			if (B <= eS) {
-				ES* es1 = new ES(IDE, "ES",jt, healthE, powerE, attckCapE);
+				ES* es1 = new ES(IDE, "ES", jt, healthE, powerE, attckCapE);
 				IDE++;
 				gameptr->getEarthArmyptr()->addUnit(es1);
 			}
@@ -36,7 +36,7 @@ void RandGen::createUnit() {
 				IDE++;
 				gameptr->getEarthArmyptr()->addUnit(eg1);
 			}
-			else if (B <= eS + eT + eG + HU_PER){
+			else if (B <= eS + eT + eG + HU_PER) {
 				HealUnit* HU = new HealUnit(IDE, "HU", jt, healthE, powerE, attckCapE);
 				IDE++;
 				gameptr->getEarthArmyptr()->addUnit(HU);

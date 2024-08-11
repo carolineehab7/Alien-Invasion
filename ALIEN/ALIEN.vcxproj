@@ -30,6 +30,7 @@
     <ClInclude Include="ET.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="ES.h" />
+    <ClInclude Include="HealUnit.h" />
     <ClInclude Include="LinkedQueue.h" />
     <ClInclude Include="Node.h" />
     <ClInclude Include="priNode.h" />
@@ -49,6 +50,7 @@
     <ClCompile Include="ES.cpp" />
     <ClCompile Include="ET.cpp" />
     <ClCompile Include="Game.cpp" />
+    <ClCompile Include="HealUnit.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="RandGen.cpp" />
     <ClCompile Include="Units.cpp" />

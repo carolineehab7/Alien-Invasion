@@ -1,4 +1,4 @@
-#include "AD.h"
+﻿#include "AD.h"
 #include<string>
 using namespace std;
 #include"Game.h"
@@ -23,27 +23,30 @@ void AD::attack()
     priQueue <EG*> Gunnery = gm->getEarthArmyptr()->getEGList();
     priQueue <EG*> TempEGList;
 
-    //int Cap = this->AttackCapacity; // Total AD Attack Capacity
-
-    AD* front;
-    AD* rear{};
-    gm->getAlienArmyptr()->getADList().dequeue(front);
-    gm->getAlienArmyptr()->getADList().backdequeue(*rear);
-
-    int Cap1 = front->getAttackCapacity(); //Attack Capacity of Drone 1
-    int Cap2 = rear->getAttackCapacity(); //Attack Capacity of Drone 2
-    int TCap = Cap1 + Cap2; // Total Capacity of 2 Drones 
+    int Cap = this->AttackCapacity;
     int oddEven = 0;
 
-    while (TCap != 0) {
+    if ((gm->getEarthArmyptr()->getETList().isEmpty() && gm->getEarthArmyptr()->getEGList().isEmpty()))
+        return;
+
+    if (gm->getMode() == 'I')
+        cout << "AD Attacker " << this->ID << " [";
+
+    while (Cap != 0) {
+
+        if (gm->getEarthArmyptr()->getETList().isEmpty() && gm->getEarthArmyptr()->getEGList().isEmpty())
+            break;
 
         if (oddEven % 2 != 0) {
             ET* et;
             if (gm->getEarthArmyptr()->getETList().pop(et)) {
 
+                if (gm->getMode() == 'I')
+                    cout << et->getID();
+
                 double damage = (getHealth() * getPower() / 100) / sqrt(et->getHealth());
 
-                et->setHealth(et->getHealth()-damage);
+                et->setHealth(et->getHealth() - damage);
 
                 if (et->getHealth() - damage <= 0) {
                     gm->KilledListfunc(et);
@@ -52,7 +55,7 @@ void AD::attack()
                 else {
                     TempETList.push(et);
                 }
-                TCap--;
+                Cap--;
             } //end if attack
 
         } //end if odd
@@ -63,9 +66,12 @@ void AD::attack()
             int s = eg->getScore();
             if (gm->getEarthArmyptr()->getEGList().dequeue(eg, s)) {
 
+                if (gm->getMode() == 'I')
+                    cout << eg->getID() << ", ";
+
                 double damage = (getHealth() * getPower() / 100) / sqrt(CurrEG->getItem(s)->getHealth());
 
-                eg->setHealth(eg->getHealth()-damage);
+                eg->setHealth(eg->getHealth() - damage);
 
                 if (eg->getHealth() - damage <= 0) {
                     gm->KilledListfunc(CurrEG->getItem(s));
@@ -74,11 +80,12 @@ void AD::attack()
                 else {
                     TempEGList.enqueue(CurrEG->getItem(s), s);
                 }
-                TCap--;
+                Cap--;
             }
 
         }
-
+        if (gm->getMode() == 'I')
+            cout << "\b\b" << "]";
         oddEven++;
     } //end while
 
@@ -90,8 +97,23 @@ void AD::attack()
     }
 
     while (!(TempETList.isEmpty())) {
-        ET* ET;
-        TempETList.pop(ET);
-        Tanks.push(ET);
+        ET* ET{};
+        if (ET->getHealth() > 0 && ET->getHealth() < 20) {
+            TempETList.pop(ET);
+            gm->addtoET_UML(ET);
+        }
+        // ❤ 
+        else {
+            TempETList.pop(ET);
+            Tanks.push(ET);
+        }
     }
 }
+
+//void AD::operator=(AD& ad)
+//{
+//    this->AttackCapacity = ad.AttackCapacity;
+//    this->ID = ad.ID;
+//    this->Health = ad.Health;
+//    this->Power = ad.Power;
+//}

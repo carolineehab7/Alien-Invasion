@@ -3,8 +3,8 @@
 using namespace std;
 
 AlienArmy::AlienArmy() {
-	ADArr = new AD *[2];
-	M_ArrSize = 100;    
+	ADArr = new AD * [2];
+	M_ArrSize = 100;
 	monstersCounter = 0;
 	Monsters_Arr = new AM * [M_ArrSize];
 	for (int i = 0; i < M_ArrSize; ++i) {
@@ -25,7 +25,7 @@ AM* AlienArmy::pickAM() {
 	if (monstersCounter == 0)
 		return NULL;
 	int ind = rand() % monstersCounter;
-	AM* temp = Monsters_Arr[ind]; 
+	AM* temp = Monsters_Arr[ind];
 	Monsters_Arr[ind] = Monsters_Arr[monstersCounter - 1];
 	monstersCounter--;
 
@@ -33,7 +33,7 @@ AM* AlienArmy::pickAM() {
 }
 
 AD** AlienArmy::pickAD() {
-	
+
 	if (AD_LIST.length % 2 == 0) {
 		AD* front = new AD();
 		AD* rear = new AD();
@@ -52,8 +52,8 @@ bool AlienArmy::addUnit(Units* U) {
 	}
 
 	else if (U->getType() == "AD") {
-			AD* ADUnit = dynamic_cast<AD*>(U);
-			return AD_LIST.frontenqueue(ADUnit);
+		AD* ADUnit = dynamic_cast<AD*>(U);
+		return AD_LIST.frontenqueue(ADUnit);
 	}
 
 	else if (U->getType() == "AM") {
@@ -72,35 +72,35 @@ bool AlienArmy::addUnit(Units* U) {
 }
 
 void AlienArmy::printAA() {
-	
-		
-				cout << "============== Alien Army Alive Units ==============" << endl;
 
-				cout << AS_LIST.length << " AS [ ";
-				AS_LIST.printLQ();
-				cout << " ]" << endl;
 
-				////////////////////////////////////////////////////////////////////////
+	cout << "============== Alien Army Alive Units ==============" << endl;
 
-				cout << monstersCounter << " AM [ ";
-				for (int i = 0; i < M_ArrSize; ++i) {
-					if (Monsters_Arr[i] != NULL) {
-						cout << Monsters_Arr[i]->getID() << ", ";
-					}
-				}
+	cout << AS_LIST.length << " AS [ ";
+	AS_LIST.printLQ();
+	cout << " ]" << endl;
 
-				cout << " ]" << endl;
+	////////////////////////////////////////////////////////////////////////
 
-				////////////////////////////////////////////////////////////////////////
+	cout << monstersCounter << " AM [ ";
+	for (int i = 0; i < M_ArrSize; ++i) {
+		if (Monsters_Arr[i] != NULL) {
+			cout << Monsters_Arr[i]->getID() << ", ";
+		}
+	}
 
-				cout << AD_LIST.length << " AD [ ";
+	cout << " ]" << endl;
 
-				AD_LIST.printDE();
+	////////////////////////////////////////////////////////////////////////
 
-				cout << " ]" << endl;
-			
-		
-	
+	cout << AD_LIST.length << " AD [ ";
+
+	AD_LIST.printDE();
+
+	cout << " ]" << endl;
+
+
+
 
 }
 
@@ -116,6 +116,10 @@ void AlienArmy::AttackEA()
 
 	AD* adAttacker;
 	if (AD_LIST.peek(adAttacker)) // if there is AD let it attack
+		adAttacker->attack();
+
+
+	if (AD_LIST.peekback(adAttacker)) // if there is AD let it attack
 		adAttacker->attack();
 }
 
