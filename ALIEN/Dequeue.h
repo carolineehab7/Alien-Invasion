@@ -6,31 +6,31 @@ using namespace std;
 class Dequeue :public LinkedQueue<AD*> {
 
 public:
-	bool frontenqueue(AD* &ad) {
+	bool frontenqueue(AD*& ad) {
 
-		Node<AD*>* newNodePtr = new Node<AD*> (ad);  // Insert the new node
+		Node<AD*>* newNodePtr = new Node<AD*>(ad);  // Insert the new node
 
 		if (isEmpty()) {
-			setbackPtr(newNodePtr); 
+			setbackPtr(newNodePtr);
 			setfrontPtr(newNodePtr);//special case if this is the first node to insert
 		}// The queue is empty
 		else {
 			newNodePtr->setNext(getfrontPtr());
 			setfrontPtr(newNodePtr);
 		}
-			
+
 
 		length++;
 		return true;
 
 	}
 
- ////////////////////////////////////////////////////////////////////////////////
+	////////////////////////////////////////////////////////////////////////////////
 
-	bool backdequeue( AD& ad) {
+	bool backdequeue(AD& ad) {
 
 		if (isEmpty())
-			return false; 
+			return false;
 
 		Node<AD*>* nodeToDeletePtr = getbackPtr();
 		Node<AD*>* curr = getfrontPtr();
@@ -40,8 +40,8 @@ public:
 			setbackPtr(nullptr);
 			setfrontPtr(nullptr);
 		}
-		
-		while (curr!=nullptr && curr->getNext()!=nodeToDeletePtr) {
+
+		while (curr != nullptr && curr->getNext() != nodeToDeletePtr) {
 			curr = curr->getNext();
 		}
 		curr->setNext(NULL);
@@ -52,7 +52,7 @@ public:
 
 	}
 
- ////////////////////////////////////////////////////////////////////////////////
+	////////////////////////////////////////////////////////////////////////////////
 
 	void printDE() {
 		Node<AD*>* Temp2 = getfrontPtr();
@@ -60,5 +60,16 @@ public:
 			cout << Temp2->getItem()->getID() << " ,";
 			Temp2 = Temp2->getNext();
 		}
+	}
+
+
+	bool peekback(AD*& frntEntry)
+	{
+		if (isEmpty())
+			return false;
+
+		frntEntry = getbackPtr()->getItem();
+		return true;
+
 	}
 };

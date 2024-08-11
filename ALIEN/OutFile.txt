@@ -1,0 +1,9 @@
+TD ID Tj Df Dd Db 
+Battle Result Lose
+Total Number of Earth Army Units 
+Earth Soldiers: 10
+Earth Tanks: 3
+Earth Gunneries: 1
+Heal Units: 0
+Total Number of Alien Army Units 
+Alien Soldiers: 11

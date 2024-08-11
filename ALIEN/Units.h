@@ -39,9 +39,9 @@ public:
 	virtual void attack() = 0;
 	void setTa(int);
 	void setTd(int);
-	void setDf(int, int);
-	void setDd(int, int);
-	void setDb(int, int);
+	void setDf();
+	void setDd();
+	void setDb();
 	void setUAP(int);
 	int getTa();
 	int getTd();
