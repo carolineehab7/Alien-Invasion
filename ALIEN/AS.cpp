@@ -20,32 +20,26 @@ void AS::attack() {
 
 		Node<ES*>* currES = earths.getfrontPtr();
 		ES* ESptr;
-		if (gm->getEarthArmyptr()->getESList().isEmpty())
-			break;
-		bool check = earths.dequeue(ESptr);
-		if (check) {
-			if (!ESptr->getattck()) {
-				ESptr->setattck();
-				int s = gm->getTime();
-				ESptr->setTa(s);
-			}
+	bool check=	earths.dequeue(ESptr);
+	if (check) {
+		if (!ESptr->getattck()) {
+			ESptr->setattck();
+			int s = gm->getTime();
+			ESptr->setTa(s);
+		}
 
-			double damage = (getHealth() * getPower() / 100) / sqrt(currES->getItem()->getHealth());
-			if (gm->getMode() == 'I')
-				cout << ESptr->getID();
+		double damage = (getHealth() * getPower() / 100) / sqrt(currES->getItem()->getHealth());
 
 			ESptr->setHealth(ESptr->getHealth() - damage);
 
-			if (currES->getItem()->getHealth() - damage == 0) {
-				gm->KilledListfunc(currES->getItem());
-			}
-			else {
-				templist.enqueue(currES->getItem());
-
-			}
+		if (currES->getItem()->getHealth() - damage == 0) {
+			gm->KilledListfunc(currES->getItem());
 		}
+		else {
+			templist.enqueue(currES->getItem());
+		}
+	}
 		Cap--;
-
 	}
 
 	while (!templist.isEmpty()) {

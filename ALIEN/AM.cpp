@@ -79,16 +79,9 @@ void AM::attack()
 	}
 
 	while (!Stemplist.isEmpty()) {
-
-		ES* orgES = nullptr;
-		if (orgES->getHealth() > 0 && orgES->getHealth() < 20)
-		{
-			Stemplist.dequeue(orgES);
-			gm->addtoES_UML(orgES);
-		}
-		else {
-			Stemplist.dequeue(orgES);
-			Searth.enqueue(orgES);
-		}
+		Node<ES*>* tempES = Stemplist.getfrontPtr();
+		ES* orgES;
+		Stemplist.dequeue(orgES);
+		Searth.enqueue(tempES->getItem());
 	}
 }

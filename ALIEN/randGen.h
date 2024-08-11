@@ -11,7 +11,6 @@
 #include"AD.h"
 #include"AM.h"
 class Game;
-//#include"HealUnit.h"
 
 class RandGen
 {

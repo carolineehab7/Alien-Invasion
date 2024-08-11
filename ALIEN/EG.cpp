@@ -92,10 +92,6 @@ void EG::attack() {
 				Node<AD*>* currSAD = drones.getfrontPtr();
 				drones.dequeue(sAD);
 				double DamageS = (getHealth() * getPower() / 100) / sqrt(currSAD->getItem()->getHealth());
-
-				if (gm->getMode() == 'I')
-					cout << sAD->getID();
-
 				if (currSAD->getItem()->getHealth() - DamageS == 0) {
 					gm->KilledListfunc(currSAD->getItem());
 				}
@@ -158,15 +154,8 @@ void EG::attack() {
 		templistAD.dequeue(orgAD);
 		drones.enqueue(tempAD->getItem());
 	}
-	while (!templistAM.isEmpty()) {
-		//Node<AM*>* tempAM = templistAM.getfrontPtr();
-		AM* orgAM;
-		templistAM.dequeue(orgAM);
 
-		alienm->addUnit(orgAM);
-		//	drones.enqueue(tempAM->getItem());
-	}
-	/*AM** monstersAfterAttack = new AM * [sizeof(monsters)];
+	AM** monstersAfterAttack = new AM * [sizeof(monsters)];
 	int monstersAfterAttackIndex = 0;
 
 	for (int m = AMcount; m < sizeof(monsters); m++)

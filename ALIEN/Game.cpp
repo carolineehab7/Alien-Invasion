@@ -202,11 +202,6 @@ int Game::getTime() {
 	return Time_step;
 }
 
-char Game::getMode()
-{
-	return Mode;
-}
-
 RandGen* Game::getRandGenptr() {
 	return randGenPtr;
 }
@@ -228,37 +223,6 @@ void Game::PrintSilent() {
 void Game::PrintALL() {
 	cout << "Current Timestep " << Time_step << endl;
 	getEarthArmyptr()->printEA();
-	////////////////////////////////////////////////////////////////////////
-	cout << HL_LIST.getTop() + 1 << " HL [ ";
-	ArrayStack<HealUnit*> Temp4;
-	HealUnit* hl;
-	for (int i = 0; i < HL_LIST.getTop() + 1; ++i) {
-
-		HL_LIST.peek(hl);
-
-		cout << hl->getID() << ', ';
-
-		HL_LIST.pop(hl);
-		Temp4.push(hl);
-	}
-	cout << " ]" << endl;
-	for (int i = 0; i < Temp4.getTop() + 1; ++i) {
-		Temp4.peek(hl);
-		Temp4.pop(hl);
-		HL_LIST.push(hl);
-	}
-
-	//////////////////////////////////////////////////////////////////////////
-	cout << ES_Maintain.length << " ES UML [ ";
-	ES_Maintain.printPriQ();
-
-	cout << " ]" << endl;
-
-	//////////////////////////////////////////////////////////////////////////
-	cout << ET_Maintain.length << " ET UML [ ";
-	ET_Maintain.printLQ();
-	cout << " ]" << endl;
-
 	getAlienArmyptr()->printAA();
 	printKillList();
 	cout << "Press any key to move to the next timestep" << endl;
@@ -278,34 +242,38 @@ void Game::printKillList() {
 	cout << " ]" << endl;
 }
 
-void Game::Simulation() {
+void Game::TestCode() {
 	LinkedQueue<Units*>* TempList;
 	TempList = new LinkedQueue<Units*>;
 	LoadFromFile();
-
-	char Mode = 0;
+	char Mode;
 	cout << "Select the Program Mode (S || I): ";
 	cin >> Mode;
+	if (Mode == 'I'){
+		while (Time_step <= 50) {
 
-	while (Time_step <= 50)
-	{
-		randGenPtr->createUnit();
 
-		if (Mode == 'I') {
+		if (Time_step >= 40) {
+			if (totalEA > totalAA) {
+				battlewin = true;
+				// EA WON
+			}
+
+
 			PrintALL();
 		}
-		else {
-			PrintSilent();
-			createoutfile();
-		}
-
 		Sleep(300);
 		Time_step++;
 		system("CLS");
-
+	
 	}
+	else if (Mode == 'S') {
+		PrintSilent();
+		createoutfile();
 
 }
+
+
 
 
 
