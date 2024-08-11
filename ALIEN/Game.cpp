@@ -242,34 +242,36 @@ void Game::printKillList() {
 	cout << " ]" << endl;
 }
 
-void Game::TestCode() {
+void Game::Simulation() {
 	LinkedQueue<Units*>* TempList;
 	TempList = new LinkedQueue<Units*>;
 	LoadFromFile();
-	char Mode;
+
+	char Mode = 0;
 	cout << "Select the Program Mode (S || I): ";
 	cin >> Mode;
-	if (Mode == 'I'){
-		while (Time_step <= 50) {
 
+	while (Time_step <= 50)
+	{
+		randGenPtr->createUnit();
 
-		if (Time_step >= 40) {
-			if (totalEA > totalAA) {
-				battlewin = true;
-				// EA WON
-			}
-
-
+		if (Mode == 'I') {
 			PrintALL();
 		}
+		else if (Mode == 'S') {
+			PrintSilent();
+			createoutfile();
+		}
+
+
 		Sleep(300);
 		Time_step++;
 		system("CLS");
-	
+
+		
 	}
-	else if (Mode == 'S') {
-		PrintSilent();
-		createoutfile();
+
+	
 
 }
 

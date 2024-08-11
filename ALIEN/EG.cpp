@@ -169,7 +169,7 @@ void EG::attack() {
 		monstersAfterAttack[monstersAfterAttackIndex] = templistAM[m];
 		monstersAfterAttackIndex++;
 	}
-	monsters = monstersAfterAttack;*/
+	monsters = monstersAfterAttack;
 
 }
 //void EG::attack() {
